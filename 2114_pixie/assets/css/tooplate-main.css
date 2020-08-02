@@ -9,6 +9,9 @@ https://www.tooplate.com/view/2114-pixie
 body {
 	font-family: 'Roboto', sans-serif;
 	transition: all 0.5s;
+	background-image: url("../images/paperlike2.jpg");
+	height: 100%;
+
 }
 p {
 	margin-bottom: 0px;
@@ -76,7 +79,8 @@ a {
 	padding: 15px 0px;
 }
 .bg-dark {
-	background-color: #fff!important;
+	/*background-color: #689B62!important;*/
+	background-image: url("../images/greenpaperlike.jpg");
 	border-bottom: 1px solid #eee;
 }
 #navbarResponsive {
