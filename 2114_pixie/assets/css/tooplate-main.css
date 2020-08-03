@@ -78,7 +78,7 @@ a {
 	text-align: center;
 	width: 100%;
 	position: relative;
-	padding: 15px 0px;
+	padding: 29px 0px;
 }
 .bg-dark {
 
@@ -93,7 +93,7 @@ a {
 	transform: translateX(-50%);
 }
 .navbar-dark .navbar-nav .nav-item {
-	margin: 0px 15px;
+	margin: 5px 15px;
 }
 .navbar-dark .navbar-nav .nav-link {
 	text-transform: uppercase;
