@@ -858,5 +858,9 @@ a{
 	text-transform: uppercase;
 }
 
+.footer-menu-two ul li a:hover{
+	color: #32CD32;
+}
+
 
 
