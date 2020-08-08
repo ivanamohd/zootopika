@@ -1,5 +1,4 @@
 <?php 
-session_start();
 include('dbconnection.php');
 if(isset($_POST['login']))
 {
@@ -9,10 +8,10 @@ if(isset($_POST['login']))
 	$num=mysql_fetch_array($ret);
 if($num>0)
 {
-	
-	$extra="dashboard.html";
+	session_start();
+	$extra="../paper-dashboard-master/examples/dashboard.html";
 $_SESSION['login']=$_POST['uemail'];
-$_SESSION['id']=$num['id'];
+$_SESSION['name']=$num['name'];
 $host=$_SERVER['HTTP_HOST'];
 $uri=rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
 header("location:http://$host$uri/$extra");

@@ -1,3 +1,12 @@
+<?php
+//adminMenu.php
+
+session_start();
+if (!(isset($_SESSION['username']) && $_SESSION['password'] != '')) {
+	header ("Location: login/LoginForm.php");
+}
+?>
+
 <!--
 =========================================================
 * Paper Dashboard 2 - v2.0.1
@@ -66,7 +75,7 @@ Coded by www.creative-tim.com
             </a>
           </li>
           <li>
-            <a href="./user.html">
+            <a href="./userhuhu.php">
               <i class="nc-icon nc-single-02"></i>
               <p>User Profile</p>
             </a>
