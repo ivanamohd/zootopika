@@ -802,11 +802,11 @@ a{
 }
 
 .footer-social-icons ul li:hover{
-	background: #f00;
+	background: white;
 }
 
 .footer-social-icons ul li:hover a{
-	color: #fff;
+	color: black;
 }
 .footer-menu-one{
 	width: 100%;
