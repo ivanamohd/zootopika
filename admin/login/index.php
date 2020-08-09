@@ -188,17 +188,17 @@ echo "<script>alert('Email not register with us');</script>";
 						<div class="register">
 							<form name="registration" method="post" action="" enctype="multipart/form-data">
 								<p>Username </p>
-								<input type="text" class="text" value=""  name="name" required >
+								<input type="text" class="text" value=""  name="adminName" required >
 								<p>First Name </p>
-								<input type="text" class="text" value=""  name="fname" required >
+								<input type="text" class="text" value=""  name="adminFN" required >
 								<p>Last Name </p>
-								<input type="text" class="text" value="" name="lname"  required >
+								<input type="text" class="text" value="" name="adminLN"  required >
 								<p>Email Address </p>
-								<input type="text" class="text" value="" name="email"  >
+								<input type="text" class="text" value="" name="adminEmail"  >
 								<p>Password </p>
-								<input type="password" value="" name="password" required>
+								<input type="password" value="" name="adminPassword" required>
 								<p>Contact No. </p>
-								<input type="text" value="" name="contact"  required>
+								<input type="text" value="" name="adminContact"  required>
 								<div class="sign-up">
 									<input type="reset" value="Reset">
 									<input type="submit" name="signup"  value="Sign Up" >

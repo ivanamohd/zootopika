@@ -21,7 +21,7 @@ if($isValidUser)
 else {
 	echo '<div class="w3-container" style="width:80%; margin:0 auto;">';
 	echo "<center><br><br>Wrong Username or Password";
-	echo '<br><br span class="w3-right w3-padding w3-hide-large w3-large"><br><a href="../mainMenu.php">Try Again?</a></span>';
+	echo '<br><br span class="w3-right w3-padding w3-hide-large w3-large"><br><a href="../index.php">Try Again?</a></span>';
 	echo '</div></center>';
 	}
 ?>

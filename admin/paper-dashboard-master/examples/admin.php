@@ -1,27 +1,28 @@
 <?php
 //addNewCar function==================
-/*function addNewCar()
+/*function addNewAdmin()
 {
-$con = mysqli_connect("localhost","web2","web2","cardb");
+$con = mysqli_connect("localhost","web38","web38","zootopikadb");
 if(!$con)
 	{
 	echo mysqli_connect_error();
 	exit;
 	}
  //collect data from post array
- $regNumber = $_POST['regNumber'];
- $brand = $_POST['brand'];
- $regDate = $_POST['regDate'];
- $price = $_POST['price'];
- $model = $_POST['model'];
+ $adminName = $_POST['adminName'];
+ $adminFN = $_POST['adminFN'];
+ $adminLN = $_POST['adminLN'];
+ $adminEmail = $_POST['adminEmail'];
+ $adminContact = $_POST['adminContact'];
+ $adminPassword = $_POST['adminPassword'];
   
-  $sql="INSERT INTO car(regNumber, brand,regDate,price,model)
-	VALUES ('$regNumber','$brand','$regDate','$price','$model')";
+  $sql="INSERT INTO admin(adminName, adminFN, adminLN, adminEmail, adminContact, adminPassword)
+	VALUES ('$adminName','$adminFN','$adminLN','$adminEmail','$adminContact','$adminPassword')";
  
 //echo $sql;
 	$qry = mysqli_query($con,$sql);
  mysqli_query($con,$sql);
-} */
+}*/
 
 //getListOfCar function ==================
 function getListOfAdmin()
@@ -156,29 +157,3 @@ $sql = 'update admin set adminFN = "'.$adminFN.'", adminLN = "'.$adminLN.'",
 $qry = mysqli_query($con,$sql);//run query
 return $qry;  //return query
 }
-
-/*
-//================updateCarInformation
-function updateAdminInformation()
-{
-//create connection
-$con=mysqli_connect("localhost","web38","web38","loginsystem");
-if(!$con)
-	{
-	echo  mysqli_connect_error(); 
-	exit;
-	}
-//get the data to update
- $adminName = $_POST['adminName'];
- $adminFN = $_POST['adminFN'];
- $adminLN = $_POST['adminLN'];
- $adminEmail = $_POST['adminEmail'];
- $adminContact = $_POST['adminContact'];
- $adminAbout = $_POST['adiminAbout'];
- 
-$sql = 'update admin SET adminFN ="'.$adminFN.'", adminLN = "'.$adminLN.'", adminEmail = "'.$adminEmail.'", 
-adminContact = "'.$adminContact.'", adminAbout = "'.$adminAbout.'" WHERE regNumber = "'.$adminName.'"';
-	echo $sql;
-$qry = mysqli_query($con,$sql);//run query
-return $qry;  //return query
-} */

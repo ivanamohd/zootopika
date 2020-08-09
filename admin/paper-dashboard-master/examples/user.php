@@ -56,11 +56,11 @@ Coded by www.creative-tim.com
   <link href="../assets/demo/demo.css" rel="stylesheet" />
 </head>
 
-<body class="">
+<body class="" style="background-color:#F4F4F4">
   <div class="wrapper ">
     <div class="sidebar" data-color="white" data-active-color="danger">
       <div class="logo">
-        <a href="../../../2114_pixie/index.html" class="simple-text logo-mini">
+        <a href="user.php" class="simple-text logo-mini">
           <div class="logo-image-small">
             <img src="../assets/img/logo-small.png">
           </div>
@@ -76,7 +76,7 @@ Coded by www.creative-tim.com
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li>
-            <a href="./dashboard.html">
+            <a href="./dashboard.php">
               <i class="nc-icon nc-bank"></i>
               <p>Dashboard</p>
             </a>
@@ -88,19 +88,19 @@ Coded by www.creative-tim.com
             </a>
           </li>
           <li class="active ">
-            <a href="./user.html">
+            <a href="./user.php">
               <i class="nc-icon nc-single-02"></i>
               <p>User Profile</p>
             </a>
           </li>
           <li>
-            <a href="./tables.html">
+            <a href="./tables.php">
               <i class="nc-icon nc-tile-56"></i>
               <p>Table List</p>
             </a>
           </li>
           <li>
-            <a href="./tables.html">
+            <a href="testLOGIN/logout.php">
               <i class="nc-icon nc-user-run"></i>
               <p>Logout</p>
             </a>
@@ -195,77 +195,11 @@ Coded by www.creative-tim.com
                   "'.$adminAbout.'"
                 </p>
               </div>
-              <div class="card-footer">
-                <div class="button-container">
-                  <div class="row">
-                  </div>
-                </div>
-              </div>
-            </div>'
+              
+            </div>';
 		?>
-            <div class="card">
-              <div class="card-header">
-                <h4 class="card-title">Team Members</h4>
-              </div>
-              <div class="card-body">
-                <ul class="list-unstyled team-members">
-                  <li>
-                    <div class="row">
-                      <div class="col-md-2 col-2">
-                        <div class="avatar">
-                          <img src="../assets/img/faces/ayo-ogunseinde-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-                        </div>
-                      </div>
-                      <div class="col-md-7 col-7">
-                        DJ Khaled
-                        <br />
-                        <span class="text-muted"><small>Offline</small></span>
-                      </div>
-                      <div class="col-md-3 col-3 text-right">
-                        <btn class="btn btn-sm btn-outline-success btn-round btn-icon"><i class="fa fa-envelope"></i></btn>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="row">
-                      <div class="col-md-2 col-2">
-                        <div class="avatar">
-                          <img src="../assets/img/faces/joe-gardner-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-                        </div>
-                      </div>
-                      <div class="col-md-7 col-7">
-                        Creative Tim
-                        <br />
-                        <span class="text-success"><small>Available</small></span>
-                      </div>
-                      <div class="col-md-3 col-3 text-right">
-                        <btn class="btn btn-sm btn-outline-success btn-round btn-icon"><i class="fa fa-envelope"></i></btn>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="row">
-                      <div class="col-md-2 col-2">
-                        <div class="avatar">
-                          <img src="../assets/img/faces/clem-onojeghuo-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-                        </div>
-                      </div>
-                      <div class="col-ms-7 col-7">
-                        Flume
-                        <br />
-                        <span class="text-danger"><small>Busy</small></span>
-                      </div>
-                      <div class="col-md-3 col-3 text-right">
-                        <btn class="btn btn-sm btn-outline-success btn-round btn-icon"><i class="fa fa-envelope"></i></btn>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
           </div>
-
-          
+ 
           <?php
           //correction2
           //echo from all jadi echo point A - B senang sikit so tak pening
@@ -297,7 +231,6 @@ Coded by www.creative-tim.com
           </div>
           </div>
           </div>
-          <br>
           <div class="row">
           <div class="col-md-6 pr-1">
           <div class="form-group">
@@ -312,7 +245,6 @@ Coded by www.creative-tim.com
           </div>
           </div>
           </div>
-          <br>
           <div class="row">
           <div class="col-md-12">
           <div class="form-group">
@@ -334,28 +266,6 @@ Coded by www.creative-tim.com
           </div>';
           ?>
 
-          <footer class="footer footer-black  footer-white ">
-            <div class="container-fluid">
-              <div class="row">
-                <nav class="footer-nav">
-                  <ul>
-                    <li><a href="https://www.creative-tim.com" target="_blank">Creative Tim</a></li>
-                    <li><a href="https://www.creative-tim.com/blog" target="_blank">Blog</a></li>
-                    <li><a href="https://www.creative-tim.com/license" target="_blank">Licenses</a></li>
-                  </ul>
-                </nav>
-                <div class="credits ml-auto">
-                  <span class="copyright">
-                    © <script>
-                      document.write(new Date().getFullYear())
-                    </script>, made with <i class="fa fa-heart heart"></i> by Creative Tim
-                  </span>
-                </div>
-              </div>
-            </div>
-          </footer>
-        </div>
-      </div>
       <!--   Core JS Files   -->
       <script src="../assets/js/core/jquery.min.js"></script>
       <script src="../assets/js/core/popper.min.js"></script>

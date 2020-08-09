@@ -38,7 +38,7 @@ Coded by www.creative-tim.com
   <div class="wrapper ">
     <div class="sidebar" data-color="white" data-active-color="danger">
       <div class="logo">
-        <a href="../../../2114_pixie/index.html" class="simple-text logo-mini">
+        <a href="user.php" class="simple-text logo-mini">
           <div class="logo-image-small">
             <img src="../assets/img/logo-small.png">
           </div>
@@ -72,13 +72,13 @@ Coded by www.creative-tim.com
             </a>
           </li>
           <li>
-            <a href="./tables.html">
+            <a href="./tables.php">
               <i class="nc-icon nc-tile-56"></i>
               <p>Table List</p>
             </a>
           </li>
 		  <li>
-            <a href="./tables.html">
+            <a href="testLOGIN/logout.php">
               <i class="nc-icon nc-user-run"></i>
               <p>Logout</p>
             </a>
@@ -152,53 +152,99 @@ Coded by www.creative-tim.com
       </nav>
       <!-- End Navbar -->
     <?php
-	session_start();
-if (!(isset($_SESSION['adminName']) && $_SESSION['adminPassword'] != '')) {
-	header ("Location: testLOGIN/index.php");
-}
- include "admin.php";
- $adminName = $_SESSION['adminName'];
- $curTime = $_SESSION['curTime'];
- $staffInfoRow = getAdminInformation($_SESSION['adminName']);
- echo '<h1><center>Welcome to Staff Training System</center></h1>';
- echo "<h4><center>User: ".$adminName."</center></h4>";
- $strTime = date("H:i A",$curTime) ;
- echo "<hr><h3><center>Log in time: ".$strTime."<hr></center></h4>";
-	/*$qry = getListOfAdmin();
-//display car info	
-echo '<br>No of car:'.mysqli_num_rows($qry);
-<echo 'div class="content">';
-        echo '<div class="row">';
-          echo '<div class="col-md-12">';
-            echo '<div class="card">';
-              echo '<div class="card-header">';
-               echo '<h4 class="card-title"> Simple Table</h4>';
-              echo '</div>';
-              echo '<div class="card-body">';
-                echo '<div class="table-responsive">';
-                  echo '<table class="table">';
-                    echo '<thead class=" text-primary">';
-echo '<table border=1>';
-echo '<tr>
-		<td>Name</td>
-		<td>First Name</td>
-		<td>Last Name</td>
-		<td>Email</td>
-		<td>Contact Number</td>
-	</tr>';
-$i=1;
-while($row=mysqli_fetch_assoc($qry))//Display car information
-  {
+	include "admin.php";
 
-  echo '<tr>';
-  echo '<td>'.$i.'</td>';
-  echo '<td>'.$row['name'].'</td>';
-  echo '<td>'.$row['fname'].'</td>';
-  echo '<td>'.$row['lname'].'</td>';
-  echo '<td>'.$row['email'].'</td>';
-  echo '<td>'.$row['contact'].'</td>';
-  echo '<tr>';
-echo '</table>';*/
+	ini_set('display_errors', 1);
+	ini_set('display_startup_errors', 1);
+	error_reporting(E_ALL);
+
+	$qry = getListOfAdmin();
+
+	//echo '<br>No of car:'.mysqli_num_rows($qry);
+	echo '<div class="content">
+			<div class="row">
+			<div class="col-md-12">
+			<div class="card">
+			<div class="card-header">
+				<h4 class="card-title"> Admin </h4>
+			</div>
+			<div class="card-body">
+			<div class="table-responsive">
+            <table class="table">
+				<thead class=" text-primary">
+					<th>No</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Email</th>
+					<th>Contact</th>
+				</thead>';
+	$i=1;
+	while($row=mysqli_fetch_assoc($qry))//Display car information
+	{
+		echo '<tbody>';
+		echo '<tr>';
+		echo '<td>'.$i.'</td>';
+		echo '<td>'.$row['adminFN'].'</td>';
+		echo '<td>'.$row['adminLN'].'</td>';
+		echo '<td>'.$row['adminEmail'].'</td>';
+		echo '<td>'.$row['adminContact'].'</td>';
+		$i++;
+	}
+		echo'</tr>
+        </tbody>
+        </table>
+        </div>
+        </div>
+        </div>
+        </div>';
+	?>
+	
+	<?php
+	include "ticket/ticket.php";
+
+	ini_set('display_errors', 1);
+	ini_set('display_startup_errors', 1);
+	error_reporting(E_ALL);
+
+	$qry = getListOfTicket();
+
+	//echo '<br>No of car:'.mysqli_num_rows($qry);
+	echo '<div class="col-md-12">
+			<div class="card">
+			<div class="card-header">
+				<h4 class="card-title"> Ticket </h4>
+			</div>
+			<div class="card-body">
+			<div class="table-responsive">
+            <table class="table">
+				<thead class=" text-primary">
+					<th>No</th>
+					<th>ID</th>
+					<th>Name</th>
+					<th>Type</th>
+					<th>Package</th>
+					<th>Price</th>
+				</thead>';
+	$i=1;
+	while($row=mysqli_fetch_assoc($qry))//Display car information
+	{
+		echo '<tbody>';
+		echo '<tr>';
+		echo '<td>'.$i.'</td>';
+		echo '<td>'.$row['ticketID'].'</td>';
+		echo '<td>'.$row['ticketName'].'</td>';
+		echo '<td>'.$row['ticketType'].'</td>';
+		echo '<td>'.$row['ticketPackage'].'</td>';
+		echo '<td>'.$row['ticketPrice'].'</td>';
+		$i++;
+	}
+		echo'</tr>
+        </tbody>
+        </table>
+        </div>
+        </div>
+        </div>
+        </div>';
 	?>
   <!--  Google Maps Plugin    -->
   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
