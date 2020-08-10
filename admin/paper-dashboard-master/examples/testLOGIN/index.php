@@ -1,5 +1,10 @@
 <?php
+session_start(); 
 require_once('dbconnection.php');
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 //Code for Registration 
 if(isset($_POST['signup']))
@@ -11,7 +16,7 @@ if(isset($_POST['signup']))
 	$adminPassword=$_POST['adminPassword'];
 	$adminContact=$_POST['adminContact'];
 
-	$msg=mysqli_query($con,"insert into admin(adminName,adminFN,adminLN,adminEmail,adminPassword,adminContact) values('$adminName','$adminFN', '$adminLN', '$adminEmail','$adminPassword','$adminContact')");
+	$msg=mysqli_query($con,"insert into admin(adminName,adminFN,adminLN,adminEmail,adminPassword,adminContact) values('$adminName','$adminFN','$adminLN','$adminEmail','$adminPassword','$adminContact')");
 if($msg)
 {
 	echo "<script>alert('Register successfully');</script>";
@@ -69,10 +74,10 @@ if($msg)
 								<p>Last Name </p>
 								<input type="text" class="text" value="" name="adminLN"  required >
 								<p>Email Address </p>
-								<input type="text" class="text" value="" name="adminEmail"  >
+								<input type="text" class="text" value="" name="adminEmail"  required >
 								<p>Password </p>
 								<input type="password" value="" name="adminPassword" required>
-								<p>Contact No. </p>
+										<p>Contact No. </p>
 								<input type="text" value="" name="adminContact"  required>
 								<div class="sign-up">
 									<input type="reset" value="Reset">
@@ -83,7 +88,8 @@ if($msg)
 
 						</div>
 					</div>
-				</div>		
+				</div>
+			</div>
 			 <div class="tab-2 resp-tab-content" aria-labelledby="tab_item-1">
 					 	<div class="facts">
 							 <div class="login">
@@ -115,7 +121,7 @@ if($msg)
 								
 								
 							</div>
-							<form name="login" action="checkLogin.php" method="post">
+							<form name="login" action="" method="post">
 								<input type="text" class="text" name="femail" value="" placeholder="Enter your registered email" required  ><a href="#" class=" icon email"></a>
 									
 										<div class="submit three">

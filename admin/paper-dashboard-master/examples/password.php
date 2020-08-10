@@ -1,3 +1,24 @@
+<?php
+session_start();
+
+ini_set('display_errors', 1);
+	ini_set('display_startup_errors', 1);
+	error_reporting(E_ALL);
+	
+$adminName = $_SESSION["adminName"];/* userid of the user */
+$con = mysqli_connect('localhost','web38','web38','zootopikadb') or die('Unable To connect');
+if(count($_POST)>0) {
+$result = mysqli_query($con,"SELECT * from admin WHERE adminName='" . $adminName . "'");
+$row=mysqli_fetch_array($result);
+if($_POST["currentPassword"] == $row["adminPassword"] && $_POST["newPassword"] == $_POST["confirmPassword"] ) {
+mysqli_query($con,"UPDATE admin set adminPassword='" . $_POST["newPassword"] . "' WHERE adminName='" . $adminName . "'");
+$message = "Password Changed Sucessfully";
+} else{
+ $message = "Password is not correct";
+}
+}
+?>
+
 <!--
 =========================================================
 * Paper Dashboard 2 - v2.0.1
@@ -21,7 +42,7 @@ Coded by www.creative-tim.com
   <link rel="icon" type="image/png" href="../assets/img/fox.jpg">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Dashboard
+    Change Password
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -34,7 +55,7 @@ Coded by www.creative-tim.com
   <link href="../assets/demo/demo.css" rel="stylesheet" />
 </head>
 
-<body class="">
+<body class="" style="background-color:#F4F4F4">
   <div class="wrapper ">
     <div class="sidebar" data-color="white" data-active-color="danger">
       <div class="logo">
@@ -45,7 +66,7 @@ Coded by www.creative-tim.com
           <!-- <p>CT</p> -->
         </a>
         <a href="../../../2114_pixie/index.html" class="simple-text logo-normal">
-          ZOOTOPIKA
+          Zootopika
           <!-- <div class="logo-image-big">
             <img src="../assets/img/logo-big.png">
           </div> -->
@@ -53,7 +74,7 @@ Coded by www.creative-tim.com
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="active ">
+          <li>
             <a href="./dashboard.php">
               <i class="nc-icon nc-bank"></i>
               <p>Dashboard</p>
@@ -65,7 +86,7 @@ Coded by www.creative-tim.com
               <p>Maps</p>
             </a>
           </li>
-          <li>
+          <li class="active ">
             <a href="./user.php">
               <i class="nc-icon nc-single-02"></i>
               <p>User Profile</p>
@@ -77,16 +98,10 @@ Coded by www.creative-tim.com
               <p>Table List</p>
             </a>
           </li>
-		  <li>
+          <li>
             <a href="testLOGIN/logout.php">
               <i class="nc-icon nc-user-run"></i>
               <p>Logout</p>
-            </a>
-          </li>
-		  <li>
-            <a href="password.php">
-              <i class="nc-icon nc-user-run"></i>
-              <p>Change Password</p>
             </a>
           </li>
         </ul>
@@ -104,7 +119,7 @@ Coded by www.creative-tim.com
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="javascript:;">Dashboard</a>
+            <a class="navbar-brand" href="javascript:;"></a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -157,116 +172,63 @@ Coded by www.creative-tim.com
         </div>
       </nav>
       <!-- End Navbar -->
-    <?php
-	include "admin.php";
+		<div class="content" align="center">
+          <div class="col-md-6">
+            <div class="card card-user">
+              <div class="card-header">
+                <h5 class="card-title">Change Password</h5>
+              </div>
+              <div class="card-body" align="left">
+                <form method="post" action="">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        &emsp; &emsp; &emsp; &emsp; &ensp; <label>Current Password</label>
+                        &ensp; &ensp; <input type="password" name="currentPassword" id="currentPassword" class="required">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        &emsp; &emsp; &emsp; &emsp; &ensp; <label>New Password</label>
+                        &emsp; &ensp; &ensp; <input type="password" name="newPassword" id="newPassword" class="required">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        &emsp; &emsp; &emsp; &emsp; &ensp; <label>Confirm Password</label>
+                        &emsp; <input type="password" name="confirmPassword" id="confirmPassword" class="required">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="update ml-auto mr-auto">
+                      <button type="submit" class="btn btn-primary btn-round">Change Password</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+		  </div>
 
-	ini_set('display_errors', 1);
-	ini_set('display_startup_errors', 1);
-	error_reporting(E_ALL);
-
-	$qry = getListOfAdmin();
-
-	//echo '<br>No of car:'.mysqli_num_rows($qry);
-	echo '<div class="content">
-			<div class="row">
-			<div class="col-md-12">
-			<div class="card">
-			<div class="card-header">
-				<h4 class="card-title"> Admin </h4>
-			</div>
-			<div class="card-body">
-			<div class="table-responsive">
-            <table class="table">
-				<thead class=" text-primary">
-					<th>No</th>
-					<th>First Name</th>
-					<th>Last Name</th>
-					<th>Email</th>
-					<th>Contact</th>
-				</thead>';
-	$i=1;
-	while($row=mysqli_fetch_assoc($qry))//Display car information
-	{
-		echo '<tbody>';
-		echo '<tr>';
-		echo '<td>'.$i.'</td>';
-		echo '<td>'.$row['adminFN'].'</td>';
-		echo '<td>'.$row['adminLN'].'</td>';
-		echo '<td>'.$row['adminEmail'].'</td>';
-		echo '<td>'.$row['adminContact'].'</td>';
-		$i++;
-	}
-		echo'</tr>
-        </tbody>
-        </table>
-        </div>
-        </div>
-        </div>
-        </div>';
-	?>
-	
-	<?php
-	include "ticket/ticket.php";
-
-	ini_set('display_errors', 1);
-	ini_set('display_startup_errors', 1);
-	error_reporting(E_ALL);
-
-	$qry = getListOfTicket();
-
-	//echo '<br>No of car:'.mysqli_num_rows($qry);
-	echo '<div class="col-md-12">
-			<div class="card">
-			<div class="card-header">
-				<h4 class="card-title"> Ticket </h4>
-			</div>
-			<div class="card-body">
-			<div class="table-responsive">
-            <table class="table">
-				<thead class=" text-primary">
-					<th>No</th>
-					<th>ID</th>
-					<th>Name</th>
-					<th>Type</th>
-					<th>Package</th>
-					<th>Price</th>
-				</thead>';
-	$i=1;
-	while($row=mysqli_fetch_assoc($qry))//Display car information
-	{
-		echo '<tbody>';
-		echo '<tr>';
-		echo '<td>'.$i.'</td>';
-		echo '<td>'.$row['ticketID'].'</td>';
-		echo '<td>'.$row['ticketName'].'</td>';
-		echo '<td>'.$row['ticketType'].'</td>';
-		echo '<td>'.$row['ticketPackage'].'</td>';
-		echo '<td>'.$row['ticketPrice'].'</td>';
-		$i++;
-	}
-		echo'</tr>
-        </tbody>
-        </table>
-        </div>
-        </div>
-        </div>
-        </div>';
-	?>
-  <!--  Google Maps Plugin    -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-  <!-- Chart JS -->
-  <script src="../assets/js/plugins/chartjs.min.js"></script>
-  <!--  Notifications Plugin    -->
-  <script src="../assets/js/plugins/bootstrap-notify.js"></script>
-  <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="../assets/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script><!-- Paper Dashboard DEMO methods, don't include it in your project! -->
-  <script src="../assets/demo/demo.js"></script>
-  <script>
-    $(document).ready(function() {
-      // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
-      demo.initChartsPages();
-    });
-  </script>
+      <!--   Core JS Files   -->
+      <script src="../assets/js/core/jquery.min.js"></script>
+      <script src="../assets/js/core/popper.min.js"></script>
+      <script src="../assets/js/core/bootstrap.min.js"></script>
+      <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+      <!--  Google Maps Plugin    -->
+      <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+      <!-- Chart JS -->
+      <script src="../assets/js/plugins/chartjs.min.js"></script>
+      <!--  Notifications Plugin    -->
+      <script src="../assets/js/plugins/bootstrap-notify.js"></script>
+      <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+      <script src="../assets/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script><!-- Paper Dashboard DEMO methods, don't include it in your project! -->
+      <script src="../assets/demo/demo.js"></script>
 </body>
 
 </html>
