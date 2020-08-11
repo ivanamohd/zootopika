@@ -59,37 +59,60 @@ https://www.tooplate.com/view/2114-pixie
       </div>
     </nav>
 
- <?php
+    <!-- Page Content -->
+    <!-- Items Starts Here -->
+>
 
-include "ticket/ticket.php";
-echo '<h1> List of ticket.</h1>';
+  <!--ticket table-->
 
-//display car info	
-echo '<br>No of ticket:'.mysqli_num_rows($qry);
-echo '<table border=1>';
-echo '<tr>
-		<td>No</td>
-		<td>Product</td>
-		<td>Price</td>
-	</tr>';
-$i=1;
-while($row=mysqli_fetch_assoc($qry))//Display car information
-  {
+	<?php
+	include "ticket/ticket.php";
 
-  echo '<tr>';
-  echo '<td>'.$i.'</td>';
-  echo '<td>'.$row['ticketName'].'</td>';
-  echo '<td>'.$row['ticketPrice'].'</td>';
-  echo '</tr>';  
-  $i++;
-  }
-	  
-echo '</table>';
-?>
+	ini_set('display_errors', 1);
+	ini_set('display_startup_errors', 1); 
+	error_reporting(E_ALL);
 
+	$qry = getListOfTicket();
+
+	//echo '<br>No of car:'.mysqli_num_rows($qry);
+	echo '<div class="col-md-12">
+	      <div class="container">
+			<div class="card">
+			<div class="card-header">
+				<h4 class="card-title"> Ticket </h4>
+			</div>
+			<div class="card-body">
+			<div class="table-responsive">
+            <table class="table">
+				<thead class=" text-primary">
+					<th>No</th>
+					<th>Name</th>
+					<th>Price</th>
+				</thead>';
+	$i=1;
+	while($row=mysqli_fetch_assoc($qry))//Display ticket information
+	{
+		echo '<tbody>';
+		echo '<tr>';
+		echo '<td>'.$i.'</td>';
+		echo '<td>'.$row['ticketName'].'</td>';
+		echo '<td>'.$row['ticketPrice'].'</td>';
+		$i++;
+	}
+		echo'</tr>
+        </tbody>
+        </table>
+        </div>
+        </div>
+        </div>
+        </div>';
+	?>
+    </div>
+  </div>
+    <!-- Featred Page Ends Here -->
     
 <!-- Main Footer Starts Here -->
-		<div class="footer-main-div">
+		<br><br><br><div class="footer-main-div">
 		
 		<div class="footer-social-icons">
 			<ul class="list-social">
