@@ -61,7 +61,6 @@ https://www.tooplate.com/view/2114-pixie
 
     <!-- Page Content -->
     <!-- Items Starts Here -->
->
 
   <!--ticket table-->
 
@@ -75,7 +74,7 @@ https://www.tooplate.com/view/2114-pixie
 	$qry = getListOfTicket();
 
 	//echo '<br>No of car:'.mysqli_num_rows($qry);
-	echo '<div class="col-md-12">
+	echo '<br><div class="col-md-12">
 	      <div class="container">
 			<div class="card">
 			<div class="card-header">
