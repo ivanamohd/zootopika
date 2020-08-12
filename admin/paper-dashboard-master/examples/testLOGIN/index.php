@@ -18,9 +18,29 @@ if(isset($_POST['signup']))
 
 	$msg=mysqli_query($con,"insert into admin(adminName,adminFN,adminLN,adminEmail,adminPassword,adminContact) values('$adminName','$adminFN','$adminLN','$adminEmail','$adminPassword','$adminContact')");
 if($msg)
-{
-	echo "<script>alert('Register successfully');</script>";
+	echo "<script>alert('Registered successfully');</script>";
 }
+
+//Code for forget password 
+if(isset($_POST['send']))
+{
+    $adminEmail = $_POST['adminEmail'];
+    $result = mysqli_query($con,"SELECT * FROM admin where adminEmail='" . $_POST['adminEmail'] . "'");
+    $row = mysqli_fetch_assoc($result);
+	$fetch_adminEmail=$row['adminEmail'];
+	$adminEmail=$row['adminEmail'];
+	$adminPassword=$row['adminPassword'];
+	if($adminEmail==$fetch_adminEmail) {
+				$to = $adminEmail;
+                $subject = "Password";
+                $txt = "Your password is : $adminEmail";
+                $headers = "From: noreply@zootopika.com";
+                if (mail($to,$subject,$txt,$headers))
+				echo 'email sent';
+			}
+				else{
+					echo 'invalid email';
+				}
 }
 
 ?>
@@ -114,18 +134,18 @@ if($msg)
 					</div>
 				</div> 
 			</div> 			        					 
-				 <div class="tab-2 resp-tab-content" aria-labelledby="tab_item-1">
+				 <div class="tab-3 resp-tab-content" aria-labelledby="tab_item-2">
 					 	<div class="facts">
 							 <div class="login">
 							<div class="buttons">
 								
 								
 							</div>
-							<form name="login" action="" method="post">
-								<input type="text" class="text" name="femail" value="" placeholder="Enter your registered email" required  ><a href="#" class=" icon email"></a>
+							<form action="" method="post">
+								<input type="text" class="text" name="adminEmail" value="" placeholder="Enter your registered email" required  ><a href="#" class=" icon email"></a>
 									
 										<div class="submit three">
-											<input type="submit" name="send" onClick="myFunction()" value="Send Email" >
+											<input type="submit" name="send" value="Send Email" >
 										</div>
 									</form>
 									</div>

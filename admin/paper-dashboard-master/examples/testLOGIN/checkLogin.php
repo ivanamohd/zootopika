@@ -20,5 +20,6 @@ if($isValidUser)
 	}
 else {
 	echo "<script>alert('Wrong username or password');</script>";
+	header("refresh:1; url=index.php" );
 	}
 ?>
