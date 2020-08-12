@@ -54,6 +54,40 @@ Coded by www.creative-tim.com
   <link href="../assets/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
+
+	<style>
+		.dropbtn {
+		  font-size: 20px;
+		  border: none;
+		  cursor: pointer;
+		}
+
+		.dropdown {
+		  position: relative;
+		  display: inline-block;
+		}
+
+		.dropdown-content {
+		  display: none;
+		  position: absolute;
+		  right: 0;
+		  background-color: #f9f9f9;
+		  min-width: 200px;
+		  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+		  z-index: 1;
+		}
+
+		.dropdown-content a {
+		  color: black;
+		  padding: 12px 16px;
+		  text-decoration: none;
+		  display: block;
+		}
+
+		.dropdown-content a:hover {background-color: #f1f1f1;}
+		.dropdown:hover .dropdown-content {display: block;}
+		.dropdown:hover .dropbtn {background-color: #ffff;}
+	</style>
 </head>
 
 <body class="" style="background-color:#F4F4F4">
@@ -99,6 +133,12 @@ Coded by www.creative-tim.com
               <p>Table List</p>
             </a>
           </li>
+		  <li>
+            <a href="password.php">
+              <i class="nc-icon nc-key-25"></i>
+              <p>Change Password</p>
+            </a>
+          </li>
           <li>
             <a href="testLOGIN/logout.php">
               <i class="nc-icon nc-user-run"></i>
@@ -113,64 +153,20 @@ Coded by www.creative-tim.com
       <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <div class="navbar-toggle">
-              <button type="button" class="navbar-toggler">
-                <span class="navbar-toggler-bar bar1"></span>
-                <span class="navbar-toggler-bar bar2"></span>
-                <span class="navbar-toggler-bar bar3"></span>
-              </button>
-            </div>
             <a class="navbar-brand" href="javascript:;">Profile</a>
           </div>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-bar navbar-kebab"></span>
-            <span class="navbar-toggler-bar navbar-kebab"></span>
-            <span class="navbar-toggler-bar navbar-kebab"></span>
-          </button>
-          <div class="collapse navbar-collapse justify-content-end" id="navigation">
-            <form>
-              <div class="input-group no-border">
-                <input type="text" value="" class="form-control" placeholder="Search...">
-                <div class="input-group-append">
-                  <div class="input-group-text">
-                    <i class="nc-icon nc-zoom-split"></i>
-                  </div>
-                </div>
-              </div>
-            </form>
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link btn-magnify" href="javascript:;">
-                  <i class="nc-icon nc-layout-11"></i>
-                  <p>
-                    <span class="d-lg-none d-md-block">Stats</span>
-                  </p>
-                </a>
-              </li>
-              <li class="nav-item btn-rotate dropdown">
-                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="nc-icon nc-bell-55"></i>
-                  <p>
-                    <span class="d-lg-none d-md-block">Some Actions</span>
-                  </p>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link btn-rotate" href="javascript:;">
-                  <i class="nc-icon nc-settings-gear-65"></i>
-                  <p>
-                    <span class="d-lg-none d-md-block">Account</span>
-                  </p>
-                </a>
-              </li>
+		  <div class="collapse navbar-collapse justify-content-end" id="navigation">
+		  <ul class="navbar-nav">
+		  <li class="nav-item">
+                <div class="dropdown" style="float:right">
+				  <button class="dropbtn"><i class="nc-icon nc-settings-gear-65"></i></button>
+					  <div class="dropdown-content">
+						<a href="uploadPicture/changePicture.php">Change Profile Picture</a>
+					  </div>
+				</div>
             </ul>
-          </div>
         </div>
+		</div>
       </nav>
       <!-- End Navbar -->
 	  <?php
@@ -183,8 +179,8 @@ Coded by www.creative-tim.com
               </div>
               <div class="card-body">
                 <div class="author">
-                  <a href="#">
-                    <img class="avatar border-gray" src="../assets/img/mike.jpg" alt="...">
+                  <a href="uploadPicture/changePicture.php">
+					<img id="profileDisplay" class="avatar border-gray" src="uploadPicture/images/imageView.php?username=' . $_SESSION['adminName'] . '" alt="Card image cap">
                     <h5 class="title"> '.$adminFN.' '.$adminLN.'</h5>
                   </a>
                   <p class="description">
