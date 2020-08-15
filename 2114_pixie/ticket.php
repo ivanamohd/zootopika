@@ -124,10 +124,10 @@ https://www.tooplate.com/view/2114-pixie
 		
 		<div class="footer-menu-one">
 			<ul>
-				<li><a href="#">Home</a></li>
-				<li><a href="#">About</a></li>
-				<li><a href="#">Map</a></li>
-				<li><a href="#">Contact Us</a></li>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="about.html">About</a></li>
+				<li><a href="map.html">Map</a></li>
+				<li><a href="contact.html">Contact Us</a></li>
 			</ul>
 		</div>
 		<div class="footer-menu-two">

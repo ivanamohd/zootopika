@@ -34,7 +34,7 @@ if(isset($_POST['send']))
 				$to = $adminEmail;
                 $subject = "Password";
                 $txt = "Your password is : $adminEmail";
-                $headers = "From: noreply@zootopika.com";
+                $headers = "From: zootopika@gmail.com";
                 if (mail($to,$subject,$txt,$headers))
 				echo 'email sent';
 			}
@@ -97,7 +97,7 @@ if(isset($_POST['send']))
 								<input type="text" class="text" value="" name="adminEmail"  required >
 								<p>Password </p>
 								<input type="password" value="" name="adminPassword" required>
-										<p>Contact No. </p>
+								<p>Contact No. </p>
 								<input type="text" value="" name="adminContact"  required>
 								<div class="sign-up">
 									<input type="reset" value="Reset">
@@ -137,15 +137,11 @@ if(isset($_POST['send']))
 				 <div class="tab-3 resp-tab-content" aria-labelledby="tab_item-2">
 					 	<div class="facts">
 							 <div class="login">
-							<div class="buttons">
-								
-								
-							</div>
 							<form action="" method="post">
 								<input type="text" class="text" name="adminEmail" value="" placeholder="Enter your registered email" required  ><a href="#" class=" icon email"></a>
-									
+								<input type="password" class="text" name="adminPassword" value="" placeholder="Enter your password" required  ><a href="#" class=" icon lock"></a>
 										<div class="submit three">
-											<input type="submit" name="send" value="Send Email" >
+											<input type="submit" name="resetPassword" value="Send Email" >
 										</div>
 									</form>
 									</div>
@@ -154,7 +150,35 @@ if(isset($_POST['send']))
 				     </div>	
 		        </div>
 	        </div>
-	     </div>
 
 </body>
 </html>
+
+<?php
+	ini_set('display_errors', 1);
+	ini_set('display_startup_errors', 1);
+	error_reporting(E_ALL);
+
+    if (isset($_POST['resetPassword'])) {
+    $to = $_POST['adminEmail'];
+    $subject = 'Zootopika Notification | Forget Password';
+    $message = '
+ 
+        A request for password change has been activated.
+        You can change your password by visiting the link below.
+
+
+        Please click this link to reset your password:
+        http://localhost/masterfolder_zootopika/admin/paper-dashboard-master/examples/testLOGIN/verify.php?adminEmail=' . $_POST['adminEmail'] . '&adminPassword=' . $_POST['adminPassword'] . '
+
+        ';
+
+    $headers = 'From: zootopika@gmail.com';
+    if (mail($to, $subject, $message, $headers))
+		echo "<script>alert('Email sent. Please check your inbox.');</script>";
+
+    echo "<meta http-equiv='refresh' content='0;url=index.php'>";
+
+    }
+
+?>
