@@ -38,25 +38,25 @@ $qry = mysqli_query($con,$sql);//run query
 return $qry;  //return query
 }
 
-/*//delete function ==================
-function deleteCar()
+//delete function ==================
+function deleteTicket()
 {
-$con = mysqli_connect("localhost","web2","web2","cardb");
+$con = mysqli_connect("localhost","web38","web38","zootopikadb");
 if(!$con)
 	{
 	echo mysqli_connect_error();
 	exit;
 	}
 
- $regNumber = $_POST['regNumberToDelete'];//get selected regNumber to delete
+ $ticketID = $_POST['ticketIDToDelete'];//get selected regNumber to delete
   
-  $sql="delete from car
-		where regNumber ='".$regNumber."'";
-		echo $sql;
+  $sql="delete from ticket
+		where ticketID ='".$ticketID."'";
+
 	$qry = mysqli_query($con,$sql);
 
 }
-
+/*
 //searchByRegNumber function ==================
 function findCarByRegNumber()
 {
@@ -100,24 +100,24 @@ $sql = "select * from car where model like '%".$_POST['searchValue']."%'";
 
 $qry = mysqli_query($con,$sql);//run query
 return $qry;  //return query
-}
+}  */
 //============getCarInformation
-function getCarInformation($regNum)
+function getTicketInformation($ticketID)
 {
 //create connection
-$con=mysqli_connect("localhost","web2","web2","cardb");
+$con=mysqli_connect("localhost","web38","web38","zootopikadb");
 if(!$con)
 	{
 	echo  mysqli_connect_error(); 
 	exit;
 	}
-$sql = "select * from car where regNumber = '".$regNum."'";
+$sql = "select * from ticket where ticketID = '".$ticketID."'";
 
 $qry = mysqli_query($con,$sql);//run query
 return $qry;  //return query
 }
 //================updateCarInformation
-function updateCarInformation()
+function updateTicketInformation()
 {
 //create connection
 $con=mysqli_connect("localhost","web38","web38","zootopikadb");
@@ -127,19 +127,19 @@ if(!$con)
 	exit;
 	}
 //get the data to update
- $oldRegNumber = $_POST['regNumber'];
- $newRegNumber = $_POST['newRegNumber'];
- $brand = $_POST['brand'];
- $regDate = $_POST['regDate'];
- $price = $_POST['price'];
- $model = $_POST['model'];
+ $ticketID = $_POST['ticketID'];
+ $ticketName = $_POST['ticketName'];
+ $ticketType = $_POST['ticketType'];
+ $ticketPackage = $_POST['ticketPackage'];
+ $ticketPrice = $_POST['ticketPrice'];
  
-$sql = 'update car SET regNumber ="'.$newRegNumber.'", brand = "'.$brand.'", model = "'.$model.'", 
-regDate = "'.$regDate.'", price = "'.$price.'" WHERE regNumber = "'.$oldRegNumber.'"';
-	echo $sql;
+$sql = 'update ticket SET ticketName ="'.$ticketName.'", ticketType = "'.$ticketType.'", ticketPackage = "'.$ticketPackage.'", 
+ticketPrice = "'.$ticketPrice.'" WHERE ticketID = "'.$ticketID.'"';
+
 $qry = mysqli_query($con,$sql);//run query
 return $qry;  //return query
 }
+/*
 //getAvailableCarOnTheseDate function ==================
 function getAvailableCarOnTheseDate($startDate ,$endDate)
 {
@@ -157,5 +157,5 @@ where regNumber not in(
  $result = mysqli_query($con,$sqlStr);
  return $result;//if no car available, result will be empty
 
-}*/
+} */
 ?>

@@ -38,26 +38,26 @@ $sql = 'select * from staff';
 $qry = mysqli_query($con,$sql);//run query
 return $qry;  //return query
 }
-/*
+
 //delete function ==================
-function deleteCar()
+function deleteStaff()
 {
-$con = mysqli_connect("localhost","web2","web2","cardb");
+$con = mysqli_connect("localhost","web38","web38","zootopikadb");
 if(!$con)
 	{
 	echo mysqli_connect_error();
 	exit;
 	}
 
- $regNumber = $_POST['regNumberToDelete'];//get selected regNumber to delete
+ $staffName = $_POST['staffNameToDelete'];//get selected regNumber to delete
   
-  $sql="delete from car
-		where regNumber ='".$regNumber."'";
-		echo $sql;
+  $sql="delete from staff
+		where staffName ='".$staffName."'";
+
 	$qry = mysqli_query($con,$sql);
 
 }
-
+/*
 //searchByRegNumber function ==================
 function findCarByRegNumber()
 {
@@ -149,11 +149,10 @@ if(!$con)
  $staffLN = $_POST['staffLN'];
  $staffEmail = $_POST['staffEmail'];
  $staffContact = $_POST['staffContact'];
- $staffAbout = $_POST['staffAbout'];
  
 $sql = 'update staff set staffFN = "'.$staffFN.'", staffLN = "'.$staffLN.'", 
-		staffEmail = "'.$staffEmail.'", staffContact = "'.$staffContact.'", staffAbout = "'.$staffAbout.'" where staffName = "'.$staffName.'"';
-	echo $sql;
+		staffEmail = "'.$staffEmail.'", staffContact = "'.$staffContact.'" where staffName = "'.$staffName.'"';
+
 $qry = mysqli_query($con,$sql);//run query
 return $qry;  //return query
 }

@@ -94,7 +94,7 @@ if(isset($_POST['send']))
 								<p>Last Name </p>
 								<input type="text" class="text" value="" name="adminLN"  required >
 								<p>Email Address </p>
-								<input type="text" class="text" value="" name="adminEmail"  required >
+								<input type="email" class="text" value="" name="adminEmail"  required >
 								<p>Password </p>
 								<input type="password" value="" name="adminPassword" required>
 								<p>Contact No. </p>
@@ -138,7 +138,7 @@ if(isset($_POST['send']))
 					 	<div class="facts">
 							 <div class="login">
 							<form action="" method="post">
-								<input type="text" class="text" name="adminEmail" value="" placeholder="Enter your registered email" required  ><a href="#" class=" icon email"></a>
+								<input type="email" class="text" name="adminEmail" value="" placeholder="Enter your registered email" required  ><a href="#" class=" icon email"></a>
 								<input type="password" class="text" name="adminPassword" value="" placeholder="Enter your password" required  ><a href="#" class=" icon lock"></a>
 										<div class="submit three">
 											<input type="submit" name="resetPassword" value="Send Email" >

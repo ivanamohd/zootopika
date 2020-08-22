@@ -72,7 +72,7 @@ if($msg)
 								<p>Last Name </p>
 								<input type="text" class="text" value="" name="staffLN"  required >
 								<p>Email Address </p>
-								<input type="text" class="text" value="" name="staffEmail"  required >
+								<input type="email" class="text" value="" name="staffEmail"  required >
 								<p>Password </p>
 								<input type="password" value="" name="staffPassword" required>
 								<p>Contact No. </p>
@@ -116,8 +116,8 @@ if($msg)
 					 	<div class="facts">
 							 <div class="login">
 							<form action="" method="post">
-								<input type="text" class="text" name="staffEmail" value="" placeholder="Enter your registered email" required  ><a href="#" class=" icon email"></a>
-								<input type="password" class="text" name="staffPassword" value="" placeholder="Enter your password" required  ><a href="#" class=" icon lock"></a>
+								<input type="text" class="email" name="staffEmail" value="" placeholder="Enter your registered email" required  ><a href="#" class=" icon email"></a>
+								<input type="password" class="password" name="staffPassword" value="" placeholder="Enter your password" required  ><a href="#" class=" icon lock"></a>
 										<div class="submit three">
 											<input type="submit" name="resetPassword" value="Send Email" >
 										</div>

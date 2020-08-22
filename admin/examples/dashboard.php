@@ -72,13 +72,13 @@ Coded by www.creative-tim.com
             </a>
           </li>
           <li>
-            <a href="./ticketList.php">
+            <a href="ticket/ticketList.php">
               <i class="nc-icon nc-paper"></i>
               <p>Ticket List</p>
             </a>
           </li>
 		  <li>
-            <a href="./staffList.php">
+            <a href="staff/staffList.php">
               <i class="nc-icon nc-badge"></i>
               <p>Staff List</p>
             </a>

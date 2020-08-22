@@ -4,19 +4,20 @@ session_start();
 ini_set('display_errors', 1);
 	ini_set('display_startup_errors', 1);
 	error_reporting(E_ALL);
+
+include "ticket.php";
 	
-$adminName = $_SESSION["adminName"];/* userid of the user */
 $con = mysqli_connect('localhost','web38','web38','zootopikadb') or die('Unable To connect');
-if(count($_POST)>0) {
-$result = mysqli_query($con,"SELECT * from admin WHERE adminName='" . $adminName . "'");
-$row=mysqli_fetch_array($result);
-if($_POST["currentPassword"] == $row["adminPassword"] && $_POST["newPassword"] == $_POST["confirmPassword"] ) {
-mysqli_query($con,"UPDATE admin set adminPassword='" . $_POST["newPassword"] . "' WHERE adminName='" . $adminName . "'");
-echo "<script>alert('Password Changed');</script>";
-} else{
-echo "<script>alert('Password Not Changed');</script>";
-}
-}
+
+$ticketID=$_POST['ticketIDToUpdate'];
+$qry = getTicketInformation($ticketID);//call function to get detail car data
+$row = mysqli_fetch_assoc($qry);
+//assign data to variable
+$ticketName = $row['ticketName'];
+$ticketType =$row['ticketType'];
+$ticketPackage =$row['ticketPackage'];
+$ticketPrice = $row['ticketPrice'];
+
 ?>
 
 <!--
@@ -38,34 +39,45 @@ Coded by www.creative-tim.com
 
 <head>
   <meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="../assets/img/fox.jpg">
+  <link rel="apple-touch-icon" sizes="76x76" href="../../assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="../../assets/img/fox.jpg">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Change Password
+    Update Ticket
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
   <!-- CSS Files -->
-  <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="../assets/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
+  <link href="../../assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../../assets/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="../assets/demo/demo.css" rel="stylesheet" />
+  <link href="../../assets/demo/demo.css" rel="stylesheet" />
+  
+  <style>
+	select {
+	  width: 183px;
+	  padding: 3.4px 0px;
+	}
+	
+	input {
+	  width: 360px;
+	}
+  </style>
 </head>
 
 <body class="" style="background-color:#F4F4F4">
   <div class="wrapper ">
     <div class="sidebar" data-color="white" data-active-color="danger">
       <div class="logo">
-        <a href="user.php" class="simple-text logo-mini">
+        <a href="../user.php" class="simple-text logo-mini">
           <div class="logo-image-small">
-            <img src="../assets/img/logo-small.png">
+            <img src="../../assets/img/logo-small.png">
           </div>
           <!-- <p>CT</p> -->
         </a>
-        <a href="../../visitor/index.html" class="simple-text logo-normal">
+        <a href="../../../visitor/index.html" class="simple-text logo-normal">
           Zootopika
           <!-- <div class="logo-image-big">
             <img src="../assets/img/logo-big.png">
@@ -75,43 +87,43 @@ Coded by www.creative-tim.com
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li>
-            <a href="./dashboard.php">
+            <a href="../dashboard.php">
               <i class="nc-icon nc-bank"></i>
               <p>Dashboard</p>
             </a>
           </li>
           <li>
-            <a href="./map.html">
+            <a href="../map.html">
               <i class="nc-icon nc-pin-3"></i>
               <p>Maps</p>
             </a>
           </li>
           <li>
-            <a href="./user.php">
+            <a href="../user.php">
               <i class="nc-icon nc-single-02"></i>
               <p>User Profile</p>
             </a>
           </li>
-          <li>
-            <a href="ticket/ticketList.php">
+          <li class="active">
+            <a href="../ticket/ticketList.php">
               <i class="nc-icon nc-paper"></i>
               <p>Ticket List</p>
             </a>
           </li>
 		  <li>
-            <a href="staff/staffList.php">
+            <a href="staffList.php">
               <i class="nc-icon nc-badge"></i>
               <p>Staff List</p>
             </a>
           </li>
-		  <li class="active ">
-            <a href="password.php">
+		  <li>
+            <a href="../password.php">
               <i class="nc-icon nc-key-25"></i>
               <p>Change Password</p>
             </a>
           </li>
           <li>
-            <a href="login/logout.php">
+            <a href="../login/logout.php">
               <i class="nc-icon nc-user-run"></i>
               <p>Logout</p>
             </a>
@@ -119,50 +131,70 @@ Coded by www.creative-tim.com
         </ul>
       </div>
     </div>
-    <div class="main-panel">
+    <?php
+	echo '<div class="main-panel">
 
 		<div class="content" align="center">
-          <div class="col-md-6">
+          <div class="col-md-7">
             <div class="card card-user">
               <div class="card-header">
-                <h5 class="card-title">Change Password</h5>
+                <h5 class="card-title">Update Ticket</h5>
               </div>
               <div class="card-body" align="left">
-                <form method="post" action="">
+                <form method="post" action="processTicket.php">
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                        &emsp; &emsp; &emsp; &emsp; &ensp; <label>Current Password</label>
-                        &ensp; &ensp; <input type="password" name="currentPassword" id="currentPassword" class="required">
+                        &emsp; &emsp; &ensp; <label>Ticket ID</label>
+                        &emsp; &emsp; &ensp; &ensp; &#8200; <input type="text" name="ticketID" value="'.$ticketID.'" readonly>
+                      </div>
+                    </div>
+                  </div>
+				  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        &emsp; &emsp; &ensp; <label>Ticket Name</label>
+                        &emsp; &emsp; &#8202; <input type="text" name="ticketName" value="'.$ticketName.'" class="required">
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                        &emsp; &emsp; &emsp; &emsp; &ensp; <label>New Password</label>
-                        &emsp; &ensp; &ensp; <input type="password" name="newPassword" id="newPassword" class="required">
-                      </div>
+                        &emsp; &emsp; &ensp; <label>Ticket Type</label>
+						&emsp; &emsp; &ensp; &#8200;'; showSelectedType($ticketType);
+                      echo '</div>
                     </div>
                   </div>
-                  <div class="row">
+                  
+				  <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                        &emsp; &emsp; &emsp; &emsp; &ensp; <label>Confirm Password</label>
-                        &emsp; <input type="password" name="confirmPassword" id="confirmPassword" class="required">
+                        &emsp; &emsp; &ensp; <label>Ticket Package</label>
+                        &emsp; &nbsp; &#8202;'; showSelectedPackage($ticketPackage);
+                      echo '</div>
+                    </div>
+                  </div>
+				  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        &emsp; &emsp; &ensp; <label>Ticket Price</label>
+                        &emsp; &emsp; &nbsp; &#8202; <input type="number" name="ticketPrice" value="'.$ticketPrice.'" class="required">
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="update ml-auto mr-auto">
-                      <button type="submit" class="btn btn-primary btn-round">Change Password</button>
+                      <button type="submit" name="updateTicket" class="btn btn-primary btn-round">Update Ticket</button> &emsp; &emsp;
+					  <a href="ticketList.php" > <button class="btn btn-primary btn-round" type="button">Back</button> </a>
                     </div>
                   </div>
                 </form>
               </div>
             </div>
           </div>
-		  </div>
+		  </div>';
+	?>
 
       <!--   Core JS Files   -->
       <script src="../assets/js/core/jquery.min.js"></script>
@@ -181,3 +213,41 @@ Coded by www.creative-tim.com
 </body>
 
 </html>
+
+<?php
+function showSelectedType($ticketType)
+{
+echo '<select name = "ticketType">';
+
+if($ticketType == '')
+	echo "<option value='' selected>-- Please Select --</option>";
+else
+	echo "<option value=''>-- Please Select --</option>";
+if($ticketType == 'mykad')
+	echo "<option value='mykad' selected>mykad</option>";
+else
+	echo "<option value='mykad'>mykad</option>";
+if($ticketType == 'nonmykad')
+	echo "<option value='nonmykad' selected>nonmykad</option>";
+else
+	echo "<option value='nonmykad'>nonmykad</option>";
+
+echo '</select>';
+}
+
+function showSelectedPackage($ticketPackage)
+{
+echo '<select name = "ticketPackage">';
+
+if($ticketPackage == '')
+	echo "<option value='' selected>-- Please Select --</option>";
+else
+	echo "<option value=''>-- Please Select --</option>";
+if($ticketPackage == 'family')
+	echo "<option value='family' selected>family</option>";
+else
+	echo "<option value='family'>family</option>";
+
+echo '</select>';
+}
+?>
