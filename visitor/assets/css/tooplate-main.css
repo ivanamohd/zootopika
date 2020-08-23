@@ -83,7 +83,7 @@ a {
 .bg-dark {
 
 	background-color: #000000!important;
-	border-bottom: 1px solid #eee;
+	border-bottom: 0px solid #eee;
 }
 #navbarResponsive {
 	z-index: 999;
@@ -164,6 +164,19 @@ a {
 	margin-top: 15px;
 	margin-bottom: 20px;
 }
+/* Intro style */
+
+.image-items {
+	border-radius: 5px;
+	
+}
+.image-items {
+	width: 50%;
+}
+
+
+
+
 
 /* Featured Style */
 .featured-items {
