@@ -146,10 +146,15 @@ Coded by www.creative-tim.com
             </span>
             <input type="file" name="profileImage" onChange="displayImage(this)" id="profileImage" class="form-control" style="display: none;">
           <div class="form-group">
-            <button type="submit" name="save_profile" class="btn btn-primary btn-block">Save</button>
+            <div class="update ml-auto mr-auto">
+          <input type="submit" name="save_profile" class="btn btn-primary btn-round" value="Save">
           </div>
-        </form>
-		<a href="../user.php" class="btn btn-primary btn-block">Back</a>
+       </form>
+		<a href="../user.php">  
+		<div class="update ml-auto mr-auto">
+          <input class="btn btn-primary btn-round" value="Back">
+          </div>
+		 </a>
       </div>
     </div>
   </div>
