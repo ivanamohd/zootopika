@@ -108,13 +108,13 @@ Coded by www.creative-tim.com
               <p>User Profile</p>
             </a>
           </li>
-          <li>
+          <li class="active">
             <a href="../ticket/ticketList.php">
               <i class="nc-icon nc-paper"></i>
               <p>Ticket List</p>
             </a>
           </li>
-		  <li  class="active">
+		  <li>
             <a href="staffList.php">
               <i class="nc-icon nc-badge"></i>
               <p>Staff List</p>

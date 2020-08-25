@@ -48,10 +48,10 @@ https://www.tooplate.com/view/2114-pixie
             </li>
             
             <li class="nav-item">
-              <a class="nav-link" href="contact.html">Send Feedback</a>
+              <a class="nav-link" href="feedback/contact.html">Contact Us</a>
             </li>
 			<li class="nav-item active">
-              <a class="nav-link" href="ticket.html">Buy Tickets</a>
+              <a class="nav-link" href="ticket.php">Buy Tickets</a>
 			  <span class="sr-only">(current)</span>
             </li>
           </ul>

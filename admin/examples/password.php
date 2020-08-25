@@ -104,6 +104,12 @@ Coded by www.creative-tim.com
               <p>Staff List</p>
             </a>
           </li>
+		  <li>
+            <a href="feedback/feedbackList.php">
+              <i class="nc-icon nc-email-85"></i>
+              <p>Feedback List</p>
+            </a>
+          </li>
 		  <li class="active ">
             <a href="password.php">
               <i class="nc-icon nc-key-25"></i>

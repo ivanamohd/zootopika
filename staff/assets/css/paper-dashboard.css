@@ -2981,7 +2981,7 @@ License - nucleoapp.com/license/
     width: 100%; }
 
 .table-responsive {
-  overflow: scroll;
+  overflow: hidden;
   padding-bottom: 10px; }
 
 #tables .table-responsive {
