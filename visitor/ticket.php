@@ -111,31 +111,51 @@ https://www.tooplate.com/view/2114-pixie
     <!-- Featred Page Ends Here -->
     
 <!-- Main Footer Starts Here -->
-		<br><br><br><div class="footer-main-div">
-		
-		<div class="footer-social-icons">
-			<ul class="list-social">
-				<li><a href="https://www.facebook.com/znegaramalaysia/" target="blank"><i class="fa fa-facebook"></i></a></li>
-				<li><a href="https://twitter.com/znegaraofficial?lang=en" target="blank"><i class="fa fa-twitter"></i></a></li>
-				<li><a href="https://www.instagram.com/zoonegara_malaysia/tagged/?hl=en" target="blank"><i class="fa fa-instagram"></i></a></li>
-			</ul>	
-		</div>
-		
-		
-		<div class="footer-menu-one">
-			<ul>
-				<li><a href="index.html">Home</a></li>
-				<li><a href="about.html">About</a></li>
-				<li><a href="map.html">Map</a></li>
-				<li><a href="contact.html">Contact Us</a></li>
-			</ul>
-		</div>
-		<div class="footer-menu-two">
-			<ul>
-				<li><a href="#">E-Ticket</a></li>
-			</ul>
-		</div>
-		</div>
+		<footer class="footer-distributed">
+
+			<div class="footer-left">
+				<br><br><h3>About<span>Zootopika</span></h3>
+
+				<p class="footer-links">
+					<a href="#">Home</a>
+					|
+					<a href="about.html">About</a>
+					|
+					<a href="contact.html">Contact Us</a>
+					|
+					<a href="map.html">Map</a>
+					|
+					<a href="ticket.php">Buy Tickets</a>
+				</p>
+			</div>
+
+			<div class="footer-center">
+				<div>
+					<i class="fa fa-map-marker"></i>
+					  <p>Jalan Taman Zooview, Taman Zooview, 68000 Ampang,
+					  <br>Selangor</p>
+				</div>
+
+				<div>
+					<i class="fa fa-phone"></i>
+					<p>+603-4108 3422/7/8</p>
+				</div>
+				<div>
+					<i class="fa fa-envelope"></i>
+					<p>ztpzoonegara@gmail.com</p>
+				</div>
+			</div>
+			<div class="footer-right">
+				<p class="footer-company-about">
+					<span>About the company</span>
+					Zoo Negara Malaysia is managed by the Malaysian Zoological Society, a non-governmental organization established to create the first local zoo for Malaysians.</p>
+				<div class="footer-icons">
+					<a href="https://www.facebook.com/znegaramalaysia/" target="blank"><i class="fa fa-facebook"></i></a>
+					<a href="https://twitter.com/znegaraofficial?lang=en" target="blank"><i class="fa fa-twitter"></i></a>
+					<a href="https://www.instagram.com/zoonegara_malaysia/tagged/?hl=en" target="blank"><i class="fa fa-instagram"></i></a>
+				</div>
+			</div>
+			</footer>
 			<!--footer-->
     <!-- Sub Footer Starts Here -->
     <div class="sub-footer">

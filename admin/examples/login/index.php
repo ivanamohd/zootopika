@@ -6,20 +6,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-//Code for Registration 
-if(isset($_POST['signup']))
-{
-	$adminName=$_POST['adminName'];
-	$adminFN=$_POST['adminFN'];
-	$adminLN=$_POST['adminLN'];
-	$adminEmail=$_POST['adminEmail'];
-	$adminPassword=$_POST['adminPassword'];
-	$adminContact=$_POST['adminContact'];
 
-	$msg=mysqli_query($con,"insert into admin(adminName,adminFN,adminLN,adminEmail,adminPassword,adminContact) values('$adminName','$adminFN','$adminLN','$adminEmail','$adminPassword','$adminContact')");
-if($msg)
-	echo "<script>alert('Registered successfully');</script>";
-}
 
 //Code for forget password 
 if(isset($_POST['send']))
@@ -73,44 +60,13 @@ if(isset($_POST['send']))
 	 <div class="sap_tabs">	
 			<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
 			  <ul class="resp-tabs-list">
-			  	  <li class="resp-tab-item" aria-controls="tab_item-0" role="tab"><div class="top-img"><img src="images/top-note.png" alt=""/></div><span>Register</span>
-			  	  	
-				</li>
 				  <li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><div class="top-img"><img src="images/top-lock.png" alt=""/></div><span>Login</span></li>
 				  <li class="resp-tab-item lost" aria-controls="tab_item-2" role="tab"><div class="top-img"><img src="images/top-key.png" alt=""/></div><span>Forgot Password</span></li>
 				  <div class="clear"></div>
 			  </ul>		
 			  	 
-			<div class="resp-tabs-container">
-					<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
-					<div class="facts">
-					
-						<div class="register">
-							<form name="registration" method="post" action="" enctype="multipart/form-data">
-								<p>Username </p>
-								<input type="text" class="text" value=""  name="adminName" required >
-								<p>First Name </p>
-								<input type="text" class="text" value=""  name="adminFN" required >
-								<p>Last Name </p>
-								<input type="text" class="text" value="" name="adminLN"  required >
-								<p>Email Address </p>
-								<input type="email" class="text" value="" name="adminEmail"  required >
-								<p>Password </p>
-								<input type="password" value="" name="adminPassword" required>
-								<p>Contact No. </p>
-								<input type="text" value="" name="adminContact"  required>
-								<div class="sign-up">
-									<input type="reset" value="Reset">
-									<input type="submit" name="signup"  value="Sign Up" >
-									<div class="clear"> </div>
-								</div>
-							</form>
-
-						</div>
-					</div>
-				</div>
-			</div>
-			 <div class="tab-2 resp-tab-content" aria-labelledby="tab_item-1">
+			
+			 <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
 					 	<div class="facts">
 							 <div class="login">
 							<div class="buttons">
