@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
 	<link href='https://fonts.googleapis.com/css?family=Chelsea Market' rel='stylesheet'>
 
-    <title>Buy Tickets</title>
+    <title>Map</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -20,6 +20,15 @@
     <link rel="stylesheet" href="assets/css/fontawesome.css">
     <link rel="stylesheet" href="assets/css/tooplate-main.css">
     <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="assets/css/flex-slider.css">
+	
+	<style>
+		img {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	</style>
 <!--
 Tooplate 2114 Pixie
 https://www.tooplate.com/view/2114-pixie
@@ -27,91 +36,60 @@ https://www.tooplate.com/view/2114-pixie
   </head>
 
   <body>
-
+  
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top"; style="font-family: 'Chelsea Market'">
-      <div class="container">
-        <a class="navbar-brand" href="#"><img style = "height: 75px"; src="assets/images/zootopika logo.jpg" alt=""></a>
+	  <div class="container" >
+	  <a class="navbar-brand" href="#"><img style = "height: 75px"; src="assets/images/zootopika logo.jpg" alt=""></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Home </a>
+              <a class="nav-link" href="index.html">Home</a>
             </li>
 			<li class="nav-item">
               <a class="nav-link" href="about.html">About Us</a>
             </li>
-			<li class="nav-item">
+			<li class="nav-item active">
               <a class="nav-link" href="map.html">Map</a>
+			    <span class="sr-only">(current)</span>
             </li>
             
             <li class="nav-item">
               <a class="nav-link" href="feedback/contact.php">Contact Us</a>
             </li>
-			<li class="nav-item active">
+			<li class="nav-item">
               <a class="nav-link" href="ticket.php">Buy Tickets</a>
-			  <span class="sr-only">(current)</span>
             </li>
-          </ul>
+		  </ul>
         </div>
       </div>
     </nav>
 
     <!-- Page Content -->
-    <!-- Items Starts Here -->
+    <!-- About Page Starts Here -->
+	<div class="about-page">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-heading">
+              <div class="line-dec"></div>
+              <h1>Checkout the places in Zoo Negara!</h1>
+            </div>
+          </div>
+              <div class="container">
+                <img src = "assets/images/zoo_map.jpg" alt = "" style = "width:1000px; height: 1000px">
+		  </div>  
+		</div>
+		</div>
+	</div>
 
-  <!--ticket table-->
-
-	<?php
-	include "ticket/ticket.php";
-
-	ini_set('display_errors', 1);
-	ini_set('display_startup_errors', 1); 
-	error_reporting(E_ALL);
-
-	$qry = getListOfTicket();
-
-	//echo '<br>No of car:'.mysqli_num_rows($qry);
-	echo '<br><div class="col-md-12">
-	      <div class="container">
-			<div class="card">
-			<div class="card-header">
-				<h4 class="card-title"> Ticket </h4>
-			</div>
-			<div class="card-body">
-			<div class="table-responsive">
-            <table class="table">
-				<thead class=" text-primary">
-					<th>No</th>
-					<th>Name</th>
-					<th>Price</th>
-				</thead>';
-	$i=1;
-	while($row=mysqli_fetch_assoc($qry))//Display ticket information
-	{
-		echo '<tbody>';
-		echo '<tr>';
-		echo '<td>'.$i.'</td>';
-		echo '<td>'.$row['ticketName'].'</td>';
-		echo '<td>'.$row['ticketPrice'].'</td>';
-		$i++;
-	}
-		echo'</tr>
-        </tbody>
-        </table>
-        </div>
-        </div>
-        </div>
-        </div>';
-	?>
-    </div>
-  </div>
-    <!-- Featred Page Ends Here -->
+    <!-- About Page Ends Here -->
     
 <!-- Main Footer Starts Here -->
-		<footer class="footer-distributed">
+			<footer class="footer-distributed">
 
 			<div class="footer-left">
 				<br><br><h3>About<span>Zootopika</span></h3>
@@ -126,8 +104,6 @@ https://www.tooplate.com/view/2114-pixie
 					<a href="map.html">Map</a>
 					|
 					<a href="ticket.php">Buy Tickets</a>
-					<br>
-					<a href="../mainLogin.php">Admin / Staff Login</a>
 				</p>
 			</div>
 
@@ -184,6 +160,7 @@ https://www.tooplate.com/view/2114-pixie
     <script src="assets/js/custom.js"></script>
     <script src="assets/js/owl.js"></script>
     <script src="assets/js/isotope.js"></script>
+    <script src="assets/js/flex-slider.js"></script>
 
 
     <script language = "text/Javascript"> 
