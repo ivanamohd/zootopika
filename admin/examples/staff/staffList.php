@@ -157,8 +157,8 @@ Coded by www.creative-tim.com
 			<div class="col-md-12">
 			<div class="card">
 			<div class="card-header row">
-				<h4 class="card-title col-md-10"> Staff </h4>
-				<div class="card-title col-md-2"> <a href="addStaff.php"> <button type="button" class="add-new btn btn-primary btn-round"><i class="fa fa-plus"></i> Add Staff</button> </a> </div>
+				<h4 class="card-title col-md-9"> Staff </h4>
+				<div class="card-title col-md-3"> <a href="addStaff.php"> <button type="button" class="add-new btn btn-primary btn-round" style="float:right"><i class="fa fa-plus"></i> Add Staff</button> </a> </div>
 			</div>
 			<div class="card-body">
 			<div class="table-responsive">

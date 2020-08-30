@@ -5,7 +5,7 @@ ini_set('display_errors', 1);
 	ini_set('display_startup_errors', 1);
 	error_reporting(E_ALL);
 	
-$adminName = $_SESSION["adminName"];/* userid of the user */
+$staffName = $_SESSION["staffName"];/* userid of the user */
 $con = mysqli_connect('localhost','web38','web38','zootopikadb') or die('Unable To connect');
 
 if(isset($_POST['addTicket']))
@@ -66,7 +66,11 @@ Coded by www.creative-tim.com
 		}
 		
 		input {
-		  width: 360px;
+		  width: 66%;
+		}
+		
+		label {
+			margin: 0 20px;
 		}
   </style>
 </head>
@@ -142,27 +146,28 @@ Coded by www.creative-tim.com
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                        &emsp; &emsp; &ensp; <label>Ticket ID</label>
-                        &emsp; &emsp; &ensp; &ensp; &#8200; <input type="text" name="ticketID" class="required">
+                        <label>Ticket ID</label>
+                        &emsp; &ensp; &ensp; &#8200; <input type="text" name="ticketID" class="required">
                       </div>
                     </div>
                   </div>
 				  <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                        &emsp; &emsp; &ensp; <label>Ticket Name</label>
-                        &emsp; &emsp; &#8202; <input type="text" name="ticketName" class="required">
+                        <label>Ticket Name</label>
+                        &emsp; &#8202; <input type="text" name="ticketName" class="required">
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                        &emsp; &emsp; &ensp; <label>Ticket Type</label>
-						&emsp; &emsp; &nbsp; &#8201; <select name = "ticketType" class="required">
+                        <label>Ticket Type</label>
+						&emsp; &nbsp; &#8201; <select name = "ticketType" class="required">
 							<option value="">-- Please Select --</option>
 							<option value="mykad">mykad</option>
 							<option value="nonmykad">nonmykad</option>
+							<option value="ikad">ikad</option>
 						</select>
                       </div>
                     </div>
@@ -171,10 +176,11 @@ Coded by www.creative-tim.com
 				  <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                        &emsp; &emsp; &ensp; <label>Ticket Package</label>
-                        &ensp; &nbsp; &#8200; <select name = "ticketPackage" class="required">
+                        <label>Ticket Package</label>
+                        &#8200; <select name = "ticketPackage" class="required">
 							<option value="">-- Please Select --</option>
 							<option value="family">family</option>
+							<option value="none">none</option>
 						</select>
                       </div>
                     </div>
@@ -182,8 +188,8 @@ Coded by www.creative-tim.com
 				  <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                        &emsp; &emsp; &ensp; <label>Ticket Price</label>
-                        &emsp; &emsp; &nbsp; &#8202; <input type="number" name="ticketPrice" class="required">
+                        <label>Ticket Price</label>
+                        &emsp; &nbsp; &#8202; <input type="text" name="ticketPrice" class="required">
                       </div>
                     </div>
                   </div>

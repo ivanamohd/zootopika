@@ -54,6 +54,16 @@ Coded by www.creative-tim.com
   <link href="../../assets/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../../assets/demo/demo.css" rel="stylesheet" />
+  
+  <style>
+	label {
+		margin: 0 20px;
+	}
+	
+	input {
+		  width: 250px;
+		}
+  </style>
 </head>
 
 <body class="" style="background-color:#F4F4F4">
@@ -106,6 +116,12 @@ Coded by www.creative-tim.com
             </a>
           </li>
 		  <li>
+            <a href="../feedback/feedbackList.php">
+              <i class="nc-icon nc-email-85"></i>
+              <p>Feedback List</p>
+            </a>
+          </li>
+		  <li>
             <a href="../password.php">
               <i class="nc-icon nc-key-25"></i>
               <p>Change Password</p>
@@ -134,40 +150,40 @@ Coded by www.creative-tim.com
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                        &emsp; &emsp; &emsp; &emsp; &ensp; <label>Username</label>
-                        &emsp; &emsp; &emsp; &nbsp; &#8202; <input type="text" name="staffName" value="'.$staffName.'" readonly>
+                        <label>Username</label>
+                        &emsp; &ensp; <input type="text" name="staffName" value="'.$staffName.'" readonly>
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                        &emsp; &emsp; &emsp; &emsp; &ensp; <label>First Name</label>
-                        &emsp; &emsp; &emsp; &nbsp; <input type="text" name="staffFN" value="'.$staffFN.'" class="required">
+                        <label>First Name</label>
+                        &emsp; &nbsp; <input type="text" name="staffFN" value="'.$staffFN.'" class="required">
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                        &emsp; &emsp; &emsp; &emsp; &ensp; <label>Last Name</label>
-                        &emsp; &emsp; &emsp; &nbsp; <input type="text" name="staffLN" value="'.$staffLN.'" class="required">
+                        <label>Last Name</label>
+                        &emsp; &#8202; &#8202; <input type="text" name="staffLN" value="'.$staffLN.'" class="required">
                       </div>
                     </div>
                   </div>
 				  <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                        &emsp; &emsp; &emsp; &emsp; &ensp; <label>Email Address</label>
-                        &emsp; &ensp; &nbsp; &#8202; <input type="email" name="staffEmail" value="'.$staffEmail.'" class="required">
+                        <label>Email Address</label>
+                        &#8200; <input type="email" name="staffEmail" value="'.$staffEmail.'" class="required">
                       </div>
                     </div>
                   </div>
 				  <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                        &emsp; &emsp; &emsp; &emsp; &ensp; <label>Contact Number</label>
-                        &emsp; &nbsp; <input type="text" name="staffContact" value="'.$staffContact.'" class="required">
+                        <label>Contact Num</label>
+                        &ensp; <input type="text" name="staffContact" value="'.$staffContact.'" class="required">
                       </div>
                     </div>
                   </div>

@@ -167,7 +167,7 @@ Coded by www.creative-tim.com
           <div class="navbar-wrapper">
             <a class="navbar-brand" href="javascript:;">Profile</a>
           </div>
-		  <div class="collapse navbar-collapse justify-content-end" id="navigation">
+		  <!-- <div class="collapse navbar-collapse justify-content-end" id="navigation">
 		  <ul class="navbar-nav">
 		  <li class="nav-item">
                 <div class="dropdown" style="float:right">
@@ -177,7 +177,7 @@ Coded by www.creative-tim.com
 					  </div>
 				</div>
             </ul>
-        </div>
+        </div>-->
 		</div>
       </nav>
       <!-- End Navbar -->

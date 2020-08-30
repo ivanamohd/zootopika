@@ -34,7 +34,7 @@ Coded by www.creative-tim.com
   <link href="../assets/demo/demo.css" rel="stylesheet" />
 </head>
 
-<body class="">
+<body class="" style="background-color:#F4F4F4">
   <div class="wrapper ">
     <div class="sidebar" data-color="white" data-active-color="danger">
       <div class="logo">
@@ -120,53 +120,6 @@ Coded by www.creative-tim.com
           </div>
       </nav>
       <!-- End Navbar -->
-    <?php
-	include "admin.php";
-
-	ini_set('display_errors', 1);
-	ini_set('display_startup_errors', 1);
-	error_reporting(E_ALL);
-
-	$qry = getListOfAdmin();
-
-	//echo '<br>No of car:'.mysqli_num_rows($qry);
-	echo '<div class="content">
-			<div class="row">
-			<div class="col-md-12">
-			<div class="card">
-			<div class="card-header">
-				<h4 class="card-title"> Admin </h4>
-			</div>
-			<div class="card-body">
-			<div class="table-responsive">
-            <table class="table">
-				<thead class=" text-primary">
-					<th>No</th>
-					<th>First Name</th>
-					<th>Last Name</th>
-					<th>Email</th>
-					<th>Contact</th>
-				</thead>';
-	$i=1;
-	while($row=mysqli_fetch_assoc($qry))//Display car information
-	{
-		echo '<tbody>';
-		echo '<tr>';
-		echo '<td>'.$i.'</td>';
-		echo '<td>'.$row['adminFN'].'</td>';
-		echo '<td>'.$row['adminLN'].'</td>';
-		echo '<td>'.$row['adminEmail'].'</td>';
-		echo '<td>'.$row['adminContact'].'</td>';
-		$i++;
-	}
-		echo'</tr>
-        </tbody>
-        </table>
-        </div>
-        </div>
-        </div>
-        </div>';
-	?>
 	
 	<?php
 	include "ticket/ticket.php";
@@ -178,7 +131,9 @@ Coded by www.creative-tim.com
 	$qry = getListOfTicket();
 
 	//echo '<br>No of car:'.mysqli_num_rows($qry);
-	echo '<div class="col-md-12">
+	echo '<div class="content">
+			<div class="row">
+			<div class="col-md-12">
 			<div class="card">
 			<div class="card-header">
 				<h4 class="card-title"> Ticket </h4>

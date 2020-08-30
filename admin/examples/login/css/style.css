@@ -40,7 +40,7 @@ body{
 .main h1{
   font-size:3em;
   color: #fff;
-  padding: 1.5em 0;
+  padding: 36px 0;
   text-align: center;
   font-family: 'Lora', serif;
 }
@@ -90,7 +90,7 @@ i.resp-tab-item.lost {
   text-align: center;
   list-style: none;
   float: left;
-  width: 33.33%;
+  width: 50%;
   outline: none;
   font-family: 'Raleway', sans-serif;
   -webkit-transition: all 0.3s ease-out;

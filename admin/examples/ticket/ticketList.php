@@ -93,16 +93,16 @@ Coded by www.creative-tim.com
               <p>User Profile</p>
             </a>
           </li>
-          <li class="active">
-            <a href="./ticketList.php">
-              <i class="nc-icon nc-paper"></i>
-              <p>Ticket List</p>
-            </a>
-          </li>
 		  <li>
             <a href="../staff/staffList.php">
               <i class="nc-icon nc-badge"></i>
               <p>Staff List</p>
+            </a>
+          </li>
+          <li class="active">
+            <a href="./ticketList.php">
+              <i class="nc-icon nc-paper"></i>
+              <p>Ticket List</p>
             </a>
           </li>
 		  <li>
@@ -157,8 +157,8 @@ Coded by www.creative-tim.com
 			<div class="col-md-12">
 			<div class="card">
 			<div class="card-header row">
-				<h4 class="card-title col-md-10"> Ticket </h4>
-				<div class="card-title col-md-2"> <a href="addTicket.php"> <button type="button" class="add-new btn btn-primary btn-round"><i class="fa fa-plus"></i> Add Ticket</button> </a> </div>
+				<h4 class="card-title col-md-9"> Ticket </h4>
+				<div class="card-title col-md-3"> <a href="addTicket.php"> <button type="button" class="add-new btn btn-primary btn-round" style="float:right"><i class="fa fa-plus"></i> Add Ticket</button> </a> </div>
 			</div>
 			<div class="card-body">
 			<div class="table-responsive">
@@ -184,6 +184,76 @@ Coded by www.creative-tim.com
 		echo '<td>'.$row['ticketPackage'].'</td>';
 		echo '<td>'.$row['ticketPrice'].'</td>';
 		$ticketID = $row['ticketID'];
+		echo '<td>';
+			echo '<form style="display:inline-block" action="updateTicket.php" method="post" >';
+			echo "<input type='hidden' value='$ticketID' name='ticketIDToUpdate'>";
+			echo '<button type="submit" name="updateTicket" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i> </button>';
+			echo '</form>';
+			echo '&emsp;';
+			echo '<form style="display:inline-block" action="processTicket.php" method="post" >';
+			echo "<input type='hidden' value='$ticketID' name='ticketIDToDelete'>";
+			echo '<button type="submit" name="deleteTicket" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i> </button>';
+			echo '</form>';
+		echo '</td>';
+		$i++;
+	}
+		echo'</tr>
+        </tbody>
+        </table>
+        </div>
+        </div>
+        </div>
+        </div>';
+	?>
+	
+	<?php
+	include "../book/book.php";
+
+	ini_set('display_errors', 1);
+	ini_set('display_startup_errors', 1);
+	error_reporting(E_ALL);
+
+	$qry = getListOfBook();
+
+	//echo '<br>No of car:'.mysqli_num_rows($qry);
+	echo '<div class="col-md-12">
+			<div class="card">
+			<div class="card-header">
+				<h4 class="card-title"> Tickets Booked </h4>
+			</div>
+			<div class="card-body">
+			<div class="table-responsive">
+            <table class="table">
+				<thead class=" text-primary" align="center">
+					<th>No</th>
+					<th>Reference</th>
+					<th>Ticket ID</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Email</th>
+					<th>Contact</th>
+					<th>Country</th>
+					<th>Date</th>
+					<th>Quantity</th>
+					<th>Amount</th>
+					<th>Actions</th>
+				</thead>';
+	$i=1;
+	while($row=mysqli_fetch_assoc($qry))//Display car information
+	{
+		echo '<tbody align="center">';
+		echo '<tr>';
+		echo '<td>'.$i.'</td>';
+		echo '<td>'.$row['visitorReference'].'</td>';
+		echo '<td>'.$row['ticketID'].'</td>';
+		echo '<td>'.$row['visitorFN'].'</td>';
+		echo '<td>'.$row['visitorLN'].'</td>';
+		echo '<td>'.$row['visitorEmail'].'</td>';
+		echo '<td>'.$row['visitorContact'].'</td>';
+		echo '<td>'.$row['visitorCountry'].'</td>';
+		echo '<td>'.$row['visitorDate'].'</td>';
+		echo '<td>'.$row['visitorQuantity'].'</td>';
+		echo '<td>'.$row['visitorAmount'].'</td>';
 		echo '<td>';
 			echo '<form style="display:inline-block" action="updateTicket.php" method="post" >';
 			echo "<input type='hidden' value='$ticketID' name='ticketIDToUpdate'>";

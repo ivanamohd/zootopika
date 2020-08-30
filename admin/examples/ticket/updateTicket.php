@@ -57,13 +57,17 @@ Coded by www.creative-tim.com
   
   <style>
 	select {
-	  width: 183px;
-	  padding: 3.4px 0px;
-	}
-	
-	input {
-	  width: 360px;
-	}
+		  width: 183px;
+		  padding: 3.4px 0px;
+		}
+		
+		input {
+		  width: 66%;
+		}
+		
+		label {
+			margin: 0 20px;
+		}
   </style>
 </head>
 
@@ -105,15 +109,21 @@ Coded by www.creative-tim.com
             </a>
           </li>
           <li class="active">
-            <a href="../ticket/ticketList.php">
+            <a href="ticketList.php">
               <i class="nc-icon nc-paper"></i>
               <p>Ticket List</p>
             </a>
           </li>
 		  <li>
-            <a href="staffList.php">
+            <a href="../staff/staffList.php">
               <i class="nc-icon nc-badge"></i>
               <p>Staff List</p>
+            </a>
+          </li>
+		  <li>
+            <a href="../feedback/feedbackList.php">
+              <i class="nc-icon nc-email-85"></i>
+              <p>Feedback List</p>
             </a>
           </li>
 		  <li>
@@ -145,24 +155,24 @@ Coded by www.creative-tim.com
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                        &emsp; &emsp; &ensp; <label>Ticket ID</label>
-                        &emsp; &emsp; &ensp; &ensp; &#8200; <input type="text" name="ticketID" value="'.$ticketID.'" readonly>
+                        <label>Ticket ID</label>
+                        &emsp; &ensp; &ensp; &#8200; <input type="text" name="ticketID" value="'.$ticketID.'" readonly>
                       </div>
                     </div>
                   </div>
 				  <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                        &emsp; &emsp; &ensp; <label>Ticket Name</label>
-                        &emsp; &emsp; &#8202; <input type="text" name="ticketName" value="'.$ticketName.'" class="required">
+                        <label>Ticket Name</label>
+                        &emsp; &#8202; <input type="text" name="ticketName" value="'.$ticketName.'" class="required">
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                        &emsp; &emsp; &ensp; <label>Ticket Type</label>
-						&emsp; &emsp; &ensp; &#8200;'; showSelectedType($ticketType);
+                        <label>Ticket Type</label>
+						&emsp; &ensp; &#8200;'; showSelectedType($ticketType);
                       echo '</div>
                     </div>
                   </div>
@@ -170,16 +180,16 @@ Coded by www.creative-tim.com
 				  <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                        &emsp; &emsp; &ensp; <label>Ticket Package</label>
-                        &emsp; &nbsp; &#8202;'; showSelectedPackage($ticketPackage);
+                        <label>Ticket Package</label>
+                        &nbsp; &#8202;'; showSelectedPackage($ticketPackage);
                       echo '</div>
                     </div>
                   </div>
 				  <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                        &emsp; &emsp; &ensp; <label>Ticket Price</label>
-                        &emsp; &emsp; &nbsp; &#8202; <input type="number" name="ticketPrice" value="'.$ticketPrice.'" class="required">
+                        <label>Ticket Price</label>
+                        &emsp; &nbsp; &#8202; <input type="number" name="ticketPrice" value="'.$ticketPrice.'" class="required">
                       </div>
                     </div>
                   </div>
@@ -231,6 +241,10 @@ if($ticketType == 'nonmykad')
 	echo "<option value='nonmykad' selected>nonmykad</option>";
 else
 	echo "<option value='nonmykad'>nonmykad</option>";
+if($ticketType == 'ikad')
+	echo "<option value='ikad' selected>ikad</option>";
+else
+	echo "<option value='ikad'>ikad</option>";
 
 echo '</select>';
 }
@@ -247,6 +261,10 @@ if($ticketPackage == 'family')
 	echo "<option value='family' selected>family</option>";
 else
 	echo "<option value='family'>family</option>";
+if($ticketPackage == 'none')
+	echo "<option value='none' selected>none</option>";
+else
+	echo "<option value='none'>none</option>";
 
 echo '</select>';
 }

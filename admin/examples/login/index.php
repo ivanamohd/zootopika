@@ -34,8 +34,9 @@ if(isset($_POST['send']))
 <!DOCTYPE html>
 <html>
 <head>
-<title>Login System</title>
+<title>Admin Login</title>
 <link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href='https://fonts.googleapis.com/css?family=Alef' rel='stylesheet'>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Elegent Tab Forms,Login Forms,Sign up Forms,Registration Forms,News latter Forms,Elements"./>
@@ -56,7 +57,7 @@ if(isset($_POST['send']))
 </head>
 <body>
 <div class="main">
-		<h1>Registration and Login System</h1>
+		<h1 style="letter-spacing: 2px; font-family: 'Alef';">Admin Login</h1>
 	 <div class="sap_tabs">	
 			<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
 			  <ul class="resp-tabs-list">
@@ -69,10 +70,6 @@ if(isset($_POST['send']))
 			 <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
 					 	<div class="facts">
 							 <div class="login">
-							<div class="buttons">
-								
-								
-							</div>
 							<form name="login" action="checkLogin.php" method="post">
 								<input type="text" class="text" name="adminName" value="" placeholder="Enter your username"  ><a href="#" class=" icon email"></a>
 

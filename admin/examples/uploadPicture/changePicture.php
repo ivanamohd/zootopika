@@ -153,7 +153,8 @@ Coded by www.creative-tim.com
             <input type="file" name="profileImage" onChange="displayImage(this)" id="profileImage" class="form-control" style="display: none;">
           <div class="form-group">
 		  <div class="update ml-auto mr-auto">
-          <input type="submit" name="save_profile" class="btn btn-primary btn-round" value="Save">
+		  <br>
+          <input type="submit" name="save_profile" class="btn btn-primary btn-round" style="width: 215px" value="Save">
           </div>
         </form>
 		<a href="../user.php">  

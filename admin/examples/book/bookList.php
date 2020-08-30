@@ -57,84 +57,7 @@ Coded by www.creative-tim.com
 </head>
 
 <body class="" style="background-color:#F4F4F4">
-  <div class="wrapper ">
-    <div class="sidebar" data-color="white" data-active-color="danger">
-      <div class="logo">
-        <a href="../user.php" class="simple-text logo-mini">
-          <div class="logo-image-small">
-            <img src="../../assets/img/logo-small.png">
-          </div>
-          <!-- <p>CT</p> -->
-        </a>
-        <a href="../../../visitor/index.html" class="simple-text logo-normal">
-          ZOOTOPIKA
-          <!-- <div class="logo-image-big">
-            <img src="../assets/img/logo-big.png">
-          </div> -->
-        </a>
-      </div>
-      <div class="sidebar-wrapper">
-        <ul class="nav">
-          <li>
-            <a href="../dashboard.php">
-              <i class="nc-icon nc-bank"></i>
-              <p>Dashboard</p>
-            </a>
-          </li>
-          <li>
-            <a href="../map.html">
-              <i class="nc-icon nc-pin-3"></i>
-              <p>Maps</p>
-            </a>
-          </li>
-          <li>
-            <a href="../user.php">
-              <i class="nc-icon nc-single-02"></i>
-              <p>User Profile</p>
-            </a>
-          </li>
-          <li class="active">
-            <a href="./ticketList.php">
-              <i class="nc-icon nc-paper"></i>
-              <p>Ticket List</p>
-            </a>
-          </li>
-		  <li>
-            <a href="../feedback/feedbackList.php">
-              <i class="nc-icon nc-email-85"></i>
-              <p>Feedback List</p>
-            </a>
-          </li>
-		  <li>
-            <a href="../password.php">
-              <i class="nc-icon nc-key-25"></i>
-              <p>Change Password</p>
-            </a>
-          </li>
-		  <li>
-            <a href="../login/logout.php">
-              <i class="nc-icon nc-user-run"></i>
-              <p>Logout</p>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="main-panel">
-      <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
-        <div class="container-fluid">
-          <div class="navbar-wrapper">
-            <div class="navbar-toggle">
-              <button type="button" class="navbar-toggler">
-                <span class="navbar-toggler-bar bar1"></span>
-                <span class="navbar-toggler-bar bar2"></span>
-                <span class="navbar-toggler-bar bar3"></span>
-              </button>
-            </div>
-            <a class="navbar-brand" href="javascript:;">Ticket</a>
-          </div>
-      </nav>
+  
       <!-- End Navbar -->
     <?php
 	include "ticket.php";
@@ -151,8 +74,8 @@ Coded by www.creative-tim.com
 			<div class="col-md-12">
 			<div class="card">
 			<div class="card-header row">
-				<h4 class="card-title col-md-9"> Ticket </h4>
-				<div class="card-title col-md-3"> <a href="addTicket.php"> <button type="button" class="add-new btn btn-primary btn-round" style="float:right"><i class="fa fa-plus"></i> Add Ticket</button> </a> </div>
+				<h4 class="card-title col-md-10"> Ticket </h4>
+				<div class="card-title col-md-2"> <a href="addTicket.php"> <button type="button" class="add-new btn btn-primary btn-round"><i class="fa fa-plus"></i> Add Ticket</button> </a> </div>
 			</div>
 			<div class="card-body">
 			<div class="table-responsive">

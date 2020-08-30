@@ -53,6 +53,11 @@ Coded by www.creative-tim.com
   <link href="../assets/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
+  <style>
+	label {
+		margin: 0 32px;
+	}
+  </style>
 </head>
 
 <body class="" style="background-color:#F4F4F4">
@@ -138,7 +143,7 @@ Coded by www.creative-tim.com
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                        &emsp; &emsp; &emsp; &emsp; &ensp; <label>Current Password</label>
+                        <label>Current Password</label>
                         &ensp; &ensp; <input type="password" name="currentPassword" id="currentPassword" class="required">
                       </div>
                     </div>
@@ -146,7 +151,7 @@ Coded by www.creative-tim.com
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                        &emsp; &emsp; &emsp; &emsp; &ensp; <label>New Password</label>
+                        <label>New Password</label>
                         &emsp; &ensp; &ensp; <input type="password" name="newPassword" id="newPassword" class="required">
                       </div>
                     </div>
@@ -154,7 +159,7 @@ Coded by www.creative-tim.com
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                        &emsp; &emsp; &emsp; &emsp; &ensp; <label>Confirm Password</label>
+                        <label>Confirm Password</label>
                         &emsp; <input type="password" name="confirmPassword" id="confirmPassword" class="required">
                       </div>
                     </div>
