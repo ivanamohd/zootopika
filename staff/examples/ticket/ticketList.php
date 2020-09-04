@@ -212,16 +212,16 @@ Coded by www.creative-tim.com
 	//echo '<br>No of car:'.mysqli_num_rows($qry);
 	echo '<div class="col-md-12">
 			<div class="card">
-			<div class="card-header">
-				<h4 class="card-title"> Tickets Booked </h4>
+			<div class="card-header row">
+				<h4 class="card-title col-md-9"> Tickets Booked </h4>
+				<div class="card-title col-md-3"> <a href="../book/addBook.php"> <button type="button" class="add-new btn btn-primary btn-round" style="float:right"><i class="fa fa-plus"></i> Add Booking</button> </a> </div>
 			</div>
 			<div class="card-body">
 			<div class="table-responsive">
-            <table class="table">
+            <table class="table table-hover">
 				<thead class=" text-primary" align="center">
 					<th>No</th>
 					<th>Reference</th>
-					<th>Ticket ID</th>
 					<th>First Name</th>
 					<th>Last Name</th>
 					<th>Email</th>
@@ -239,7 +239,6 @@ Coded by www.creative-tim.com
 		echo '<tr>';
 		echo '<td>'.$i.'</td>';
 		echo '<td>'.$row['visitorReference'].'</td>';
-		echo '<td>'.$row['ticketID'].'</td>';
 		echo '<td>'.$row['visitorFN'].'</td>';
 		echo '<td>'.$row['visitorLN'].'</td>';
 		echo '<td>'.$row['visitorEmail'].'</td>';

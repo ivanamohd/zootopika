@@ -105,9 +105,9 @@ Coded by www.creative-tim.com
             </a>
           </li>
           <li>
-            <a href="../tables.php">
-              <i class="nc-icon nc-tile-56"></i>
-              <p>Table List</p>
+            <a href="../ticket/ticketList.php">
+              <i class="nc-icon nc-paper"></i>
+              <p>Ticket List</p>
             </a>
           </li>
 		  <li>

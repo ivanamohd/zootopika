@@ -192,7 +192,7 @@ Coded by www.creative-tim.com
               <div class="card-body">
                 <div class="author">
                   <a href="uploadPicture/changePicture.php">
-					<img id="profileDisplay" class="avatar border-gray" src="uploadPicture/images/imageView.php?username=' . $_SESSION['adminName'] . '" alt="Card image cap">
+					<img id="profileDisplay" class="avatar border-gray" src="uploadPicture/images/imageView.php?username=' . $_SESSION['adminName'] . '" alt="Click here to upload picture">
                     <h5 class="title"> '.$adminFN.' '.$adminLN.'</h5>
                   </a>
                   <p class="description">

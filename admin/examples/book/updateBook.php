@@ -5,18 +5,23 @@ ini_set('display_errors', 1);
 	ini_set('display_startup_errors', 1);
 	error_reporting(E_ALL);
 
-include "ticket.php";
+include "book.php";
 	
 $con = mysqli_connect('localhost','web38','web38','zootopikadb') or die('Unable To connect');
 
-$ticketID=$_POST['ticketIDToUpdate'];
-$qry = getTicketInformation($ticketID);//call function to get detail car data
+$visitorReference = $_POST['visitorReferenceToUpdate'];
+$qry = getBookInformation($visitorReference);//call function to get detail car data
 $row = mysqli_fetch_assoc($qry);
 //assign data to variable
-$ticketName = $row['ticketName'];
-$ticketType =$row['ticketType'];
-$ticketPackage =$row['ticketPackage'];
-$ticketPrice = $row['ticketPrice'];
+$ticketID = $_row['ticketID'];
+$visitorFN = $_row['visitorFN'];
+$visitorLN = $_row['visitorLN'];
+$visitorEmail = $_row['visitorEmail'];
+$visitorContact = $_row['visitorContact'];
+$visitorCountry = $_row['visitorCountry'];
+$visitorDate = $_row['visitorDate'];
+$visitorAmount = $_row['visitorAmount'];
+$visitorQuantity = $_row['visitorQuantity'];
 
 ?>
 
@@ -115,12 +120,6 @@ Coded by www.creative-tim.com
             </a>
           </li>
 		  <li>
-            <a href="../feedback/feedbackList.php">
-              <i class="nc-icon nc-email-85"></i>
-              <p>Feedback List</p>
-            </a>
-          </li>
-		  <li>
             <a href="../password.php">
               <i class="nc-icon nc-key-25"></i>
               <p>Change Password</p>
@@ -142,48 +141,87 @@ Coded by www.creative-tim.com
           <div class="col-md-7">
             <div class="card card-user">
               <div class="card-header">
-                <h5 class="card-title">Update Ticket</h5>
+                <h5 class="card-title">Update Booking</h5>
               </div>
               <div class="card-body" align="left">
-                <form method="post" action="processTicket.php">
+                <form method="post" action="processBook.php">
                   <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Reference</label>
+                        &emsp; &ensp; &ensp; &#8200; <input type="text" name="visitorReference" value="'.$visitorReference.'" readonly>
+                      </div>
+                    </div>
+                  </div>
+				  <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
                         <label>Ticket ID</label>
-                        &emsp; &ensp; &ensp; &#8200; <input type="text" name="ticketID" value="'.$ticketID.'" readonly>
-                      </div>
-                    </div>
-                  </div>
-				  <div class="row">
-                    <div class="col-md-12">
-                      <div class="form-group">
-                        <label>Ticket Name</label>
-                        &emsp; &#8202; <input type="text" name="ticketName" value="'.$ticketName.'" class="required">
+                        &emsp; &#8202; <input type="text" name="ticketID" value="'.$ticketID.'" class="required">
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label>Ticket Type</label>
-						&emsp; &ensp; &#8200;'; showSelectedType($ticketType);
-                      echo '</div>
+                        <label>First Name</label>
+                        &emsp; &#8202; <input type="text" name="visitorFN" value="'.$visitorFN.'" class="required">
+                      </div>
                     </div>
                   </div>
-                  
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Last Name</label>
+                        &emsp; &#8202; <input type="text" name="visitorLN" value="'.$visitorLN.'" class="required">
+                      </div>
+                    </div>
+                  </div>
 				  <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label>Ticket Package</label>
-                        &nbsp; &#8202;'; showSelectedPackage($ticketPackage);
-                      echo '</div>
+                        <label>Email</label>
+                        &emsp; &#8202; <input type="text" name="visitorEmail" value="'.$visitorEmail.'" class="required">
+                      </div>
                     </div>
                   </div>
 				  <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label>Ticket Price</label>
-                        &emsp; &nbsp; &#8202; <input type="number" name="ticketPrice" value="'.$ticketPrice.'" class="required">
+                        <label>Contact</label>
+                        &emsp; &#8202; <input type="text" name="visitorContact" value="'.$visitorContact.'" class="required">
+                      </div>
+                    </div>
+                  </div>
+				  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Country</label>
+                        &emsp; &#8202; <input type="text" name="visitorCountry" value="'.$visitorCountry.'" class="required">
+                      </div>
+                    </div>
+                  </div>
+				  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Date</label>
+                        &emsp; &#8202; <input type="text" name="visitorDate" value="'.$visitorDate.'" class="required">
+                      </div>
+                    </div>
+                  </div>
+				  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Amount</label>
+                        &emsp; &nbsp; &#8202; <input type="number" name="visitorAmount" value="'.$visitorAmount.'" class="required">
+                      </div>
+                    </div>
+                  </div>
+				  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Quantity</label>
+                        &emsp; &#8202; <input type="text" name="visitorQuantity" value="'.$visitorQuantity.'" class="required">
                       </div>
                     </div>
                   </div>
@@ -217,49 +255,3 @@ Coded by www.creative-tim.com
 </body>
 
 </html>
-
-<?php
-function showSelectedType($ticketType)
-{
-echo '<select name = "ticketType">';
-
-if($ticketType == '')
-	echo "<option value='' selected>-- Please Select --</option>";
-else
-	echo "<option value=''>-- Please Select --</option>";
-if($ticketType == 'mykad')
-	echo "<option value='mykad' selected>mykad</option>";
-else
-	echo "<option value='mykad'>mykad</option>";
-if($ticketType == 'nonmykad')
-	echo "<option value='nonmykad' selected>nonmykad</option>";
-else
-	echo "<option value='nonmykad'>nonmykad</option>";
-if($ticketType == 'ikad')
-	echo "<option value='ikad' selected>ikad</option>";
-else
-	echo "<option value='ikad'>ikad</option>";
-
-echo '</select>';
-}
-
-function showSelectedPackage($ticketPackage)
-{
-echo '<select name = "ticketPackage">';
-
-if($ticketPackage == '')
-	echo "<option value='' selected>-- Please Select --</option>";
-else
-	echo "<option value=''>-- Please Select --</option>";
-if($ticketPackage == 'family')
-	echo "<option value='family' selected>family</option>";
-else
-	echo "<option value='family'>family</option>";
-if($ticketPackage == 'none')
-	echo "<option value='none' selected>none</option>";
-else
-	echo "<option value='none'>none</option>";
-
-echo '</select>';
-}
-?>

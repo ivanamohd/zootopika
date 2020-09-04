@@ -6,13 +6,13 @@ $_SESSION['staffName']=$_POST['staffName'];
 $_SESSION['staffPassword']=$_POST['staffPassword'];  
 $_SESSION['curTime']=time('G:i:sa');//get the login time
 
-
 // username and password sent from form 
 $staffName=$_POST['staffName']; 
 $staffPassword=$_POST['staffPassword']; 
+$salt = "codeflix";
+$hash = sha1($staffPassword.$salt);
 
-
-$isValidUser = validatePassword($staffName,$staffPassword);
+$isValidUser = validatePassword($staffName,$hash);
 
 if($isValidUser){
 		header("location:../dashboard.php"); // redirect to admin page

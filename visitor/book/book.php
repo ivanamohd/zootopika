@@ -9,19 +9,14 @@ if(!$con)
 	exit;
 	}
  //collect data from post array
- $visitorReference = $_POST['visitorReference'];
  $ticketID = $_POST['ticketID'];
- $visitorFN = $_POST['visitorFN'];
- $visitorLN = $_POST['visitorLN'];
- $visitorEmail = $_POST['visitorEmail'];
- $visitorContact = $_POST['visitorContact'];
- $visitorCountry = $_POST['visitorCountry'];
- $visitorDate = $_POST['visitorDate'];
- $visitorAmount = $_POST['visitorAmount'];
- $visitorQuantity = $_POST['visitorQuantity'];
+ $ticketName = $_POST['ticketName'];
+ $ticketType = $_POST['ticketType'];
+ $ticketPackage = $_POST['ticketPackage'];
+ $ticketPrice = $_POST['ticketPrice'];
   
-  $sql="INSERT INTO ticket(visitorReference, ticketID, visitorFN, visitorLN, visitorEmail, visitorContact, visitorCountry, visitorDate, visitorAmount, visitorQuantity)
-	VALUES ('$visitorReference','$ticketID','$visitorFN','$visitorLN','$visitorEmail','$visitorContact','$visitorCountry','$visitorDate','$visitorAmount','$visitorQuantity')";
+  $sql="INSERT INTO ticket(ticketID, ticketName,ticketType,ticketPackage,ticketPrice)
+	VALUES ('$ticketID','$ticketName','$ticketType','$ticketPackage','$ticketPrice')";
  
 //echo $sql;
 	$qry = mysqli_query($con,$sql);
@@ -132,20 +127,14 @@ if(!$con)
 	exit;
 	}
 //get the data to update
- $visitorReference = $_POST['visitorReference'];
  $ticketID = $_POST['ticketID'];
- $visitorFN = $_POST['visitorFN'];
- $visitorLN = $_POST['visitorLN'];
- $visitorEmail = $_POST['visitorEmail'];
- $visitorContact = $_POST['visitorContact'];
- $visitorCountry = $_POST['visitorCountry'];
- $visitorDate = $_POST['visitorDate'];
- $visitorAmount = $_POST['visitorAmount'];
- $visitorQuantity = $_POST['visitorQuantity'];
+ $ticketName = $_POST['ticketName'];
+ $ticketType = $_POST['ticketType'];
+ $ticketPackage = $_POST['ticketPackage'];
+ $ticketPrice = $_POST['ticketPrice'];
  
-$sql = 'update ticket SET ticketID = "'.$ticketID.'", visitorFN = "'.$visitorFN.'", visitorLN = "'.$visitorLN.'", 
-visitorEmail = "'.$visitorEmail.'", visitorContact = "'.$visitorContact.'", visitorCountry = "'.$visitorCountry.'", visitorDate = "'.$visitorDate.'",
-visitorAmount = "'.$visitorAmount.'", visitorQuantity = "'.$visitorQuantity.'" WHERE visitorReference = "'.$visitorReference.'"';
+$sql = 'update ticket SET ticketName ="'.$ticketName.'", ticketType = "'.$ticketType.'", ticketPackage = "'.$ticketPackage.'", 
+ticketPrice = "'.$ticketPrice.'" WHERE ticketID = "'.$ticketID.'"';
 
 $qry = mysqli_query($con,$sql);//run query
 return $qry;  //return query

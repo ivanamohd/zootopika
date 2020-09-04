@@ -16,8 +16,10 @@ if(isset($_POST['addStaff']))
 	$staffEmail=$_POST['staffEmail'];
 	$staffPassword=$_POST['staffPassword'];
 	$staffContact=$_POST['staffContact'];
+	$salt = "codeflix";
+	$hash = sha1($staffPassword.$salt);
 
-	$msg=mysqli_query($con,"insert into staff(staffName,staffFN,staffLN,staffEmail,staffPassword,staffContact) values('$staffName','$staffFN','$staffLN','$staffEmail','$staffPassword','$staffContact')");
+	$msg=mysqli_query($con,"insert into staff(staffName,staffFN,staffLN,staffEmail,staffPassword,staffContact) values('$staffName','$staffFN','$staffLN','$staffEmail','$hash','$staffContact')");
 	if($msg) {
 		echo "<script>alert('Added successfully');</script>";
 		header( "refresh:1; url=addStaff.php" );
