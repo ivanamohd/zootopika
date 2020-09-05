@@ -144,12 +144,17 @@ if(isset($_SESSION["cart_item"])){
                         <input type="date" class="form-control" name="visitorDate" placeholder="Date" required="">
                       </fieldset>
                     </div>
+					
+					<?php 
+						echo '<input type="hidden" value="'.$visitorQuantity.'" name="visitorQuantity">'; 
+						echo '<input type="hidden" value="'.$visitorTotal.'" name="visitorTotal">';
+					?>
+					
                     <div class="col-md-12">
                       <fieldset>
                         <button type="submit" id="form-submit" name="checkout" class="button">CHECKOUT</button>
                       </fieldset>
-                    </div>
-                  </div>
+                    </div>				
                 </form>
 	
 	<form style="display:inline-block" action="processBook.php" method="post" >

@@ -182,7 +182,7 @@ Coded by www.creative-tim.com
 		echo '<td>'.$row['ticketName'].'</td>';
 		echo '<td>'.$row['ticketType'].'</td>';
 		echo '<td>'.$row['ticketPackage'].'</td>';
-		echo '<td>'.$row['ticketPrice'].'</td>';
+		echo '<td> RM'.$row['ticketPrice'].'</td>';
 		$ticketID = $row['ticketID'];
 		echo '<td>';
 			echo '<form style="display:inline-block" action="updateTicket.php" method="post" >';
@@ -228,14 +228,12 @@ Coded by www.creative-tim.com
 				<thead class=" text-primary" align="center">
 					<th>No</th>
 					<th>Reference</th>
-					<th>First Name</th>
-					<th>Last Name</th>
+					<th>Name</th>
 					<th>Email</th>
 					<th>Contact</th>
-					<th>Country</th>
 					<th>Date</th>
 					<th>Quantity</th>
-					<th>Amount</th>
+					<th>Total</th>
 					<th>Actions</th>
 				</thead>';
 	$i=1;
@@ -245,14 +243,12 @@ Coded by www.creative-tim.com
 		echo '<tr>';
 		echo '<td>'.$i.'</td>';
 		echo '<td>'.$row['visitorReference'].'</td>';
-		echo '<td>'.$row['visitorFN'].'</td>';
-		echo '<td>'.$row['visitorLN'].'</td>';
+		echo '<td>'.$row['visitorName'].'</td>';
 		echo '<td>'.$row['visitorEmail'].'</td>';
 		echo '<td>'.$row['visitorContact'].'</td>';
-		echo '<td>'.$row['visitorCountry'].'</td>';
 		echo '<td>'.$row['visitorDate'].'</td>';
 		echo '<td>'.$row['visitorQuantity'].'</td>';
-		echo '<td>'.$row['visitorAmount'].'</td>';
+		echo '<td> RM'.$row['visitorTotal'].'</td>';
 		echo '<td>';
 			echo '<form style="display:inline-block" action="../book/updateBook.php" method="post" >';
 			echo "<input type='hidden' value='$ticketID' name='ticketIDToUpdate'>";

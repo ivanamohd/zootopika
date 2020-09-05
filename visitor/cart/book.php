@@ -8,6 +8,7 @@ if(!$con)
 	echo mysqli_connect_error();
 	exit;
 	}
+	
  //collect data from post array
  $visitorName = $_POST['visitorName'];
  $visitorEmail = $_POST['visitorEmail'];
@@ -21,10 +22,12 @@ if(!$con)
  //$_SESSION["cart_item"] as $item){
  //$item_price = $item["quantity"]*$item["price"];
  
+ 
+ 
   $sql="INSERT INTO book(visitorReference, visitorName, visitorEmail, visitorContact, visitorDate, visitorQuantity, visitorTotal)
 	VALUES ('$visitorReference','$visitorName','$visitorEmail','$visitorContact','$visitorDate','$visitorQuantity','$visitorTotal')";
  
-//echo $sql;
+  echo $sql;
 	$qry = mysqli_query($con,$sql);
  mysqli_query($con,$sql);
 }

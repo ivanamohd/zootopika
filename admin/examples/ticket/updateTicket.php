@@ -189,7 +189,7 @@ Coded by www.creative-tim.com
                     <div class="col-md-12">
                       <div class="form-group">
                         <label>Ticket Price</label>
-                        &emsp; &nbsp; &#8202; <input type="number" name="ticketPrice" value="'.$ticketPrice.'" class="required">
+                        &emsp; &nbsp; &#8202; <input type="text" name="ticketPrice" value="'.$ticketPrice.'" class="required">
                       </div>
                     </div>
                   </div>
