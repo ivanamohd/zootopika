@@ -917,7 +917,7 @@ footer{
 
 .footer-distributed h3{
 	color:  #ffffff;
-	font: normal 36px 'Cookie', cursive;
+	font: normal 36px , cursive;
 	margin: 0;
 }
 
@@ -929,7 +929,7 @@ footer{
 
 .footer-distributed .footer-links{
 	color:  #ffffff;
-	margin: 20px 0 12px;
+	margin: 20px 12px;
 }
 
 .footer-distributed .footer-links a{
@@ -1030,9 +1030,11 @@ footer{
 	color: #ffffff;
 	text-align: center;
 	line-height: 15px;
+	
 
 	margin-right: 3px;
 	margin-bottom: 3px;
+	padding: 8px 8px;
 }
 
 

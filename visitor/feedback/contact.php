@@ -373,8 +373,8 @@ https://www.tooplate.com/view/2114-pixie
 			<div class="footer-center">
 				<div>
 					<i class="fa fa-map-marker"></i>
-					  <p>Jalan Taman Zooview, Taman Zooview, 68000 Ampang,
-					  <br>Selangor</p>
+					  <p>Jalan Taman Zooview, Taman Zooview,
+					  <br>68000 Ampang, Selangor</p>
 				</div>
 
 				<div>
