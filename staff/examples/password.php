@@ -2,8 +2,8 @@
 session_start();
 
 ini_set('display_errors', 1);
-	ini_set('display_startup_errors', 1);
-	error_reporting(E_ALL);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 	
 $staffName = $_SESSION["staffName"];/* userid of the user */
 $con = mysqli_connect('localhost','web38','web38','zootopikadb') or die('Unable To connect');

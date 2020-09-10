@@ -111,6 +111,12 @@ Coded by www.creative-tim.com
             </a>
           </li>
 		  <li>
+            <a href="../feedback/feedbackList.php">
+              <i class="nc-icon nc-email-85"></i>
+              <p>Feedback List</p>
+            </a>
+          </li>
+		  <li>
             <a href="../password.php">
               <i class="nc-icon nc-key-25"></i>
               <p>Change Password</p>
@@ -147,7 +153,7 @@ Coded by www.creative-tim.com
             <input type="file" name="profileImage" onChange="displayImage(this)" id="profileImage" class="form-control" style="display: none;">
           <div class="form-group">
             <div class="update ml-auto mr-auto">
-          <input type="submit" name="save_profile" class="btn btn-primary btn-round" value="Save">
+          <input type="submit" name="save_profile" class="btn btn-primary btn-round" style="width: 215px" value="Save">
           </div>
        </form>
 		<a href="../user.php">  

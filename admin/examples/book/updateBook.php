@@ -13,15 +13,12 @@ $visitorReference = $_POST['visitorReferenceToUpdate'];
 $qry = getBookInformation($visitorReference);//call function to get detail car data
 $row = mysqli_fetch_assoc($qry);
 //assign data to variable
-$ticketID = $_row['ticketID'];
-$visitorFN = $_row['visitorFN'];
-$visitorLN = $_row['visitorLN'];
-$visitorEmail = $_row['visitorEmail'];
-$visitorContact = $_row['visitorContact'];
-$visitorCountry = $_row['visitorCountry'];
-$visitorDate = $_row['visitorDate'];
-$visitorAmount = $_row['visitorAmount'];
-$visitorQuantity = $_row['visitorQuantity'];
+$visitorName = $row['visitorName'];
+$visitorEmail = $row['visitorEmail'];
+$visitorContact = $row['visitorContact'];
+$visitorDate = $row['visitorDate'];
+$visitorQuantity = $row['visitorQuantity'];
+$visitorTotal = $row['visitorTotal'];
 
 ?>
 
@@ -61,17 +58,12 @@ Coded by www.creative-tim.com
   <link href="../../assets/demo/demo.css" rel="stylesheet" />
   
   <style>
-	select {
-		  width: 183px;
-		  padding: 3.4px 0px;
-		}
-		
 		input {
 		  width: 66%;
 		}
 		
 		label {
-			margin: 0 20px;
+			margin: 0 29px;
 		}
   </style>
 </head>
@@ -113,12 +105,25 @@ Coded by www.creative-tim.com
               <p>User Profile</p>
             </a>
           </li>
+		  <li>
+            <a href="../staff/staffList.php">
+              <i class="nc-icon nc-badge"></i>
+              <p>Staff List</p>
+            </a>
+          </li>
           <li class="active">
-            <a href="ticketList.php">
+            <a href="../ticket/ticketList.php">
               <i class="nc-icon nc-paper"></i>
               <p>Ticket List</p>
             </a>
           </li>
+		  <li>
+            <a href="../feedback/feedbackList.php">
+              <i class="nc-icon nc-email-85"></i>
+              <p>Feedback List</p>
+            </a>
+          </li>
+		  <li>
 		  <li>
             <a href="../password.php">
               <i class="nc-icon nc-key-25"></i>
@@ -149,31 +154,15 @@ Coded by www.creative-tim.com
                     <div class="col-md-12">
                       <div class="form-group">
                         <label>Reference</label>
-                        &emsp; &ensp; &ensp; &#8200; <input type="text" name="visitorReference" value="'.$visitorReference.'" readonly>
-                      </div>
-                    </div>
-                  </div>
-				  <div class="row">
-                    <div class="col-md-12">
-                      <div class="form-group">
-                        <label>Ticket ID</label>
-                        &emsp; &#8202; <input type="text" name="ticketID" value="'.$ticketID.'" class="required">
+                        <input type="text" name="visitorReference" value="'.$visitorReference.'" readonly>
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label>First Name</label>
-                        &emsp; &#8202; <input type="text" name="visitorFN" value="'.$visitorFN.'" class="required">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="form-group">
-                        <label>Last Name</label>
-                        &emsp; &#8202; <input type="text" name="visitorLN" value="'.$visitorLN.'" class="required">
+                        <label>Name</label>
+                        &emsp; &#8200; <input type="text" name="visitorName" value="'.$visitorName.'" class="required" readonly>
                       </div>
                     </div>
                   </div>
@@ -181,7 +170,7 @@ Coded by www.creative-tim.com
                     <div class="col-md-12">
                       <div class="form-group">
                         <label>Email</label>
-                        &emsp; &#8202; <input type="text" name="visitorEmail" value="'.$visitorEmail.'" class="required">
+                        &emsp; &#8202; &#8202; <input type="text" name="visitorEmail" value="'.$visitorEmail.'" class="required" readonly>
                       </div>
                     </div>
                   </div>
@@ -189,15 +178,7 @@ Coded by www.creative-tim.com
                     <div class="col-md-12">
                       <div class="form-group">
                         <label>Contact</label>
-                        &emsp; &#8202; <input type="text" name="visitorContact" value="'.$visitorContact.'" class="required">
-                      </div>
-                    </div>
-                  </div>
-				  <div class="row">
-                    <div class="col-md-12">
-                      <div class="form-group">
-                        <label>Country</label>
-                        &emsp; &#8202; <input type="text" name="visitorCountry" value="'.$visitorCountry.'" class="required">
+                        &nbsp; &#8201; <input type="text" name="visitorContact" value="'.$visitorContact.'" class="required" readonly>
                       </div>
                     </div>
                   </div>
@@ -205,15 +186,7 @@ Coded by www.creative-tim.com
                     <div class="col-md-12">
                       <div class="form-group">
                         <label>Date</label>
-                        &emsp; &#8202; <input type="text" name="visitorDate" value="'.$visitorDate.'" class="required">
-                      </div>
-                    </div>
-                  </div>
-				  <div class="row">
-                    <div class="col-md-12">
-                      <div class="form-group">
-                        <label>Amount</label>
-                        &emsp; &nbsp; &#8202; <input type="number" name="visitorAmount" value="'.$visitorAmount.'" class="required">
+                        &emsp; &nbsp; &#8200; <input type="date" name="visitorDate" value="'.$visitorDate.'" class="required">
                       </div>
                     </div>
                   </div>
@@ -221,14 +194,22 @@ Coded by www.creative-tim.com
                     <div class="col-md-12">
                       <div class="form-group">
                         <label>Quantity</label>
-                        &emsp; &#8202; <input type="text" name="visitorQuantity" value="'.$visitorQuantity.'" class="required">
+                        &#8196 <input type="text" name="visitorQuantity" value="'.$visitorQuantity.'" class="required" readonly>
+                      </div>
+                    </div>
+                  </div>
+				  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Total</label>
+                        &emsp; &nbsp; &#8200; <input type="number" name="visitorTotal" value="'.$visitorTotal.'" class="required" readonly>
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="update ml-auto mr-auto">
-                      <button type="submit" name="updateTicket" class="btn btn-primary btn-round">Update Ticket</button> &emsp; &emsp;
-					  <a href="ticketList.php" > <button class="btn btn-primary btn-round" type="button">Back</button> </a>
+                      <button type="submit" name="updateBook" class="btn btn-primary btn-round">Update Booking</button> &emsp; &emsp;
+					  <a href="../ticket/ticketList.php" > <button class="btn btn-primary btn-round" type="button">Back</button> </a>
                     </div>
                   </div>
                 </form>

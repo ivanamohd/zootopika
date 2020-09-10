@@ -1,17 +1,17 @@
 <?php
-include "ticket.php";
-if(isSet($_POST['updateTicket']))
+include "book.php";
+if(isSet($_POST['updateBook']))
 	{
-		updateTicketInformation();
-		header("refresh:1; url=ticketList.php" );
+		updateBookInformation();
+		header("refresh:1; url=../ticket/ticketList.php" );
 	}
 
-if(isSet($_POST['deleteTicket']))
+if(isSet($_POST['deleteBook']))
 	{
-	deleteTicket();
+	deleteBook();
 	echo "<script>";
-	echo " alert('Ticket record has been deleted.');
+	echo " alert('Booking record has been deleted.');
 		</script>";
-	header( "refresh:1; url=ticketList.php" );
+	header( "refresh:1; url=../ticket/ticketList.php" );
 	}
 ?>

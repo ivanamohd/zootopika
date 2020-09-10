@@ -5,7 +5,7 @@ ini_set('display_errors', 1);
 	ini_set('display_startup_errors', 1);
 	error_reporting(E_ALL);
 	
-$staffName = $_SESSION["staffName"];/* userid of the user */
+$adminName = $_SESSION["adminName"];/* userid of the user */
 $con = mysqli_connect('localhost','web38','web38','zootopikadb') or die('Unable To connect');
 
 if(isset($_POST['addTicket']))
@@ -110,6 +110,12 @@ Coded by www.creative-tim.com
             <a href="../user.php">
               <i class="nc-icon nc-single-02"></i>
               <p>User Profile</p>
+            </a>
+          </li>
+		  <li>
+            <a href="../staff/staffList.php">
+              <i class="nc-icon nc-badge"></i>
+              <p>Staff List</p>
             </a>
           </li>
           <li class="active">

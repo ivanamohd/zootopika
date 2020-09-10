@@ -153,7 +153,7 @@ if(!$con)
  
 $sql = 'update staff set staffFN = "'.$staffFN.'", staffLN = "'.$staffLN.'", 
 		staffEmail = "'.$staffEmail.'", staffContact = "'.$staffContact.'", staffAbout = "'.$staffAbout.'" where staffName = "'.$staffName.'"';
-	echo $sql;
+	//echo $sql;
 $qry = mysqli_query($con,$sql);//run query
 return $qry;  //return query
 }

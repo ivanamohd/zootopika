@@ -12,7 +12,11 @@ if (isset($_GET['staffEmail']) && !empty($_GET['staffEmail']) and isset($_GET['s
     $count = mysqli_num_rows($result); //check how many matching record - should be 1 if correct
     $row = mysqli_fetch_assoc($result);
     if ($count == 1) {
-        $sql = "UPDATE staff SET staffPassword = '" . $_GET['staffPassword'] . "' where staffEmail = '" . $_GET['staffEmail'] . "'";
+		$staffPassword=$_GET['staffPassword']; 
+		$salt = "codeflix";
+		$hash = sha1($staffPassword.$salt);
+		
+        $sql = "UPDATE staff SET staffPassword = '" . $hash . "' where staffEmail = '" . $_GET['staffEmail'] . "'";
         $result = mysqli_query($con, $sql);
         if ($result) {
             header("location: index.php");

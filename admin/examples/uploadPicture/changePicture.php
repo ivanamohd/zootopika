@@ -117,6 +117,12 @@ Coded by www.creative-tim.com
             </a>
           </li>
 		  <li>
+            <a href="../feedback/feedbackList.php">
+              <i class="nc-icon nc-email-85"></i>
+              <p>Feedback List</p>
+            </a>
+          </li>
+		  <li>
             <a href="../password.php">
               <i class="nc-icon nc-key-25"></i>
               <p>Change Password</p>
@@ -148,7 +154,7 @@ Coded by www.creative-tim.com
               <div class="text-center img-placeholder" onClick="triggerClick()">
                 <h4>Update image</h4>
               </div>
-              <?php echo '<img onClick="triggerClick()" id="profileDisplay" class="card-img-top" src="images/imageView.php?username=' . $_SESSION['adminName'] . '" alt="Card image cap">';?>
+              <?php echo '<img onClick="triggerClick()" id="profileDisplay" class="card-img-top" src="images/imageView.php?username=' . $_SESSION['adminName'] . '" alt="Click here to upload picture">';?>
             </span>
             <input type="file" name="profileImage" onChange="displayImage(this)" id="profileImage" class="form-control" style="display: none;">
           <div class="form-group">

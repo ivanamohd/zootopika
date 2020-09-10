@@ -214,7 +214,6 @@ Coded by www.creative-tim.com
 			<div class="card">
 			<div class="card-header row">
 				<h4 class="card-title col-md-9"> Tickets Booked </h4>
-				<div class="card-title col-md-3"> <a href="../book/addBook.php"> <button type="button" class="add-new btn btn-primary btn-round" style="float:right"><i class="fa fa-plus"></i> Add Booking</button> </a> </div>
 			</div>
 			<div class="card-body">
 			<div class="table-responsive">
@@ -222,14 +221,12 @@ Coded by www.creative-tim.com
 				<thead class=" text-primary" align="center">
 					<th>No</th>
 					<th>Reference</th>
-					<th>First Name</th>
-					<th>Last Name</th>
+					<th>Name</th>
 					<th>Email</th>
 					<th>Contact</th>
-					<th>Country</th>
 					<th>Date</th>
 					<th>Quantity</th>
-					<th>Amount</th>
+					<th>Total</th>
 					<th>Actions</th>
 				</thead>';
 	$i=1;
@@ -239,23 +236,22 @@ Coded by www.creative-tim.com
 		echo '<tr>';
 		echo '<td>'.$i.'</td>';
 		echo '<td>'.$row['visitorReference'].'</td>';
-		echo '<td>'.$row['visitorFN'].'</td>';
-		echo '<td>'.$row['visitorLN'].'</td>';
+		echo '<td>'.$row['visitorName'].'</td>';
 		echo '<td>'.$row['visitorEmail'].'</td>';
 		echo '<td>'.$row['visitorContact'].'</td>';
-		echo '<td>'.$row['visitorCountry'].'</td>';
 		echo '<td>'.$row['visitorDate'].'</td>';
 		echo '<td>'.$row['visitorQuantity'].'</td>';
-		echo '<td>'.$row['visitorAmount'].'</td>';
+		echo '<td> RM'.$row['visitorTotal'].'</td>';
+		$visitorReference = $row['visitorReference'];
 		echo '<td>';
-			echo '<form style="display:inline-block" action="updateTicket.php" method="post" >';
-			echo "<input type='hidden' value='$ticketID' name='ticketIDToUpdate'>";
-			echo '<button type="submit" name="updateTicket" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i> </button>';
+			echo '<form style="display:inline-block" action="../book/updateBook.php" method="post" >';
+			echo "<input type='hidden' value='$visitorReference' name='visitorReferenceToUpdate'>";
+			echo '<button type="submit" name="updateBook" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i> </button>';
 			echo '</form>';
 			echo '&emsp;';
-			echo '<form style="display:inline-block" action="processTicket.php" method="post" >';
-			echo "<input type='hidden' value='$ticketID' name='ticketIDToDelete'>";
-			echo '<button type="submit" name="deleteTicket" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i> </button>';
+			echo '<form style="display:inline-block" action="../book/processBook.php" method="post" >';
+			echo "<input type='hidden' value='$visitorReference' name='visitorReferenceToDelete'>";
+			echo '<button type="submit" name="deleteBook" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i> </button>';
 			echo '</form>';
 		echo '</td>';
 		$i++;

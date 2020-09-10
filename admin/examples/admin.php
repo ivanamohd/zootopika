@@ -153,7 +153,7 @@ if(!$con)
  
 $sql = 'update admin set adminFN = "'.$adminFN.'", adminLN = "'.$adminLN.'", 
 		adminEmail = "'.$adminEmail.'", adminContact = "'.$adminContact.'", adminAbout = "'.$adminAbout.'" where adminName = "'.$adminName.'"';
-	echo $sql;
+	//echo $sql;
 $qry = mysqli_query($con,$sql);//run query
 return $qry;  //return query
 }

@@ -53,7 +53,7 @@ https://www.tooplate.com/view/2114-pixie
               <span class="sr-only">(current)</span>
             </li>
 			<li class="nav-item">
-              <a class="nav-link" href="../ticket.php">Buy Tickets</a>
+              <a class="nav-link" href="../cart/index.php">Buy Tickets</a>
             </li>
           </ul>
         </div>
@@ -356,17 +356,17 @@ https://www.tooplate.com/view/2114-pixie
 				<br><br><h3>About<span>Zootopika</span></h3>
 
 				<p class="footer-links">
-					<a href="#">Home</a>
+					<a href="../index.html">Home</a>
 					|
-					<a href="about.html">About</a>
+					<a href="../about.html">About</a>
 					|
-					<a href="feedback/contact.php">Contact Us</a>
+					<a href="#">Contact Us</a>
 					|
-					<a href="map.html">Map</a>
+					<a href="../map.html">Map</a>
 					|
-					<a href="ticket.php">Buy Tickets</a>
+					<a href="../cart/index.php">Buy Tickets</a>
 					<br>
-					<a href="../mainLogin.php">Admin / Staff Login</a>
+					<a href="../../mainLogin.php">Admin / Staff Login</a>
 				</p>
 			</div>
 

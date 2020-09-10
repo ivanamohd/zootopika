@@ -42,7 +42,7 @@ if(!$con)
 	echo  mysqli_connect_error(); 
 	exit;
 	}
-$sql = 'select * from booking';
+$sql = 'select * from book';
 $qry = mysqli_query($con,$sql);//run query
 return $qry;  //return query
 }
@@ -57,10 +57,9 @@ if(!$con)
 	exit;
 	}
 
- $ticketID = $_POST['ticketIDToDelete'];//get selected regNumber to delete
+ $visitorReference = $_POST['visitorReferenceToDelete'];//get selected regNumber to delete
   
-  $sql="delete from ticket
-		where ticketID ='".$ticketID."'";
+  $sql="delete from book where visitorReference ='".$visitorReference."'";
 
 	$qry = mysqli_query($con,$sql);
 
@@ -136,16 +135,19 @@ if(!$con)
 	exit;
 	}
 //get the data to update
- $ticketID = $_POST['ticketID'];
- $ticketName = $_POST['ticketName'];
- $ticketType = $_POST['ticketType'];
- $ticketPackage = $_POST['ticketPackage'];
- $ticketPrice = $_POST['ticketPrice'];
+ $visitorName = $_POST['visitorName'];
+ $visitorEmail = $_POST['visitorEmail'];
+ $visitorContact = $_POST['visitorContact'];
+ $visitorDate = $_POST['visitorDate'];
+ $visitorQuantity = $_POST['visitorQuantity'];
+ $visitorTotal = $_POST['visitorTotal'];
+ $visitorReference = $_POST['visitorReference'];
  
-$sql = 'update ticket SET ticketName ="'.$ticketName.'", ticketType = "'.$ticketType.'", ticketPackage = "'.$ticketPackage.'", 
-ticketPrice = "'.$ticketPrice.'" WHERE ticketID = "'.$ticketID.'"';
+$sql = 'update book SET visitorName ="'.$visitorName.'", visitorEmail = "'.$visitorEmail.'", visitorContact = "'.$visitorContact.'", 
+visitorQuantity = "'.$visitorQuantity.'", visitorTotal = "'.$visitorTotal.'" WHERE visitorReference = "'.$visitorReference.'"';
 
 $qry = mysqli_query($con,$sql);//run query
+echo $sql;
 return $qry;  //return query
 }
 /*

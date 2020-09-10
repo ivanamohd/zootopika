@@ -50,8 +50,64 @@ switch($_GET["action"]) {
 <HEAD>
 <TITLE>Simple PHP Shopping Cart</TITLE>
 <link href="style.css" type="text/css" rel="stylesheet" />
+
+<!-- Bootstrap core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<link rel="stylesheet" type="text/css" href="https;//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href='https://fonts.googleapis.com/css?family=Chelsea Market' rel='stylesheet'>
+	
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="footer, address, phone, icons" />
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="../assets/css/fontawesome.css">
+    <link rel="stylesheet" href="../assets/css/tooplate-main.css">
+    <link rel="stylesheet" href="../assets/css/owl.css">
+    <link rel="stylesheet" href="../assets/css/flex-slider.css">
+	
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+	<link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
 </HEAD>
 <BODY>
+<!-- Navigation -->
+    
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top" style="font-family: 'Chelsea Market'">
+      <div class="container">
+
+        <a class="navbar-brand" href="#"><img style = "height: 75px" src="../assets/images/zootopika logo.jpg" alt=""></a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">Home</a>
+            </li>
+			<li class="nav-item">
+              <a class="nav-link" href="../about.html">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../map.html">Map</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../feedback/contact.php">Contact Us</a>
+            </li>
+			<li class="nav-item active">
+              <a class="nav-link" href="index.php">Buy Tickets</a>
+			  <span class="sr-only">(current)</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
 <div id="shopping-cart">
 <div class="txt-heading">Shopping Cart</div>
 
@@ -120,7 +176,9 @@ if(isset($_SESSION["cart_item"])){
 		}
 	}
 	?>
-	
+	<div class="col-md-6">
+            <div class="right-content">
+              <div class="container">
 	<form id="contact" action="processBook.php" method="post">
                   <div class="row">
                     <div class="col-md-12">
@@ -130,18 +188,17 @@ if(isset($_SESSION["cart_item"])){
                     </div>
                     <div class="col-md-12">
                       <fieldset>
-                        <input type="text" class="form-control" name="visitorEmail" placeholder="Email" required="">
+                        <br><input type="text" class="form-control" name="visitorEmail" placeholder="Email" required="">
                       </fieldset>
                     </div>
-                    </div>
-					<div class = "col-md-7">
+					<div class = "col-md-12">
 					<fieldset>
-                        <input type="text" class="form-control" name="visitorContact" placeholder="Contact number" required="">
+                        <br><input type="text" class="form-control" name="visitorContact" placeholder="Contact number" required="">
                       </fieldset>
                     </div>
 					<div class="col-md-12">
 					<fieldset>
-                        <input type="date" class="form-control" name="visitorDate" placeholder="Date" required="">
+                        <br><input type="date" class="form-control" name="visitorDate" placeholder="Date" required="">
                       </fieldset>
                     </div>
 					
@@ -152,14 +209,18 @@ if(isset($_SESSION["cart_item"])){
 					
                     <div class="col-md-12">
                       <fieldset>
+						<br>
                         <button type="submit" id="form-submit" name="checkout" class="button">CHECKOUT</button>
                       </fieldset>
                     </div>				
                 </form>
+				</div>
+		</div>
+	</div>
 	
-	<form style="display:inline-block" action="processBook.php" method="post" >
+	<!--<form style="display:inline-block" action="processBook.php" method="post" >
 <input id="btnEmpty" type="submit" name="next" value="Next"> </input>
-</form>
+</form>-->
 
 </BODY>
 </HTML>

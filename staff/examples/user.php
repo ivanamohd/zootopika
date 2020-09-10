@@ -129,7 +129,7 @@ Coded by www.creative-tim.com
           </li>
           <li>
             <a href="ticket/ticketList.php">
-              <i class="nc-icon nc-tile-56"></i>
+              <i class="nc-icon nc-paper"></i>
               <p>Ticket List</p>
             </a>
           </li>
