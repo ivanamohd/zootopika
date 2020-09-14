@@ -96,19 +96,19 @@ Coded by www.creative-tim.com
           <li class="active">
             <a href="./ticketList.php">
               <i class="nc-icon nc-paper"></i>
-              <p>Ticket List</p>
+              <p>Ticket Management</p>
             </a>
           </li>
 		  <li>
             <a href="../staff/staffList.php">
               <i class="nc-icon nc-badge"></i>
-              <p>Staff List</p>
+              <p>Staff Management</p>
             </a>
           </li>
 		  <li>
             <a href="../feedback/feedbackList.php">
               <i class="nc-icon nc-email-85"></i>
-              <p>Feedback List</p>
+              <p>Feedback</p>
             </a>
           </li>
 		  <li>
@@ -182,7 +182,8 @@ Coded by www.creative-tim.com
 		echo '<td>'.$row['ticketName'].'</td>';
 		echo '<td>'.$row['ticketType'].'</td>';
 		echo '<td>'.$row['ticketPackage'].'</td>';
-		echo '<td> RM'.$row['ticketPrice'].'</td>';
+		echo '<td> RM'.number_format($row['ticketPrice'],2).'</td>';
+		//number_format($ticketPrice,2);
 		$ticketID = $row['ticketID'];
 		echo '<td>';
 			echo '<form style="display:inline-block" action="updateTicket.php" method="post" >';
@@ -247,7 +248,7 @@ Coded by www.creative-tim.com
 		echo '<td>'.$row['visitorContact'].'</td>';
 		echo '<td>'.$row['visitorDate'].'</td>';
 		echo '<td>'.$row['visitorQuantity'].'</td>';
-		echo '<td> RM'.$row['visitorTotal'].'</td>';
+		echo '<td> RM'.number_format($row['visitorTotal'],2).'</td>';
 		$visitorReference = $row['visitorReference'];
 		echo '<td>';
 			echo '<form style="display:inline-block" action="../book/updateBook.php" method="post" >';

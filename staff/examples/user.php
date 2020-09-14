@@ -130,13 +130,13 @@ Coded by www.creative-tim.com
           <li>
             <a href="ticket/ticketList.php">
               <i class="nc-icon nc-paper"></i>
-              <p>Ticket List</p>
+              <p>Ticket Management</p>
             </a>
           </li>
 		  <li>
             <a href="feedback/feedbackList.php">
               <i class="nc-icon nc-email-85"></i>
-              <p>Feedback List</p>
+              <p>Feedback</p>
             </a>
           </li>
 		  <li>
@@ -161,7 +161,7 @@ Coded by www.creative-tim.com
           <div class="navbar-wrapper">
             <a class="navbar-brand" href="javascript:;">Profile</a>
           </div>
-		  <div class="collapse navbar-collapse justify-content-end" id="navigation">
+		  <!--<div class="collapse navbar-collapse justify-content-end" id="navigation">
 		  <ul class="navbar-nav">
 		  <li class="nav-item">
                 <div class="dropdown" style="float:right">
@@ -171,7 +171,7 @@ Coded by www.creative-tim.com
 					  </div>
 				</div>
             </ul>
-        </div>
+        </div>-->
 		</div>
       </nav>
       <!-- End Navbar -->

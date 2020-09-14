@@ -32,6 +32,12 @@ Coded by www.creative-tim.com
   <link href="../assets/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
+  
+  <style>
+	table.table-hover tbody tr:hover {
+		background: #f5f5f5;
+	}
+  </style>
 </head>
 
 <body class="" style="background-color:#F4F4F4">
@@ -74,19 +80,19 @@ Coded by www.creative-tim.com
           <li>
             <a href="ticket/ticketList.php">
               <i class="nc-icon nc-paper"></i>
-              <p>Ticket List</p>
+              <p>Ticket Management</p>
             </a>
           </li>
 		  <li>
             <a href="staff/staffList.php">
               <i class="nc-icon nc-badge"></i>
-              <p>Staff List</p>
+              <p>Staff Management</p>
             </a>
           </li>
 		  <li>
             <a href="feedback/feedbackList.php">
               <i class="nc-icon nc-email-85"></i>
-              <p>Feedback List</p>
+              <p>Feedback</p>
             </a>
           </li>
 		  <li>
@@ -122,13 +128,13 @@ Coded by www.creative-tim.com
       <!-- End Navbar -->
 	
 	<?php
-	include "ticket/ticket.php";
+	include "pending/pending.php";
 
 	ini_set('display_errors', 1);
 	ini_set('display_startup_errors', 1);
 	error_reporting(E_ALL);
 
-	$qry = getListOfTicket();
+	$qry = getListOfPending();
 
 	//echo '<br>No of car:'.mysqli_num_rows($qry);
 	echo '<div class="content">
@@ -136,30 +142,46 @@ Coded by www.creative-tim.com
 			<div class="col-md-12">
 			<div class="card">
 			<div class="card-header">
-				<h4 class="card-title"> Ticket </h4>
+				<h4 class="card-title"> Pending Tickets </h4>
 			</div>
 			<div class="card-body">
 			<div class="table-responsive">
-            <table class="table">
-				<thead class=" text-primary">
+            <table class="table table-hover">
+				<thead class="text-primary" align="center">
 					<th>No</th>
-					<th>ID</th>
+					<th>Reference</th>
 					<th>Name</th>
-					<th>Type</th>
-					<th>Package</th>
-					<th>Price</th>
+					<th>Date</th>
+					<th>Quantity</th>
+					<th>Total</th>
+					<th>Receipt</th>
+					<th>Actions</th>
 				</thead>';
 	$i=1;
 	while($row=mysqli_fetch_assoc($qry))//Display car information
 	{
-		echo '<tbody>';
+		echo '<tbody align="center">';
 		echo '<tr>';
 		echo '<td>'.$i.'</td>';
-		echo '<td>'.$row['ticketID'].'</td>';
-		echo '<td>'.$row['ticketName'].'</td>';
-		echo '<td>'.$row['ticketType'].'</td>';
-		echo '<td>'.$row['ticketPackage'].'</td>';
-		echo '<td>'.$row['ticketPrice'].'</td>';
+		echo '<td>'.$row['visitorReference'].'</td>';
+		echo '<td>'.$row['visitorName'].'</td>';
+		echo '<td>'.$row['visitorDate'].'</td>';
+		echo '<td>'.$row['visitorQuantity'].'</td>';
+		echo '<td>'.number_format($row['visitorTotal'],2).'</td>';
+		echo '<td>'.$row['visitorReceipt'].'</td>';
+		
+		$visitorReference = $row['visitorReference'];
+		echo '<td>';
+			echo '<form style="display:inline-block" action="pending/processPending.php" method="post" >';
+			echo "<input type='hidden' value='$visitorReference' name='visitorReferenceToApprove'>";
+			echo '<button type="submit" style="background-color: #6FD64E" name="approvePending" class="btn btn-round"> Approve </button>';
+			echo '</form>';
+			echo '&emsp;';
+			echo '<form style="display:inline-block" action="pending/processPending.php" method="post" >';
+			echo "<input type='hidden' value='$visitorReference' name='visitorReferenceToDecline'>";
+			echo '<button type="submit" style="background-color: #FF5B5B" name="declinePending" class="btn btn-round"> Decline </button>';
+			echo '</form>';
+		echo '</td>';
 		$i++;
 	}
 		echo'</tr>

@@ -4,24 +4,22 @@ session_start();
 ini_set('display_errors', 1);
 	ini_set('display_startup_errors', 1);
 	error_reporting(E_ALL);
+
+include "book.php";
 	
-$adminName = $_SESSION["adminName"];/* userid of the user */
 $con = mysqli_connect('localhost','web38','web38','zootopikadb') or die('Unable To connect');
 
-if(isset($_POST['addTicket']))
-{
-	$ticketID=$_POST['ticketID'];
-	$ticketName=$_POST['ticketName'];
-	$ticketType=$_POST['ticketType'];
-	$ticketPackage=$_POST['ticketPackage'];
-	$ticketPrice=$_POST['ticketPrice'];
+$visitorReference = $_POST['visitorReferenceToUpdate'];
+$qry = getBookInformation($visitorReference);//call function to get detail car data
+$row = mysqli_fetch_assoc($qry);
+//assign data to variable
+$visitorName = $row['visitorName'];
+$visitorEmail = $row['visitorEmail'];
+$visitorContact = $row['visitorContact'];
+$visitorDate = $row['visitorDate'];
+$visitorQuantity = $row['visitorQuantity'];
+$visitorTotal = $row['visitorTotal'];
 
-	$msg=mysqli_query($con,"insert into ticket(ticketID,ticketName,ticketType,ticketPackage,ticketPrice) values('$ticketID','$ticketName','$ticketType','$ticketPackage','$ticketPrice')");
-	if($msg) {
-		echo "<script>alert('Added successfully');</script>";
-		header( "refresh:1; url=addTicket.php" );
-	}
-}
 ?>
 
 <!--
@@ -47,7 +45,7 @@ Coded by www.creative-tim.com
   <link rel="icon" type="image/png" href="../../assets/img/fox.jpg">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Add Booking
+    Update Ticket
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -59,18 +57,13 @@ Coded by www.creative-tim.com
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../../assets/demo/demo.css" rel="stylesheet" />
   
-    <style>
-		select {
-		  width: 183px;
-		  padding: 3.4px 0px;
-		}
-		
+  <style>
 		input {
 		  width: 66%;
 		}
 		
 		label {
-			margin: 0 20px;
+			margin: 0 29px;
 		}
   </style>
 </head>
@@ -115,21 +108,22 @@ Coded by www.creative-tim.com
 		  <li>
             <a href="../staff/staffList.php">
               <i class="nc-icon nc-badge"></i>
-              <p>Staff List</p>
+              <p>Staff Management</p>
             </a>
           </li>
           <li class="active">
-            <a href="ticketList.php">
+            <a href="../ticket/ticketList.php">
               <i class="nc-icon nc-paper"></i>
-              <p>Ticket List</p>
+              <p>Ticket Management</p>
             </a>
           </li>
 		  <li>
             <a href="../feedback/feedbackList.php">
               <i class="nc-icon nc-email-85"></i>
-              <p>Feedback List</p>
+              <p>Feedback</p>
             </a>
           </li>
+		  <li>
 		  <li>
             <a href="../password.php">
               <i class="nc-icon nc-key-25"></i>
@@ -145,69 +139,76 @@ Coded by www.creative-tim.com
         </ul>
       </div>
     </div>
-    <div class="main-panel">
+    <?php
+	echo '<div class="main-panel">
 
 		<div class="content" align="center">
           <div class="col-md-7">
             <div class="card card-user">
               <div class="card-header">
-                <h5 class="card-title">Add New Booking</h5>
+                <h5 class="card-title">Update Booking</h5>
               </div>
               <div class="card-body" align="left">
-                <form method="post" action="">
+                <form method="post" action="processBook.php">
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label>Ticket ID</label>
-                        &emsp; &ensp; &ensp; &#8200; <input type="text" name="ticketID" class="required">
-                      </div>
-                    </div>
-                  </div>
-				  <div class="row">
-                    <div class="col-md-12">
-                      <div class="form-group">
-                        <label>Ticket Name</label>
-                        &emsp; &#8202; <input type="text" name="ticketName" class="required">
+                        <label>Reference</label>
+                        <input type="text" name="visitorReference" value="'.$visitorReference.'" readonly>
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label>Ticket Type</label>
-						&emsp; &nbsp; &#8201; <select name = "ticketType" class="required">
-							<option value="">-- Please Select --</option>
-							<option value="mykad">mykad</option>
-							<option value="nonmykad">nonmykad</option>
-							<option value="ikad">ikad</option>
-						</select>
-                      </div>
-                    </div>
-                  </div>
-                  
-				  <div class="row">
-                    <div class="col-md-12">
-                      <div class="form-group">
-                        <label>Ticket Package</label>
-                        &#8200; <select name = "ticketPackage" class="required">
-							<option value="">-- Please Select --</option>
-							<option value="family">family</option>
-							<option value="none">none</option>
-						</select>
+                        <label>Name</label>
+                        &emsp; &#8200; <input type="text" name="visitorName" value="'.$visitorName.'" class="required" readonly>
                       </div>
                     </div>
                   </div>
 				  <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label>Ticket Price</label>
-                        &emsp; &nbsp; &#8202; <input type="text" name="ticketPrice" class="required">
+                        <label>Email</label>
+                        &emsp; &#8202; &#8202; <input type="text" name="visitorEmail" value="'.$visitorEmail.'" class="required" readonly>
+                      </div>
+                    </div>
+                  </div>
+				  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Contact</label>
+                        &nbsp; &#8201; <input type="text" name="visitorContact" value="'.$visitorContact.'" class="required" readonly>
+                      </div>
+                    </div>
+                  </div>
+				  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Date</label>
+                        &emsp; &nbsp; &#8200; <input type="date" name="visitorDate" value="'.$visitorDate.'" class="required">
+                      </div>
+                    </div>
+                  </div>
+				  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Quantity</label>
+                        &#8196 <input type="text" name="visitorQuantity" value="'.$visitorQuantity.'" class="required" readonly>
+                      </div>
+                    </div>
+                  </div>
+				  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Total</label>
+                        &emsp; &nbsp; &#8200; <input type="number" name="visitorTotal" value="'.$visitorTotal.'" class="required" readonly>
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="update ml-auto mr-auto">
-                      <button type="submit" name="addTicket" class="btn btn-primary btn-round">Add Ticket</button> &emsp; &emsp;
+                      <button type="submit" name="updateBook" class="btn btn-primary btn-round">Update Booking</button> &emsp; &emsp;
 					  <a href="../ticket/ticketList.php" > <button class="btn btn-primary btn-round" type="button">Back</button> </a>
                     </div>
                   </div>
@@ -215,7 +216,8 @@ Coded by www.creative-tim.com
               </div>
             </div>
           </div>
-		  </div>
+		  </div>';
+	?>
 
       <!--   Core JS Files   -->
       <script src="../assets/js/core/jquery.min.js"></script>

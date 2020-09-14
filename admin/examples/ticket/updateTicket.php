@@ -111,19 +111,19 @@ Coded by www.creative-tim.com
           <li class="active">
             <a href="ticketList.php">
               <i class="nc-icon nc-paper"></i>
-              <p>Ticket List</p>
+              <p>Ticket Management</p>
             </a>
           </li>
 		  <li>
             <a href="../staff/staffList.php">
               <i class="nc-icon nc-badge"></i>
-              <p>Staff List</p>
+              <p>Staff Management</p>
             </a>
           </li>
 		  <li>
             <a href="../feedback/feedbackList.php">
               <i class="nc-icon nc-email-85"></i>
-              <p>Feedback List</p>
+              <p>Feedback</p>
             </a>
           </li>
 		  <li>
