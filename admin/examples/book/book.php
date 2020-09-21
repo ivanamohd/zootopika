@@ -1,6 +1,6 @@
 <?php
 //addNewTicket function==================
-function addNewBook()
+/*function addNewBook()
 {
 $con = mysqli_connect("localhost","web38","web38","zootopikadb");
 if(!$con)
@@ -30,7 +30,7 @@ if(!$con)
   echo $sql;
 	$qry = mysqli_query($con,$sql);
  mysqli_query($con,$sql);
-}
+}*/
 
 //getListOfTicket function ==================
 function getListOfBook()

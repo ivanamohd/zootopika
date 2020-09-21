@@ -36,7 +36,7 @@
 error_reporting(0); 
 ?> 
 <?php
-$msg = ""; 
+/*$msg = ""; 
 
 // If upload button is clicked ... 
 if (isset($_POST['upload'])) { 
@@ -60,10 +60,10 @@ if (isset($_POST['upload'])) {
 			$msg = "Failed to upload image"; 
 	} 
 } 
-$result = mysqli_query($db, "SELECT * FROM pending"); 
+$result = mysqli_query($db, "SELECT * FROM pending");*/
 ?> 
 
-<!DOCTYPE html> 
+<!--<!DOCTYPE html> 
 <html> 
 <head> 
 <title>Image Upload</title> 
@@ -79,5 +79,7 @@ $result = mysqli_query($db, "SELECT * FROM pending");
 </form> 
 </div> 
 </body> 
-</html> 
+</html>-->
+
+<?php echo '<img onClick="triggerClick()" id="profileDisplay" class="card-img-top" src="images/view.php?" alt="Click here to upload picture">';?>
 

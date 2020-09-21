@@ -33,10 +33,21 @@ Coded by www.creative-tim.com
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
   
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  
   <style>
 	table.table-hover tbody tr:hover {
 		background: #f5f5f5;
 	}
+	
+	button {
+		padding: 0;
+		border: none;
+		background: none;
+		outline: none;
+		color: #51CBCE;
+	}
+	
   </style>
 </head>
 
@@ -126,6 +137,127 @@ Coded by www.creative-tim.com
           </div>
       </nav>
       <!-- End Navbar -->
+	<div class="content">
+    <div class="row">
+          <div class="col-lg-4 col-md-6 col-sm-6">
+            <div class="card card-stats">
+              <div class="card-body ">
+                <div class="row">
+                  <div class="col-5 col-md-4">
+                    <div class="icon-big text-center icon-warning">
+                      <i class="nc-icon nc-single-02 text-warning"></i>
+                    </div>
+                  </div>
+                  <div class="col-7 col-md-8">
+                    <div class="numbers">
+                      <p class="card-category">Total Staff</p>
+                      <p class="card-title">
+					  <?php
+					  include "staff/staff.php";
+					  $qry = getListOfStaff();
+
+					  echo mysqli_num_rows($qry)
+					  ?>
+					  <p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer ">
+                <hr>
+                <div class="stats">
+                  <i class="fa fa-refresh"></i>
+                  Update Now
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-6">
+            <div class="card card-stats">
+              <div class="card-body ">
+                <div class="row">
+                  <div class="col-5 col-md-4">
+                    <div class="icon-big text-center icon-warning">
+                      <i class="nc-icon nc-money-coins text-success"></i>
+                    </div>
+                  </div>
+                  <div class="col-7 col-md-8">
+                    <div class="numbers">
+                      <p class="card-category">Revenue</p>
+                      <p class="card-title">
+					  <?php
+					  ini_set('display_errors', 1);
+					  ini_set('display_startup_errors', 1);
+					  error_reporting(E_ALL);
+					  
+						$con=mysqli_connect("localhost","web38","web38","zootopikadb");
+						if(!$con)
+						{
+						echo  mysqli_connect_error(); 
+						exit;
+						}
+
+						$sql="SELECT sum(visitorTotal) FROM book";
+						$qry = mysqli_query($con,$sql);
+						
+						while($result = mysqli_fetch_assoc($qry)){
+						echo '<p>RM '.number_format($result['sum(visitorTotal)'],2).'</p>';
+						}
+						
+					  ?>
+					  
+					  
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer ">
+                <hr>
+                <div class="stats">
+                  <i class="fa fa-calendar-o"></i>
+                  Last day
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-6">
+            <div class="card card-stats">
+              <div class="card-body ">
+                <div class="row">
+                  <div class="col-5 col-md-4">
+                    <div class="icon-big text-center icon-warning">
+                      <i class="nc-icon nc-single-copy-04 text-primary"></i>
+                    </div>
+                  </div>
+                  <div class="col-7 col-md-8">
+                    <div class="numbers">
+                      <p class="card-category">Tickets Sold</p>
+                      <p class="card-title">
+					  <?php
+					  include "book/book.php";
+					  $qry = getListOfBook();
+
+					  echo mysqli_num_rows($qry)
+					  ?>
+					  <p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer ">
+                <hr>
+                <div class="stats">
+                  <i class="fa fa-clock-o"></i>
+                  In the last hour
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+	
+	
+	
 	
 	<?php
 	include "pending/pending.php";
@@ -137,7 +269,7 @@ Coded by www.creative-tim.com
 	$qry = getListOfPending();
 
 	//echo '<br>No of car:'.mysqli_num_rows($qry);
-	echo '<div class="content">
+	echo '
 			<div class="row">
 			<div class="col-md-12">
 			<div class="card">
@@ -168,9 +300,17 @@ Coded by www.creative-tim.com
 		echo '<td>'.$row['visitorDate'].'</td>';
 		echo '<td>'.$row['visitorQuantity'].'</td>';
 		echo '<td>'.number_format($row['visitorTotal'],2).'</td>';
-		echo '<td>'.$row['visitorReceipt'].'</td>';
 		
 		$visitorReference = $row['visitorReference'];
+		
+		echo '<td>';
+		echo '<form style="display:inline-block" action="pending/processPending.php" method="post" >';
+		echo "<input type='hidden' value='$visitorReference' name='visitorReferenceToView'>";
+		//echo '<button type="submit" name="viewPending" class="btn btn-primary btn-round"> View </button>';
+		echo '<button type="submit" name="viewPending" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i> </button>';
+		echo '</form>';
+		'</td>';
+		
 		echo '<td>';
 			echo '<form style="display:inline-block" action="pending/processPending.php" method="post" >';
 			echo "<input type='hidden' value='$visitorReference' name='visitorReferenceToApprove'>";
