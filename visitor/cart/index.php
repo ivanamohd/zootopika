@@ -75,8 +75,8 @@ switch($_GET["action"]) {
 
 <style>
 	.image img {
-		width: 443px;
-		height: 150px;
+		width: 350px;
+		height: 140px;
 	}
 </style>
 
@@ -122,7 +122,7 @@ switch($_GET["action"]) {
 <!--<form style="display:inline-block" action="processBook.php" method="post" >
 <input id="btnEmpty" type="submit" name="next" value="Next"> </input>
 </form>-->
-<a id="btnEmpty" style="float: left" href="next.php">Next</a>
+
 
 <?php
 if(isset($_SESSION["cart_item"])){
@@ -138,7 +138,8 @@ if(isset($_SESSION["cart_item"])){
 <th style="text-align:right;" width="10%">Unit Price</th>
 <th style="text-align:right;" width="10%">Price</th>
 <th style="text-align:center;" width="5%">Remove</th>
-</tr>	
+</tr>
+
 <?php		
     foreach ($_SESSION["cart_item"] as $item){
         $item_price = $item["quantity"]*$item["price"];
@@ -164,7 +165,10 @@ if(isset($_SESSION["cart_item"])){
 <td></td>
 </tr>
 </tbody>
-</table>		
+</table>
+	
+<a id="btnEmpty" style="float" href="next.php">Next</a>		
+<br><br><br>
   <?php
 } else {
 ?>
@@ -181,7 +185,7 @@ if(isset($_SESSION["cart_item"])){
 	if (!empty($product_array)) { 
 		foreach($product_array as $key=>$value){
 	?>
-		<div class="product-item image" style="width: 40%">
+		<div class="product-item image" style="width: 30%">
 			<form method="post" action="index.php?action=add&ticketID=<?php echo $product_array[$key]["ticketID"]; ?>">
 			<div class="product-image"><img style="margin: 10px;" src="<?php echo $product_array[$key]["image"]; ?>"></div>
 
@@ -198,6 +202,107 @@ if(isset($_SESSION["cart_item"])){
 	?>
 </div>
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<!-- Main Footer Starts Here -->
+			<footer class="footer-distributed">
+
+			<div class="footer-left">
+				<br><br><h3>About<span>Zootopika</span></h3>
+
+				<p class="footer-links">
+					<a href="#">Home</a>
+					|
+					<a href="about.html">About</a>
+					|
+					<a href="feedback/contact.php">Contact Us</a>
+					|
+					<a href="map.html">Map</a>
+					|
+					<a href="cart/index.php">Buy Tickets</a>
+					<br>
+					<a href="../mainLogin.php">Admin / Staff Login</a>
+				</p>
+			</div>
+
+			<div class="footer-center">
+				<div>
+					<i class="fa fa-map-marker"></i>
+					  <p>Jalan Taman Zooview, Taman Zooview,
+					  <br>68000 Ampang, Selangor</p>
+				</div>
+
+				<div>
+					<i class="fa fa-phone"></i>
+					<p>+603-4108 3422/7/8</p>
+				</div>
+				<div>
+					<i class="fa fa-envelope"></i>
+					<p>ztpzoonegara@gmail.com</p>
+				</div>
+			</div>
+			<div class="footer-right">
+				<p class="footer-company-about">
+					<span>About the company</span>
+					Zoo Negara Malaysia is managed by the Malaysian Zoological Society, a non-governmental organization established to create the first local zoo for Malaysians.</p>
+				<div class="footer-icons">
+					<a href="https://www.facebook.com/znegaramalaysia/" target="blank"><i class="fa fa-facebook"></i></a>
+					<a href="https://twitter.com/znegaraofficial?lang=en" target="blank"><i class="fa fa-twitter"></i></a>
+					<a href="https://www.instagram.com/zoonegara_malaysia/tagged/?hl=en" target="blank"><i class="fa fa-instagram"></i></a>
+				</div>
+			</div>
+			</footer>
+			<!--footer-->
+    <!-- Sub Footer Starts Here -->
+    <div class="sub-footer">
+	<div style="background-color:black">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="copyright-text">
+				<p style="text-align:centre" class="copy">© Copyright 2020, Zootopika Group. All rights reserved.</p> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Sub Footer Ends Here -->
 
 </BODY>
 </HTML>
