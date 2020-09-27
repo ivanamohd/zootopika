@@ -188,7 +188,7 @@ if(isset($_SESSION["cart_item"])){
           <div class="col-md-6">
             <div id="picture">
             		
-			<img src="assets1/img/zoo1.jpg" width="500" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></img>
+			<img src="product-images/zoo1.jpg" width="500" height="450" frameborder="0" style="border:0;" allowfullscreen=" " aria-hidden="false" tabindex="0"></img>
             </div>
           </div>
 	<div class="col-md-6">
