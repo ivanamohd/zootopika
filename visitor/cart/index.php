@@ -172,6 +172,7 @@ if(isset($_SESSION["cart_item"])){
   <?php
 } else {
 ?>
+
 <div class="no-records">Your Cart is Empty</div>
 <?php 
 }
