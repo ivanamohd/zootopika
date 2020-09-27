@@ -186,15 +186,15 @@ if(isset($_SESSION["cart_item"])){
             </div>
           </div>
           <div class="col-md-6">
-            <div id="picture">
-            		
-			<img src="assets1/img/zoo1.jpg" width="500" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></img>
-            </div>
+            <div class="left-image">
+            <img src="assets1/img/tiger.jpg" alt="">
+            </div>		
+			
           </div>
 	<div class="col-md-6">
-            <div class="center-content">
+            <div class="right-content">
               <div class="container">
-	<form id="contact" action="processBook.php" method="post">
+			<form id="contact" action="processBook.php" method="post">
                   <div class="row">
                     <div class="col-md-12">
                       <fieldset>
