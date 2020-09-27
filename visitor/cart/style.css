@@ -27,20 +27,37 @@ body {
 	overflow: auto;
 }
 
+#form-submit{
+	background-color: #32CD32;
+	border-radius: 5px;
+	padding: 10px 15px;
+	display: inline-block;
+	color:  #000000;
+	font-weight:300;
+	font-weight: bold;
+	text-transform: uppercase;
+	text-decoration: none;
+	margin: 10px 0px;
+	font-size: 13px;
+	letter-spacing: 0.4px;
+	transition: all 0.5s;
+}
+
 #btnEmpty {
 	background-color: #32CD32;
 	border-radius: 5px;
 	padding: 10px 15px;
+	display: inline-block;
 	color:  #000000;
 	float: right;
 	font-weight:300;
 	font-weight: bold;
 	text-transform: uppercase;
 	text-decoration: none;
-	border-radius: 3px;
 	margin: 10px 0px;
 	font-size: 13px;
-	letter-spacing: 0.4;
+	letter-spacing: 0.4px;
+	transition: all 0.5s;
 }
 
 .btnAddAction {
@@ -126,6 +143,138 @@ body {
 	text-align: center;
 	clear: both;
 	margin: 38px 0px;
+}
+
+/* Contact Page Style */
+.contact-page {
+	margin-top: 50px;
+    margin-bottom: 80px;
+}
+.contact-page .right-content input,
+.contact-page .right-content textarea {
+	border-radius: 0px;
+	outline: none;
+	box-shadow: none;
+	font-size: 14px;
+	margin-bottom: 30px;
+}
+.contact-page .right-content input {
+	height: 44px;
+	line-height: 44px;
+}
+.contact-page .right-content textarea {
+	height: 200px;
+	max-height: 280px;
+}
+.contact-page .right-content span {
+	display: inline-block;
+	margin-left: 8px;
+}
+.contact-page .right-content span a i {
+	transition: all 0.5s;
+	background-color: #aaa;
+	width: 26px;
+	height: 26px;
+	display: inline-block;
+	text-align: center;
+	line-height: 26px;
+	border-radius: 50%;
+	color: #fff;
+	font-size: 12px;
+	margin-right: 5px;
+}
+.contact-page .right-content .share {
+	margin-top: 30px;
+	border-top: 1px solid #eee;
+	padding: 15px 0px;
+}
+.contact-page .right-content h6 {
+	font-size: 14px;
+	color: #4a4a4a;
+	font-weight: 400;
+}
+.contact-page .right-content span a:hover i {
+	background-color: #3a8bcd;
+}
+.contact-page .right-content .button {
+	cursor: pointer;
+	background-color: #32CD32;
+	outline: none;
+	border-radius: 5px;
+	padding: 10px 15px;
+	display: inline-block;
+	color: #000000;
+	font-size: 14px;
+	text-transform: uppercase;
+	font-weight: 300;
+	font-weight: bold;
+	letter-spacing: 0.4px;
+	text-decoration: none;
+	transition: all 0.5s;
+	box-shadow: none;
+	border: none;
+}
+
+
+
+
+
+
+/* Responsive Style */
+@media (max-width: 991px) {
+
+	.banner {
+		border-top: none;
+		margin-top: 0px;
+	}
+	.navbar .navbar-brand {
+		width: auto;
+	}
+	.navbar:after {
+		display: #000000;
+	}
+	#navbarResponsive {
+	    z-index: 99999;
+	    position: absolute;
+	    top: 96px;
+	    width: 100%;
+	    text-align: center;
+	    background-color: rgba(250,250,250,0.95);
+	    box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
+	}
+	.navbar-dark .navbar-nav .nav-item {
+		border-bottom: 1px solid #000000;
+	}
+	.navbar-dark .navbar-nav .nav-item:last-child {
+		border-bottom: none;
+	}
+	.navbar-dark .navbar-nav .nav-link {
+		padding: 15px 0px;
+	}
+	.featured-page #filters {
+		text-align: right;
+	} 
+	.single-product .right-content {
+		margin-top: 30px;
+	}
+	.about-page .right-content {
+		margin-top: 30px;
+	}
+	.contact-page .right-content {
+		margin-top: 30px;
+	}
+	.contact-page .right-content .col-md-6,
+	.contact-page .right-content .col-md-12 {
+		padding: 0px;
+	}
+	.featured-page {
+		margin-top: 80px;
+	}
+	.about-page,
+	.contact-page {
+		margin-top: 0px;
+	}
+
 }
 
 /* The footer is fixed to the bottom of the page */
