@@ -192,7 +192,7 @@ if(isset($_SESSION["cart_item"])){
             </div>
           </div>
 	<div class="col-md-6">
-            <div class="center-content">
+            <div class="right-content">
               <div class="container">
 	<form id="contact" action="processBook.php" method="post">
                   <div class="row">
@@ -224,7 +224,6 @@ if(isset($_SESSION["cart_item"])){
 					
                     <div class="col-md-12">
                       <fieldset>
-						<br>
                         <button type="submit" id="form-submit" name="checkout" class="button">CHECKOUT</button>
                       </fieldset>
                     </div>				
