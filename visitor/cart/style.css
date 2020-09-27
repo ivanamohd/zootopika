@@ -28,14 +28,19 @@ body {
 }
 
 #btnEmpty {
-	background-color: #ffffff;
-	border: #d00000 1px solid;
-	padding: 5px 10px;
-	color: #d00000;
+	background-color: #32CD32;
+	border-radius: 5px;
+	padding: 10px 15px;
+	color:  #000000;
 	float: right;
+	font-weight:300;
+	font-weight: bold;
+	text-transform: uppercase;
 	text-decoration: none;
 	border-radius: 3px;
 	margin: 10px 0px;
+	font-size: 13px;
+	letter-spacing: 0.4;
 }
 
 .btnAddAction {
