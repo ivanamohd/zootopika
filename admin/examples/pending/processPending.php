@@ -7,12 +7,30 @@ error_reporting(E_ALL);
 
 if(isSet($_POST['approvePending']))
 	{
+	$visitorReference=$_POST['visitorReferenceToApprove'];
+	$qry = getPendingInformation($visitorReference);//call function to get detail car data
+	$row = mysqli_fetch_assoc($qry);
+	
+    $to = $row['visitorEmail'];
+    $subject = 'Zootopika Notification | Payment Confirmation';
+    $message = '
+ 
+        Your payment has been approved.
+        The details of your booking is as follow:
+
+        Reference Number is ' .$row['visitorReference']. '
+		
+	Please show this email upon arrival at Zoo Negara.
+
+        ';
+
+    $headers = 'From: zootopika@gmail.com';
+    if (mail($to, $subject, $message, $headers))
+		echo "<script>alert('Booking record has been approved.');</script>";
+	
 	addNewBook();
 	deletePending();
 
-	echo "<script>";
-	echo " alert('Booking record has been approved');
-		</script>";
 	header( "refresh:1; url=../dashboard.php" );
 	}
 	

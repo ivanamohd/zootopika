@@ -7,9 +7,6 @@ error_reporting(E_ALL);
 
 if(isSet($_POST['approvePending']))
 	{
-	//addNewBook();
-	//deletePending();
-	
 	$visitorReference=$_POST['visitorReferenceToApprove'];
 	$qry = getPendingInformation($visitorReference);//call function to get detail car data
 	$row = mysqli_fetch_assoc($qry);
@@ -30,6 +27,9 @@ if(isSet($_POST['approvePending']))
     $headers = 'From: zootopika@gmail.com';
     if (mail($to, $subject, $message, $headers))
 		echo "<script>alert('Booking record has been approved.');</script>";
+	
+	addNewBook();
+	deletePending();
 
 	header( "refresh:1; url=../dashboard.php" );
 	}
