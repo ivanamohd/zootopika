@@ -255,17 +255,17 @@ if(isset($_SESSION["cart_item"])){
 				<br><br><h3>About<span>Zootopika</span></h3>
 
 				<p class="footer-links">
-					<a href="#">Home</a>
+					<a href="../index.html">Home</a>
 					|
-					<a href="about.html">About</a>
+					<a href="../about.html">About</a>
 					|
-					<a href="feedback/contact.php">Contact Us</a>
+					<a href="../feedback/contact.php">Contact Us</a>
 					|
-					<a href="map.html">Map</a>
+					<a href="../map.html">Map</a>
 					|
-					<a href="cart/index.php">Buy Tickets</a>
+					<a href="#">Buy Tickets</a>
 					<br>
-					<a href="../mainLogin.php">Admin / Staff Login</a>
+					<a href="../../mainLogin.php">Admin / Staff Login</a>
 				</p>
 			</div>
 

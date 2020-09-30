@@ -8,23 +8,47 @@ if(!$con)
 	echo mysqli_connect_error();
 	exit;
 	}
+	
+	$visitorReference=$_POST['visitorReferenceToApprove'];
+$qry = getPendingInformation($visitorReference);//call function to get detail car data
+$row = mysqli_fetch_assoc($qry);
+
  //collect data from post array
- $ticketID = $_POST['ticketID'];
- $ticketName = $_POST['ticketName'];
- $ticketType = $_POST['ticketType'];
- $ticketPackage = $_POST['ticketPackage'];
- $ticketPrice = $_POST['ticketPrice'];
-  
-  $sql="INSERT INTO ticket(ticketID, ticketName,ticketType,ticketPackage,ticketPrice)
-	VALUES ('$ticketID','$ticketName','$ticketType','$ticketPackage','$ticketPrice')";
+ $visitorName = $row['visitorName'];
+ $visitorEmail = $row['visitorEmail'];
+ $visitorContact = $row['visitorContact'];
+ $visitorDate = $row['visitorDate'];
+ $visitorQuantity = $row['visitorQuantity'];
+ $visitorTotal = $row['visitorTotal'];
  
-//echo $sql;
+ $visitorReference=$visitorName.$visitorDate;
+ 
+/*$qry = getPendingInformation();
+$pendingInfo = mysqli_fetch_assoc($qry);
+
+$visitorReference = $pendingInfo['visitorReference'];
+$visitorName = $pendingInfo['visitorName'];
+$visitorEmail = $pendingInfo['visitorEmail'];
+$visitorContact = $pendingInfo['visitorContact'];
+$visitorDate = $pendingInfo['visitorDate'];
+$visitorQuantity = $pendingInfo['visitorQuantity'];
+$visitorTotal = $pendingInfo['visitorTotal']; */
+ 
+ //$_SESSION["cart_item"] as $item){
+ //$item_price = $item["quantity"]*$item["price"];
+ 
+ 
+ 
+  $sql="INSERT INTO book(visitorReference, visitorName, visitorEmail, visitorContact, visitorDate, visitorQuantity, visitorTotal)
+	VALUES ('$visitorReference','$visitorName','$visitorEmail','$visitorContact','$visitorDate','$visitorQuantity','$visitorTotal')";
+ 
+  //echo $sql;
 	$qry = mysqli_query($con,$sql);
  mysqli_query($con,$sql);
 }
 
 //getListOfTicket function ==================
-function getListOfBook()
+function getListOfPending()
 {
 //create connection
 $con=mysqli_connect("localhost","web38","web38","zootopikadb");
@@ -33,13 +57,13 @@ if(!$con)
 	echo  mysqli_connect_error(); 
 	exit;
 	}
-$sql = 'select * from booking';
+$sql = 'select * from pending';
 $qry = mysqli_query($con,$sql);//run query
 return $qry;  //return query
 }
 
 //delete function ==================
-function deleteBook()
+function deletePending()
 {
 $con = mysqli_connect("localhost","web38","web38","zootopikadb");
 if(!$con)
@@ -48,11 +72,27 @@ if(!$con)
 	exit;
 	}
 
- $ticketID = $_POST['ticketIDToDelete'];//get selected regNumber to delete
+ $visitorReference = $_POST['visitorReferenceToApprove'];//get selected regNumber to delete
   
-  $sql="delete from ticket
-		where ticketID ='".$ticketID."'";
+  $sql="delete from pending where visitorReference ='".$visitorReference."'";
+	//echo $sql;
+	$qry = mysqli_query($con,$sql);
 
+}
+
+function declinePending()
+{
+$con = mysqli_connect("localhost","web38","web38","zootopikadb");
+if(!$con)
+	{
+	echo mysqli_connect_error();
+	exit;
+	}
+
+ $visitorReference = $_POST['visitorReferenceToDecline'];//get selected regNumber to delete
+  
+  $sql="delete from pending where visitorReference ='".$visitorReference."'";
+	//echo $sql;
 	$qry = mysqli_query($con,$sql);
 
 }
@@ -102,7 +142,7 @@ $qry = mysqli_query($con,$sql);//run query
 return $qry;  //return query
 }  */
 //============getCarInformation
-function getBookInformation($visitorReference)
+function getPendingInformation($visitorReference)
 {
 //create connection
 $con=mysqli_connect("localhost","web38","web38","zootopikadb");
@@ -111,13 +151,13 @@ if(!$con)
 	echo  mysqli_connect_error(); 
 	exit;
 	}
-$sql = "select * from book where visitorReference = '".$visitorReference."'";
+$sql = "select * from pending where visitorReference = '".$visitorReference."'";
 
 $qry = mysqli_query($con,$sql);//run query
 return $qry;  //return query
 }
 //================updateCarInformation
-function updateBookInformation()
+function updatePendingInformation()
 {
 //create connection
 $con=mysqli_connect("localhost","web38","web38","zootopikadb");
@@ -127,14 +167,16 @@ if(!$con)
 	exit;
 	}
 //get the data to update
- $ticketID = $_POST['ticketID'];
- $ticketName = $_POST['ticketName'];
- $ticketType = $_POST['ticketType'];
- $ticketPackage = $_POST['ticketPackage'];
- $ticketPrice = $_POST['ticketPrice'];
+ $visitorName = $_POST['visitorName'];
+ $visitorEmail = $_POST['visitorEmail'];
+ $visitorContact = $_POST['visitorContact'];
+ $visitorDate = $_POST['visitorDate'];
+ $visitorQuantity = $_POST['visitorQuantity'];
+ $visitorTotal = $_POST['visitorTotal'];
+ $visitorReference = $_POST['visitorReference'];
  
-$sql = 'update ticket SET ticketName ="'.$ticketName.'", ticketType = "'.$ticketType.'", ticketPackage = "'.$ticketPackage.'", 
-ticketPrice = "'.$ticketPrice.'" WHERE ticketID = "'.$ticketID.'"';
+$sql = 'update pending SET visitorName ="'.$visitorName.'", visitorEmail = "'.$visitorEmail.'", visitorContact = "'.$visitorContact.'", visitorDate = "'.$visitorDate.'",
+visitorQuantity = "'.$visitorQuantity.'", visitorTotal = "'.$visitorTotal.'" WHERE visitorReference = "'.$visitorReference.'"';
 
 $qry = mysqli_query($con,$sql);//run query
 return $qry;  //return query

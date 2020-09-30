@@ -1,37 +1,4 @@
 <?php
-//addNewTicket function==================
-function addNewBook()
-{
-$con = mysqli_connect("localhost","web38","web38","zootopikadb");
-if(!$con)
-	{
-	echo mysqli_connect_error();
-	exit;
-	}
-	
- //collect data from post array
- $visitorName = $_POST['visitorName'];
- $visitorEmail = $_POST['visitorEmail'];
- $visitorContact = $_POST['visitorContact'];
- $visitorDate = $_POST['visitorDate'];
- $visitorQuantity = $_POST['visitorQuantity'];
- $visitorTotal = $_POST['visitorTotal'];
- 
- $visitorReference=$visitorName.$visitorDate;
- 
- //$_SESSION["cart_item"] as $item){
- //$item_price = $item["quantity"]*$item["price"];
- 
- 
- 
-  $sql="INSERT INTO book(visitorReference, visitorName, visitorEmail, visitorContact, visitorDate, visitorQuantity, visitorTotal)
-	VALUES ('$visitorReference','$visitorName','$visitorEmail','$visitorContact','$visitorDate','$visitorQuantity','$visitorTotal')";
- 
-  echo $sql;
-	$qry = mysqli_query($con,$sql);
- mysqli_query($con,$sql);
-}
-
 //getListOfTicket function ==================
 function getListOfBook()
 {
