@@ -48,7 +48,7 @@ switch($_GET["action"]) {
 ?>
 <HTML>
 <HEAD>
-<TITLE>Simple PHP Shopping Cart</TITLE>
+<TITLE>Buy Tickets</TITLE>
 <link href="style.css" type="text/css" rel="stylesheet" />
 
 <!-- Bootstrap core CSS -->
@@ -116,7 +116,7 @@ switch($_GET["action"]) {
     </nav>
 
 <div id="shopping-cart">
-<div class="txt-heading">Shopping Cart</div>
+<div class="txt-heading">Cart</div>
 
 <a id="btnEmpty" href="index.php?action=empty">Empty Cart</a> &emsp;
 <!--<form style="display:inline-block" action="processBook.php" method="post" >
@@ -167,7 +167,7 @@ if(isset($_SESSION["cart_item"])){
 </tbody>
 </table>
 	
-<a id="btnEmpty" style="float" href="next.php">Next</a>		
+<a id="btnEmpty" style="float" href="next.php">CHECKOUT</a>		
 <br><br><br>
   <?php
 } else {
@@ -180,13 +180,13 @@ if(isset($_SESSION["cart_item"])){
 </div>
 
 <div id="product-grid">
-	<div class="txt-heading">Products</div>
+	<div class="txt-heading">Tickets</div>
 	<?php
 	$product_array = $db_handle->runQuery("SELECT * FROM ticket");
 	if (!empty($product_array)) { 
 		foreach($product_array as $key=>$value){
 	?>
-		<div class="product-item image" style="width: 30%">
+		<div class="product-item image" style="width: 30%; height: 300px">
 			<form method="post" action="index.php?action=add&ticketID=<?php echo $product_array[$key]["ticketID"]; ?>">
 			<div class="product-image"><img style="margin: 10px;" src="<?php echo $product_array[$key]["image"]; ?>"></div>
 
@@ -203,6 +203,13 @@ if(isset($_SESSION["cart_item"])){
 	?>
 </div>
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 <br>
