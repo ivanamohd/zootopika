@@ -48,7 +48,7 @@ switch($_GET["action"]) {
 ?>
 <HTML>
 <HEAD>
-<TITLE>Buy Tickets</TITLE>
+<TITLE>Checkout</TITLE>
 <link href="style.css" type="text/css" rel="stylesheet" />
 
 <!-- Bootstrap core CSS -->
@@ -68,18 +68,14 @@ switch($_GET["action"]) {
     <link rel="stylesheet" href="../assets/css/fontawesome.css">
     <link rel="stylesheet" href="../assets/css/tooplate-main.css">
     <link rel="stylesheet" href="../assets/css/owl.css">
+    <link rel="stylesheet" href="../assets/css/flex-slider.css">
 	
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 	<link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
-
-<style>
-	.image img {
-		width: 350px;
-		height: 140px;
-	}
-</style>
-
+	
+	<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="../gateway/css/style.css">-->
 </HEAD>
 <BODY>
 <!-- Navigation -->
@@ -107,7 +103,7 @@ switch($_GET["action"]) {
               <a class="nav-link" href="../feedback/contact.php">Contact Us</a>
             </li>
 			<li class="nav-item active">
-              <a class="nav-link" href="#">Buy Tickets</a>
+              <a class="nav-link" href="index.php">Buy Tickets</a>
 			  <span class="sr-only">(current)</span>
             </li>
           </ul>
@@ -119,10 +115,8 @@ switch($_GET["action"]) {
 <div class="txt-heading">Cart</div>
 
 <a id="btnEmpty" href="index.php?action=empty">Empty Cart</a> &emsp;
-<!--<form style="display:inline-block" action="processBook.php" method="post" >
-<input id="btnEmpty" type="submit" name="next" value="Next"> </input>
-</form>-->
 
+<!--<a id="btnEmpty" style="float: left" href="index.php?action=empty">Next</a>-->
 
 <?php
 if(isset($_SESSION["cart_item"])){
@@ -138,8 +132,7 @@ if(isset($_SESSION["cart_item"])){
 <th style="text-align:right;" width="10%">Unit Price</th>
 <th style="text-align:right;" width="10%">Price</th>
 <th style="text-align:center;" width="5%">Remove</th>
-</tr>
-
+</tr>	
 <?php		
     foreach ($_SESSION["cart_item"] as $item){
         $item_price = $item["quantity"]*$item["price"];
@@ -165,90 +158,106 @@ if(isset($_SESSION["cart_item"])){
 <td></td>
 </tr>
 </tbody>
-</table>
-	
-<a id="btnEmpty" style="float" href="pay.php">CHECKOUT</a>		
-<br><br><br>
+</table>		
   <?php
 } else {
 ?>
-
 <div class="no-records">Your Cart is Empty</div>
 <?php 
 }
 ?>
 </div>
 
-<div id="product-grid">
-	<div class="txt-heading">Tickets</div>
+
 	<?php
 	$product_array = $db_handle->runQuery("SELECT * FROM ticket");
 	if (!empty($product_array)) { 
 		foreach($product_array as $key=>$value){
 	?>
-		<div class="product-item image" style="width: 30%; height: 300px">
-			<form method="post" action="index.php?action=add&ticketID=<?php echo $product_array[$key]["ticketID"]; ?>">
-			<div class="product-image"><img style="margin: 10px;" src="<?php echo $product_array[$key]["image"]; ?>"></div>
 
-			<div class="product-tile-footer">
-			<div class="product-title"><?php echo $product_array[$key]["ticketName"]; ?></div>
-			<div class="product-price"><?php echo "RM".$product_array[$key]["ticketPrice"]; ?></div>
-			<div class="cart-action"><input type="text" class="product-quantity" name="quantity" value="1" size="2" /><input type="submit" value="Add to Cart" class="btnAddAction" /></div>
-			</div>
-			</form>
-		</div>
 	<?php
 		}
 	}
 	?>
-</div>
+    <div class="contact-page">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-heading">
+              <div class="line-dec"></div>
+              <h1>Fill in your information</h1>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div id="picture">
+            		
+			<img src="product-images/zoo1.jpg" width="500" height="450" frameborder="0" style="border:0;" allowfullscreen=" " aria-hidden="false" tabindex="0"></img>
+            </div>
+          </div>
+	<div class="col-md-6">
+            <div class="right-content">
+              <div class="container">				
+				<form action="../gateway/charge.php" method="post" id="payment-form">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <fieldset>
+                        <input type="text" class="form-control mb-3 StripeElement StripeElement--empty" placeholder="Name" name="visitorName" required="">
+                      </fieldset>
+                    </div>
+                    <div class="col-md-12">
+                      <fieldset>
+                        <br><input type="email" class="form-control mb-3 StripeElement StripeElement--empty" name="email" placeholder="Email" required="">
+                      </fieldset>
+                    </div>
+					<div class = "col-md-12">
+					<fieldset>
+                        <br><input type="text" class="form-control mb-3 StripeElement StripeElement--empty" name="visitorContact" placeholder="Contact number" required="">
+                      </fieldset>
+                    </div>
+					<div class="col-md-12">
+					<fieldset>
+                        <br><input type="date" class="form-control mb-3 StripeElement StripeElement--empty" name="visitorDate" placeholder="Date" required="">
+                      </fieldset>
+                    </div>
+					
+					<?php 
+						echo '<input type="hidden" value="'.$visitorQuantity.'" name="visitorQuantity">'; 
+						echo '<input type="hidden" value="'.$visitorTotal.'" name="visitorTotal">';
+					?>
+					
+					<?php
+					   $pricee = $visitorTotal*100;
+					   echo '
+					   <input type="hidden" name="amountToPay" value="'.$pricee.'" class="form-control mb-3 StripeElement StripeElement--empty" placeholder="Email Address" readonly>';
+					?>
+				    <br> <br> <br> <br> <br>
+				    <div class="col-md-12">
+				    <fieldset>
+					<div id="card-element" class="form-control mb-3 StripeElement StripeElement--empty">
+					  <!-- a Stripe Element will be inserted here. -->
+					</div>
+					</fieldset>
+					</div>
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<!-- Main Footer Starts Here -->
+					<!-- Used to display form errors -->
+					<div id="card-errors" role="alert"></div>
+					
+					<br> <br> <br>
+                    <div class="col-md-12">
+                      <fieldset>
+                        <button type="submit" id="form-submit" name="pay" class="button">PAY</button>
+                      </fieldset>
+                    </div>				
+                </form>
+				
+				</div>
+		</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	<!-- Main Footer Starts Here -->
 			<footer class="footer-distributed">
 
 			<div class="footer-left">
@@ -263,7 +272,7 @@ if(isset($_SESSION["cart_item"])){
 					|
 					<a href="../map.html">Map</a>
 					|
-					<a href="#">Buy Tickets</a>
+					<a href="index.php">Buy Tickets</a>
 					<br>
 					<a href="../../mainLogin.php">Admin / Staff Login</a>
 				</p>
@@ -311,6 +320,15 @@ if(isset($_SESSION["cart_item"])){
       </div>
     </div>
     <!-- Sub Footer Ends Here -->
+	
+	<!--<form style="display:inline-block" action="processBook.php" method="post" >
+<input id="btnEmpty" type="submit" name="next" value="Next"> </input>
+</form>-->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://js.stripe.com/v3/"></script>
+  <script src="../gateway/js/charge.js"></script>
 
 </BODY>
+
 </HTML>

@@ -12,15 +12,19 @@ if(isSet($_POST['approvePending']))
 	$row = mysqli_fetch_assoc($qry);
 	
     $to = $row['visitorEmail'];
-    $subject = 'Zootopika Notification | Payment Confirmation';
+    $subject = 'Zootopika | Ticket Payment Confirmed';
     $message = '
  
-        Your payment has been approved.
-        The details of your booking is as follow:
+Your payment has been approved.
+The detail of your payment is as follows:
 
-        Reference Number is ' .$row['visitorReference']. '
+    Reference Number: ' .$row['visitorReference']. '
+	
+	Name: ' .$row['visitorName']. '
+	Ticket quantity: ' .$row['visitorQuantity']. '
+	Amount: RM '.number_format($row['visitorTotal'],2).'
 		
-	Please show this email upon arrival at Zoo Negara.
+Please show this email upon arrival at Zoo Negara.
 
         ';
 

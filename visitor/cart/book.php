@@ -11,7 +11,7 @@ if(!$con)
 	
  //collect data from post array
  $visitorName = $_POST['visitorName'];
- $visitorEmail = $_POST['visitorEmail'];
+ $visitorEmail = $_POST['email'];
  $visitorContact = $_POST['visitorContact'];
  $visitorDate = $_POST['visitorDate'];
  $visitorQuantity = $_POST['visitorQuantity'];
@@ -25,7 +25,7 @@ if(!$con)
  
  
   $sql="INSERT INTO pending(visitorReference, visitorName, visitorEmail, visitorContact, visitorDate, visitorQuantity, visitorTotal)
-	VALUES ('$visitorReference','$visitorName','$visitorEmail','$visitorContact','$visitorDate','$visitorQuantity','$visitorTotal')";
+	VALUES ('$visitorReference','$visitorName','$email','$visitorContact','$visitorDate','$visitorQuantity','$visitorTotal')";
  
   echo $sql;
 	$qry = mysqli_query($con,$sql);
@@ -42,7 +42,7 @@ if(!$con)
 	echo  mysqli_connect_error(); 
 	exit;
 	}
-$sql = 'select * from book';
+$sql = 'select * from pending';
 $qry = mysqli_query($con,$sql);//run query
 return $qry;  //return query
 }

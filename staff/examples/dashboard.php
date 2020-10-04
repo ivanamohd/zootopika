@@ -247,7 +247,6 @@ Coded by www.creative-tim.com
 					<th>Date</th>
 					<th>Quantity</th>
 					<th>Total</th>
-					<th>Receipt</th>
 					<th>Actions</th>
 				</thead>';
 	$i=1;
@@ -264,13 +263,13 @@ Coded by www.creative-tim.com
 		
 		$visitorReference = $row['visitorReference'];
 		
-		echo '<td>';
+		/*echo '<td>';
 		echo '<form style="display:inline-block" action="pending/processPending.php" method="post" >';
 		echo "<input type='hidden' value='$visitorReference' name='visitorReferenceToView'>";
 		//echo '<button type="submit" name="viewPending" class="btn btn-primary btn-round"> View </button>';
 		echo '<button type="submit" name="viewPending" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i> </button>';
 		echo '</form>';
-		'</td>';
+		'</td>';*/
 		
 		echo '<td>';
 			echo '<form style="display:inline-block" action="pending/processPending.php" method="post" >';

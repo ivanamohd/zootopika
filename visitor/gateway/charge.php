@@ -1,6 +1,6 @@
 <?php
   require_once('../../vendor/autoload.php');
-
+  include "../cart/book.php";
 
   \Stripe\Stripe::setApiKey('sk_test_51HXhtADE5aCcnduXsHfAY3hO0iDzHuLk22HkdxF78HNgPRc859PELEGm8BbV3JNPBXT9SZ9VV9lmZCATZyVXzQhM00tCYWWPZD');
 
@@ -24,17 +24,49 @@ $charge = \Stripe\Charge::create(array(
   "customer" => $customer->id
 ));
 
-$sql = "UPDATE `payment` SET `transactionID` = '.$charge->id.', `paymentMethod` = 'Stripe - Credit Card', `status` = '2' WHERE `payment`.`userID` = '".$_POST['userID']."'";
-mysqli_query($con, $sql);
+$con = mysqli_connect("localhost","web38","web38","zootopikadb");
+if(!$con)
+	{
+	echo mysqli_connect_error();
+	exit;
+	}
+	
+ //collect data from post array
+ $visitorName = $_POST['visitorName'];
+ $visitorContact = $_POST['visitorContact'];
+ $visitorDate = $_POST['visitorDate'];
+ $visitorQuantity = $_POST['visitorQuantity'];
+ $visitorTotal = $_POST['visitorTotal'];
+ 
+ //$visitorReference=$visitorName.$visitorDate;
+ 
+ //$_SESSION["cart_item"] as $item){
+ //$item_price = $item["quantity"]*$item["price"];
+ 
+ 
+ 
+  $sql="INSERT INTO pending(visitorReference, visitorName, visitorEmail, visitorContact, visitorDate, visitorQuantity, visitorTotal)
+	VALUES ('$charge->id','$visitorName','$email','$visitorContact','$visitorDate','$visitorQuantity','$visitorTotal')";
+ 
+  echo $sql;
+	$qry = mysqli_query($con,$sql);
+ mysqli_query($con,$sql);
 
 $to = $email;
-$subject = 'Zootopika | Ticket Payment Confirmed';
-$message = 'Thank you for purchasing your tickets with Zootopika. 
-            Below is the reference for your payment.
+$subject = 'Zootopika | Ticket Payment Received';
+$message = 
 
-            Amount: RM1200
-            Description: Zoo Negara Tickets Payment
-            Reference: '.$charge->id.'
+'Thank you for purchasing your tickets with Zootopika. 
+Below is the reference for your payment:
+	
+	Name: '.$visitorName.'
+	Ticket quantity: '.$visitorQuantity.'
+	Amount: RM '.number_format($visitorTotal, 2).'
+	
+    Description: Zoo Negara Tickets Payment
+	
+Payment confirmation will take at least 12 hours.
+We will send you an email once your payment is confirmed.
             
      
     ';
