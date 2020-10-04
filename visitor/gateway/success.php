@@ -22,7 +22,6 @@
   <div class="container mt-4">
     <h2>Thank you for purchasing your tickets at Zootopika</h2>
     <hr>
-    <p>Your transaction ID is <?php echo $tid; ?></p>
     <p>Check your email for more info</p>
     <p><a href="../index.html" class="btn btn-light mt-2">Go Back</a></p>
   </div>
