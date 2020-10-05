@@ -6,10 +6,13 @@ body {
 
 #shopping-cart {
 	margin: 40px;
+	font-weight: bold;
+	font-size: 17px;
 }
 
 #product-grid {
-	margin: 40px;
+	margin: 30px;
+	
 }
 
 #shopping-cart table {
@@ -101,6 +104,7 @@ body {
 
 .tbl-cart {
 	font-size: 0.9em;
+	
 }
 
 .tbl-cart th {

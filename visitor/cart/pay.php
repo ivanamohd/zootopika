@@ -112,8 +112,11 @@ switch($_GET["action"]) {
     </nav>
 
 <div id="shopping-cart">
+ <div class="col-md-12">
+ <div class="section-heading">
+  <div class="line-dec"></div>
 <div class="txt-heading">Cart</div>
-
+</div>
 <a id="btnEmpty" href="index.php?action=empty">Empty Cart</a> &emsp;
 
 <!--<a id="btnEmpty" style="float: left" href="index.php?action=empty">Next</a>-->
@@ -133,6 +136,7 @@ if(isset($_SESSION["cart_item"])){
 <th style="text-align:right;" width="10%">Price</th>
 <th style="text-align:center;" width="5%">Remove</th>
 </tr>	
+</div>
 <?php		
     foreach ($_SESSION["cart_item"] as $item){
         $item_price = $item["quantity"]*$item["price"];
@@ -257,6 +261,8 @@ if(isset($_SESSION["cart_item"])){
 	</div>
 	</div>
 	</div>
+	
+	
 	<!-- Main Footer Starts Here -->
 			<footer class="footer-distributed">
 

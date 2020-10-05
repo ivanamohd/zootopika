@@ -116,6 +116,8 @@ switch($_GET["action"]) {
     </nav>
 
 <div id="shopping-cart">
+ <div class="section-heading">
+  <div class="line-dec"></div>
 <div class="txt-heading">Cart</div>
 
 <a id="btnEmpty" href="index.php?action=empty">Empty Cart</a> &emsp;
@@ -180,6 +182,8 @@ if(isset($_SESSION["cart_item"])){
 </div>
 
 <div id="product-grid">
+ <div class="section-heading">
+  <div class="line-dec"></div>
 	<div class="txt-heading">Tickets</div>
 	<?php
 	$product_array = $db_handle->runQuery("SELECT * FROM ticket");
