@@ -21,7 +21,7 @@ $row = mysqli_fetch_assoc($qry);
  $visitorQuantity = $row['visitorQuantity'];
  $visitorTotal = $row['visitorTotal'];
  
- $visitorReference=$visitorName.$visitorDate;
+ $visitorReference=$row['visitorReference'];
  
 /*$qry = getPendingInformation();
 $pendingInfo = mysqli_fetch_assoc($qry);

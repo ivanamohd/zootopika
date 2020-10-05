@@ -216,7 +216,7 @@ Coded by www.creative-tim.com
 				<h4 class="card-title col-md-9"> Tickets Booked </h4>
 			</div>
 			<div class="card-body">
-			<div class="table-responsive">
+			<div class="table-responsivee">
             <table class="table table-hover">
 				<thead class=" text-primary" align="center">
 					<th>No</th>

@@ -2983,6 +2983,10 @@ License - nucleoapp.com/license/
 .table-responsive {
   overflow: hidden;
   padding-bottom: 10px; }
+  
+.table-responsivee {
+  overflow: auto;
+  padding-bottom: 10px; }
 
 #tables .table-responsive {
   margin-bottom: 30px; }
