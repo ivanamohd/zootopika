@@ -261,6 +261,7 @@ if(isset($_SESSION["cart_item"])){
 	</div>
 	</div>
 	</div>
+	</div>
 	
 	
 	<!-- Main Footer Starts Here -->

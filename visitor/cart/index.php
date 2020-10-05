@@ -184,13 +184,14 @@ if(isset($_SESSION["cart_item"])){
 <div id="product-grid">
  <div class="section-heading">
   <div class="line-dec"></div>
-	<div class="txt-heading">Tickets</div>
+	<div class="txt-heading">Tickets</div></div></div></div>
 	<?php
 	$product_array = $db_handle->runQuery("SELECT * FROM ticket");
 	if (!empty($product_array)) { 
 		foreach($product_array as $key=>$value){
 	?>
-		<div class="product-item image" style="width: 30%; height: 300px">
+
+		<div class="product-item image" style="width: 30%; height: 300px;">
 			<form method="post" action="index.php?action=add&ticketID=<?php echo $product_array[$key]["ticketID"]; ?>">
 			<div class="product-image"><img style="margin: 10px;" src="<?php echo $product_array[$key]["image"]; ?>"></div>
 
@@ -205,6 +206,8 @@ if(isset($_SESSION["cart_item"])){
 		}
 	}
 	?>
+</div>
+</div>
 </div>
 
 <br>
