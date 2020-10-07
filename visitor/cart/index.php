@@ -118,7 +118,7 @@ switch($_GET["action"]) {
 <div id="shopping-cart">
  <div class="section-heading">
   <div class="line-dec"></div>
-<div class="txt-heading">Cart</div>
+<div class="">Cart</div>
 
 <a id="btnEmpty" href="index.php?action=empty">Empty Cart</a> &emsp;
 <!--<form style="display:inline-block" action="processBook.php" method="post" >
@@ -184,14 +184,14 @@ if(isset($_SESSION["cart_item"])){
 <div id="product-grid">
  <div class="section-heading">
   <div class="line-dec"></div>
-	<div class="txt-heading">Tickets</div></div></div></div>
+	<div class="">Tickets</div></div></div></div>
 	<?php
 	$product_array = $db_handle->runQuery("SELECT * FROM ticket");
 	if (!empty($product_array)) { 
 		foreach($product_array as $key=>$value){
 	?>
 
-		<div class="product-item image" style="width: 30%; height: 300px;">
+		<div class="product-item image" style="width: 25%; height: 300px;">
 			<form method="post" action="index.php?action=add&ticketID=<?php echo $product_array[$key]["ticketID"]; ?>">
 			<div class="product-image"><img style="margin: 10px;" src="<?php echo $product_array[$key]["image"]; ?>"></div>
 
@@ -210,50 +210,7 @@ if(isset($_SESSION["cart_item"])){
 </div>
 </div>
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 <!-- Main Footer Starts Here -->
 			<footer class="footer-distributed">

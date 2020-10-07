@@ -110,7 +110,7 @@ switch($_GET["action"]) {
 
 <div id="shopping-cart">
 <div class="txt-heading">Cart</div>
-
+</div>
 <a id="btnEmpty" href="index.php?action=empty">Empty Cart</a> &emsp;
 
 <!--<a id="btnEmpty" style="float: left" href="index.php?action=empty">Next</a>-->

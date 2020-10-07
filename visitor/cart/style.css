@@ -82,13 +82,14 @@ body {
 .product-item {
 	float: left;
 	background: #ffffff;
-	margin: 30px 30px 0px 0px;
-	border: #E0E0E0 1px solid;
+	margin: 40px 40px 0px 0px;
+	border: #E0E0E0 2px solid;
 }
 
 .product-image {
-	height: 155px;
-	width: 250px;
+	float: center-left;
+	height: 145px;
+	width: 240px;
 	background-color: #FFF;
 }
 
