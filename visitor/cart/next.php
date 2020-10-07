@@ -48,7 +48,7 @@ switch($_GET["action"]) {
 ?>
 <HTML>
 <HEAD>
-<TITLE>Checkout</TITLE>
+<TITLE>Simple PHP Shopping Cart</TITLE>
 <link href="style.css" type="text/css" rel="stylesheet" />
 
 <!-- Bootstrap core CSS -->
@@ -109,7 +109,7 @@ switch($_GET["action"]) {
     </nav>
 
 <div id="shopping-cart">
-<div class="txt-heading">Cart</div>
+<div class="txt-heading">Shopping Cart</div>
 
 <a id="btnEmpty" href="index.php?action=empty">Empty Cart</a> &emsp;
 
@@ -186,15 +186,15 @@ if(isset($_SESSION["cart_item"])){
             </div>
           </div>
           <div class="col-md-6">
-            <div id="picture">
-            		
-			<img src="product-images/zoo1.jpg" width="500" height="450" frameborder="0" style="border:0;" allowfullscreen=" " aria-hidden="false" tabindex="0"></img>
-            </div>
+            <div class="left-image">
+            <img src="assets1/img/tiger.jpg" alt="">
+            </div>		
+			
           </div>
 	<div class="col-md-6">
             <div class="right-content">
               <div class="container">
-	<form id="contact" action="processBook.php" method="post">
+			<form id="contact" action="processBook.php" method="post">
                   <div class="row">
                     <div class="col-md-12">
                       <fieldset>
@@ -224,80 +224,14 @@ if(isset($_SESSION["cart_item"])){
 					
                     <div class="col-md-12">
                       <fieldset>
-                        <button type="submit" id="form-submit" name="pay" class="button">PAY</button>
+						<br>
+                        <button type="submit" id="form-submit" name="checkout" class="button">CHECKOUT</button>
                       </fieldset>
                     </div>				
                 </form>
 				</div>
 		</div>
 	</div>
-	</div>
-	</div>
-	</div>
-	</div>
-	<!-- Main Footer Starts Here -->
-			<footer class="footer-distributed">
-
-			<div class="footer-left">
-				<br><br><h3>About<span>Zootopika</span></h3>
-
-				<p class="footer-links">
-					<a href="../index.html">Home</a>
-					|
-					<a href="../about.html">About</a>
-					|
-					<a href="../feedback/contact.php">Contact Us</a>
-					|
-					<a href="../map.html">Map</a>
-					|
-					<a href="index.php">Buy Tickets</a>
-					<br>
-					<a href="../../mainLogin.php">Admin / Staff Login</a>
-				</p>
-			</div>
-
-			<div class="footer-center">
-				<div>
-					<i class="fa fa-map-marker"></i>
-					  <p>Jalan Taman Zooview, Taman Zooview,
-					  <br>68000 Ampang, Selangor</p>
-				</div>
-
-				<div>
-					<i class="fa fa-phone"></i>
-					<p>+603-4108 3422/7/8</p>
-				</div>
-				<div>
-					<i class="fa fa-envelope"></i>
-					<p>ztpzoonegara@gmail.com</p>
-				</div>
-			</div>
-			<div class="footer-right">
-				<p class="footer-company-about">
-					<span>About the company</span>
-					Zoo Negara Malaysia is managed by the Malaysian Zoological Society, a non-governmental organization established to create the first local zoo for Malaysians.</p>
-				<div class="footer-icons">
-					<a href="https://www.facebook.com/znegaramalaysia/" target="blank"><i class="fa fa-facebook"></i></a>
-					<a href="https://twitter.com/znegaraofficial?lang=en" target="blank"><i class="fa fa-twitter"></i></a>
-					<a href="https://www.instagram.com/zoonegara_malaysia/tagged/?hl=en" target="blank"><i class="fa fa-instagram"></i></a>
-				</div>
-			</div>
-			</footer>
-			<!--footer-->
-    <!-- Sub Footer Starts Here -->
-    <div class="sub-footer">
-	<div style="background-color:black">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="copyright-text">
-				<p style="text-align:centre" class="copy">© Copyright 2020, Zootopika Group. All rights reserved.</p> 
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Sub Footer Ends Here -->
 	
 	<!--<form style="display:inline-block" action="processBook.php" method="post" >
 <input id="btnEmpty" type="submit" name="next" value="Next"> </input>
