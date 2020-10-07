@@ -78,6 +78,8 @@ switch($_GET["action"]) {
 		width: 350px;
 		height: 140px;
 	}
+	
+
 </style>
 
 </HEAD>
@@ -86,6 +88,7 @@ switch($_GET["action"]) {
     
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top" style="font-family: 'Chelsea Market'">
       <div class="container">
+	  
 
         <a class="navbar-brand" href="#"><img style = "height: 75px" src="../assets/images/zootopika logo.jpg" alt=""></a>
 

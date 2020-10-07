@@ -82,15 +82,23 @@ body {
 .product-item {
 	float: left;
 	background: #ffffff;
+<<<<<<< HEAD
 	margin: 40px 40px 0px 0px;
 	border: #E0E0E0 2px solid;
+=======
+	margin: 0px 0px 35px 35px;
+	border: #E0E0E0 1px solid;
+>>>>>>> 30b8f779114445f6d336997d6c273c48bc2d06be
 }
+
+
 
 .product-image {
 	float: center-left;
 	height: 145px;
 	width: 240px;
 	background-color: #FFF;
+	
 }
 
 .clear-float {
