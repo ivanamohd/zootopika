@@ -234,10 +234,18 @@ Coded by www.creative-tim.com
                       <p class="card-category">Tickets Sold</p>
                       <p class="card-title">
 					  <?php
-					  include "book/book.php";
-					  $qry = getListOfBook();
+					  $con=mysqli_connect("localhost","web38","web38","zootopikadb");
+					  if(!$con)
+					  {
+						echo  mysqli_connect_error(); 
+						exit;
+					  }
 
-					  echo mysqli_num_rows($qry)
+					  $sql="SELECT sum(visitorQuantity) FROM book";
+					  $qry = mysqli_query($con,$sql);
+					
+					  while($result = mysqli_fetch_assoc($qry)){
+					  echo '<p>'.$result['sum(visitorQuantity)'].'</p>';}
 					  ?>
 					  <p>
                     </div>
