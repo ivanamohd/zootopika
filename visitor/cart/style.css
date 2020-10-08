@@ -66,7 +66,7 @@ body {
 .btnAddAction {
     padding: 5px 10px;
     margin-left: 5px;
-    background-color: #efefef;
+    background-color: #32CD32;
     border: #E0E0E0 1px solid;
     color: #211a1a;
     float: right;
@@ -82,13 +82,8 @@ body {
 .product-item {
 	float: left;
 	background: #ffffff;
-<<<<<<< HEAD
-	margin: 40px 40px 0px 0px;
-	border: #E0E0E0 2px solid;
-=======
-	margin: 0px 0px 35px 35px;
+	margin: 0px 0px 30px 60px;
 	border: #E0E0E0 1px solid;
->>>>>>> 30b8f779114445f6d336997d6c273c48bc2d06be
 }
 
 

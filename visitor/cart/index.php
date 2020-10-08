@@ -75,8 +75,8 @@ switch($_GET["action"]) {
 
 <style>
 	.image img {
-		width: 350px;
-		height: 140px;
+		width: 300px;
+		height: 120px;
 	}
 	
 
@@ -184,7 +184,7 @@ if(isset($_SESSION["cart_item"])){
 ?>
 </div>
 
-<div id="product-grid">
+<div id="product-grid" style="margin-left: 100px;">
  <div class="section-heading">
   <div class="line-dec"></div>
 	<div class="">Tickets</div></div></div></div>
@@ -194,7 +194,7 @@ if(isset($_SESSION["cart_item"])){
 		foreach($product_array as $key=>$value){
 	?>
 
-		<div class="product-item image" style="width: 25%; height: 300px;">
+		<div class="product-item image" style="width: 340px; height: 300px;">
 			<form method="post" action="index.php?action=add&ticketID=<?php echo $product_array[$key]["ticketID"]; ?>">
 			<div class="product-image"><img style="margin: 10px;" src="<?php echo $product_array[$key]["image"]; ?>"></div>
 

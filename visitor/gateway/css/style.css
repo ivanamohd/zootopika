@@ -20,3 +20,17 @@
 .StripeElement--webkit-autofill {
   background-color: #fefde5 !important;
 }
+
+.container-mt-4{
+	margin-top: 30px;
+	text-align: center;
+}
+
+#picture{
+	float: center;
+	
+}
+
+body{
+	background-image: url('paperlike2.jpg');
+}
