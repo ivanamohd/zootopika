@@ -82,7 +82,7 @@ body {
 .product-item {
 	float: left;
 	background: #ffffff;
-	margin: 0px 0px 30px 60px;
+	margin: 0px 0px 30px 45px;
 	border: #E0E0E0 1px solid;
 }
 
@@ -108,7 +108,7 @@ body {
 
 .tbl-cart {
 	font-size: 0.9em;
-	margin-left: 30px;
+	margin-left: 0px;
 	
 }
 

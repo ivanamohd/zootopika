@@ -75,7 +75,7 @@ switch($_GET["action"]) {
 
 <style>
 	.image img {
-		width: 300px;
+		width: 316px;
 		height: 120px;
 	}
 	
@@ -195,13 +195,13 @@ if(isset($_SESSION["cart_item"])){
 		foreach($product_array as $key=>$value){
 	?>
 
-		<div class="product-item image" style="width: 340px; height: 300px;">
+		<div class="product-item image" style="width: 340px; height: 280px;">
 			<form method="post" action="index.php?action=add&ticketID=<?php echo $product_array[$key]["ticketID"]; ?>">
 			<div class="product-image"><img style="margin: 10px;" src="<?php echo $product_array[$key]["image"]; ?>"></div>
 
 			<div class="product-tile-footer">
 			<div class="product-title"><?php echo $product_array[$key]["ticketName"]; ?></div>
-			<div class="product-price"><?php echo "RM".$product_array[$key]["ticketPrice"]; ?></div>
+			<div class="product-price"><?php echo "RM".number_format($product_array[$key]["ticketPrice"],2); ?></div>
 			<div class="cart-action"><input type="text" class="product-quantity" name="quantity" value="1" size="2" /><input type="submit" value="Add to Cart" class="btnAddAction" /></div>
 			</div>
 			</form>
@@ -214,7 +214,7 @@ if(isset($_SESSION["cart_item"])){
 </div>
 </div>
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 <!-- Main Footer Starts Here -->
 			<footer class="footer-distributed">
