@@ -118,10 +118,10 @@ switch($_GET["action"]) {
       </div>
     </nav>
 
-<div id="shopping-cart">
+<div id="shopping-cart"; style="margin-right: 60px;">
  <div class="section-heading">
   <div class="line-dec"></div>
-<div class="">Cart</div>
+<h1>Cart</h1>
 
 <a id="btnEmpty" href="index.php?action=empty">Empty Cart</a> &emsp;
 <!--<form style="display:inline-block" action="processBook.php" method="post" >
@@ -183,11 +183,12 @@ if(isset($_SESSION["cart_item"])){
 }
 ?>
 </div>
-
-<div id="product-grid" style="margin-left: 100px;">
  <div class="section-heading">
-  <div class="line-dec"></div>
-	<div class="">Tickets</div></div></div></div>
+<div class="line-dec"></div>
+	<h1>Tickets</h1></div></div></div></div>
+<div id="product-grid" style="margin-right: 60px;">
+
+  
 	<?php
 	$product_array = $db_handle->runQuery("SELECT * FROM ticket");
 	if (!empty($product_array)) { 

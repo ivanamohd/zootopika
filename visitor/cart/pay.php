@@ -112,9 +112,11 @@ switch($_GET["action"]) {
     </nav>
 
 <div id="shopping-cart">
+<div class="container">
  <div class="section-heading">
   <div class="line-dec"></div>
-<div class="">Booking Summary</div>
+  
+<h1>Booking Summary</h1>
 </div>
 <a id="btnEmpty" href="index.php?action=empty">Empty Cart</a> &emsp;
 
