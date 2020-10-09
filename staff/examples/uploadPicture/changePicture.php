@@ -7,25 +7,6 @@ ini_set('display_errors', 1);
 	$con = mysqli_connect('localhost','web38','web38','zootopikadb') or die('Unable To connect');
 	$result = mysqli_query($con,"SELECT * from staff WHERE staffName='" . $staffName . "'");
 	$staff = mysqli_fetch_all($result, MYSQLI_ASSOC);
-	/*
-session_start();
-
-ini_set('display_errors', 1);
-	ini_set('display_startup_errors', 1);
-	error_reporting(E_ALL);
-	
-$staffName = $_SESSION["staffName"];
-$con = mysqli_connect('localhost','web38','web38','zootopikadb') or die('Unable To connect');
-if(count($_POST)>0) {
-$result = mysqli_query($con,"SELECT * from staff WHERE staffName='" . $staffName . "'");
-$row=mysqli_fetch_array($result);
-if($_POST["currentPassword"] == $row["staffPassword"] && $_POST["newPassword"] == $_POST["confirmPassword"] ) {
-mysqli_query($con,"UPDATE staff set staffPassword='" . $_POST["newPassword"] . "' WHERE staffName='" . $staffName . "'");
-$message = "Password Changed Sucessfully";
-} else{
- $message = "Password is not correct";
-}
-}*/
 ?>
 
 <!--

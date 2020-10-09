@@ -1,5 +1,5 @@
 <?php
-//addNewTicket function==================
+//addNewPending function==================
 function addNewBook()
 {
 $con = mysqli_connect("localhost","web38","web38","zootopikadb");
@@ -23,22 +23,6 @@ $row = mysqli_fetch_assoc($qry);
  
  $visitorReference=$row['visitorReference'];
  
-/*$qry = getPendingInformation();
-$pendingInfo = mysqli_fetch_assoc($qry);
-
-$visitorReference = $pendingInfo['visitorReference'];
-$visitorName = $pendingInfo['visitorName'];
-$visitorEmail = $pendingInfo['visitorEmail'];
-$visitorContact = $pendingInfo['visitorContact'];
-$visitorDate = $pendingInfo['visitorDate'];
-$visitorQuantity = $pendingInfo['visitorQuantity'];
-$visitorTotal = $pendingInfo['visitorTotal']; */
- 
- //$_SESSION["cart_item"] as $item){
- //$item_price = $item["quantity"]*$item["price"];
- 
- 
- 
   $sql="INSERT INTO book(visitorReference, visitorName, visitorEmail, visitorContact, visitorDate, visitorQuantity, visitorTotal)
 	VALUES ('$visitorReference','$visitorName','$visitorEmail','$visitorContact','$visitorDate','$visitorQuantity','$visitorTotal')";
  
@@ -47,7 +31,7 @@ $visitorTotal = $pendingInfo['visitorTotal']; */
  mysqli_query($con,$sql);
 }
 
-//getListOfTicket function ==================
+//getListOfPending function ==================
 function getListOfPending()
 {
 //create connection
@@ -96,52 +80,7 @@ if(!$con)
 	$qry = mysqli_query($con,$sql);
 
 }
-/*
-//searchByRegNumber function ==================
-function findCarByRegNumber()
-{
-//create connection
-$con=mysqli_connect("localhost","web2","web2","cardb");
-if(!$con)
-	{
-	echo  mysqli_connect_error(); 
-	exit;
-	}
-$sql = 'select * from car where regNumber ="'.$_POST['searchValue'].'"';
-echo $sql;
-$qry = mysqli_query($con,$sql);//run query
-return $qry;  //return query
-}
-//findCarByBrand function ==================
-function findCarByBrand()
-{
-//create connection
-$con=mysqli_connect("localhost","web2","web2","cardb");
-if(!$con)
-	{
-	echo  mysqli_connect_error(); 
-	exit;
-	}
-$sql = "select * from car where brand like '%".$_POST['searchValue']."%'";
-echo $sql;
-$qry = mysqli_query($con,$sql);//run query
-return $qry;  //return query
-}
-function findCarByModel()
-{
-//create connection
-$con=mysqli_connect("localhost","web2","web2","cardb");
-if(!$con)
-	{
-	echo  mysqli_connect_error(); 
-	exit;
-	}
-$sql = "select * from car where model like '%".$_POST['searchValue']."%'";
 
-$qry = mysqli_query($con,$sql);//run query
-return $qry;  //return query
-}  */
-//============getCarInformation
 function getPendingInformation($visitorReference)
 {
 //create connection
@@ -156,7 +95,7 @@ $sql = "select * from pending where visitorReference = '".$visitorReference."'";
 $qry = mysqli_query($con,$sql);//run query
 return $qry;  //return query
 }
-//================updateCarInformation
+
 function updatePendingInformation()
 {
 //create connection
@@ -181,23 +120,4 @@ visitorQuantity = "'.$visitorQuantity.'", visitorTotal = "'.$visitorTotal.'" WHE
 $qry = mysqli_query($con,$sql);//run query
 return $qry;  //return query
 }
-/*
-//getAvailableCarOnTheseDate function ==================
-function getAvailableCarOnTheseDate($startDate ,$endDate)
-{
-$con = mysqli_connect('localhost','web2','web2','cardb');
- if (mysqli_connect_errno())
-  {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-  }
- $sqlStr = "select regNumber,brand, model,price from car
-where regNumber not in(
-(SELECT distinct regNumber from bookings";
- $sqlStr .= " where Date_rent_start BETWEEN '".$startDate."' AND '".$endDate."'";
- $sqlStr .= " or Date_rent_end BETWEEN '".$startDate."' AND '".$endDate."'))";
- echo $sqlStr;
- $result = mysqli_query($con,$sqlStr);
- return $result;//if no car available, result will be empty
-
-} */
 ?>

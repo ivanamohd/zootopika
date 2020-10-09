@@ -1,5 +1,5 @@
 <?php
-//addNewCar function==================
+//addNewFeedback function==================
 function addNewFeedback()
 {
 $con = mysqli_connect("localhost","web38","web38","zootopikadb");
@@ -23,7 +23,6 @@ if(!$con)
  mysqli_query($con,$sql);
 }
 
-//getListOfCar function ==================
 function getListOfFeedback()
 {
 //create connection

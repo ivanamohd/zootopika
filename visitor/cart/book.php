@@ -1,5 +1,5 @@
 <?php
-//addNewTicket function==================
+//addNewPending function==================
 function addNewBook()
 {
 $con = mysqli_connect("localhost","web38","web38","zootopikadb");
@@ -19,11 +19,6 @@ if(!$con)
  
  $visitorReference=$visitorName.$visitorDate;
  
- //$_SESSION["cart_item"] as $item){
- //$item_price = $item["quantity"]*$item["price"];
- 
- 
- 
   $sql="INSERT INTO pending(visitorReference, visitorName, visitorEmail, visitorContact, visitorDate, visitorQuantity, visitorTotal)
 	VALUES ('$visitorReference','$visitorName','$email','$visitorContact','$visitorDate','$visitorQuantity','$visitorTotal')";
  
@@ -32,7 +27,6 @@ if(!$con)
  mysqli_query($con,$sql);
 }
 
-//getListOfTicket function ==================
 function getListOfBook()
 {
 //create connection

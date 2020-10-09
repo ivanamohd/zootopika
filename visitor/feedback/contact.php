@@ -49,7 +49,7 @@ https://www.tooplate.com/view/2114-pixie
             </li>
             
             <li class="nav-item active">
-              <a class="nav-link" href="contact.html">Contact Us</a>
+              <a class="nav-link" href="contact.php">Contact Us</a>
               <span class="sr-only">(current)</span>
             </li>
 			<li class="nav-item">

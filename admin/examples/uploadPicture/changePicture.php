@@ -7,25 +7,7 @@ ini_set('display_errors', 1);
 	$con = mysqli_connect('localhost','web38','web38','zootopikadb') or die('Unable To connect');
 	$result = mysqli_query($con,"SELECT * from admin WHERE adminName='" . $adminName . "'");
 	$admin = mysqli_fetch_all($result, MYSQLI_ASSOC);
-	/*
-session_start();
 
-ini_set('display_errors', 1);
-	ini_set('display_startup_errors', 1);
-	error_reporting(E_ALL);
-	
-$adminName = $_SESSION["adminName"];
-$con = mysqli_connect('localhost','web38','web38','zootopikadb') or die('Unable To connect');
-if(count($_POST)>0) {
-$result = mysqli_query($con,"SELECT * from admin WHERE adminName='" . $adminName . "'");
-$row=mysqli_fetch_array($result);
-if($_POST["currentPassword"] == $row["adminPassword"] && $_POST["newPassword"] == $_POST["confirmPassword"] ) {
-mysqli_query($con,"UPDATE admin set adminPassword='" . $_POST["newPassword"] . "' WHERE adminName='" . $adminName . "'");
-$message = "Password Changed Sucessfully";
-} else{
- $message = "Password is not correct";
-}
-}*/
 ?>
 
 <!--
@@ -79,9 +61,6 @@ Coded by www.creative-tim.com
         </a>
         <a href="../../../visitor/index.html" class="simple-text logo-normal">
           Zootopika
-          <!-- <div class="logo-image-big">
-            <img src="../assets/img/logo-big.png">
-          </div> -->
         </a>
       </div>
       <div class="sidebar-wrapper">
